@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Акції та знижки — Лапка зоомагазин</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@500;700;800&family=Onest:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- ===== Іконки (SVG-спрайт) ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-paw" viewBox="0 0 24 24"><circle cx="12" cy="15.5" r="4.5" fill="currentColor"/><circle cx="5.5" cy="10" r="2.2" fill="currentColor"/><circle cx="9.5" cy="5.8" r="2.2" fill="currentColor"/><circle cx="14.5" cy="5.8" r="2.2" fill="currentColor"/><circle cx="18.5" cy="10" r="2.2" fill="currentColor"/></symbol>
+    <symbol id="i-cat" viewBox="0 0 32 32"><path d="M6 6l5 5h10l5-5v12a10 10 0 0 1-20 0z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="17" r="1.4" fill="currentColor"/><circle cx="20" cy="17" r="1.4" fill="currentColor"/><path d="M14.5 21h3l-1.5 1.5z" fill="currentColor"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 32 32"><path d="M4 16l8-9h15a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H12z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12.5" cy="16" r="2" fill="currentColor"/><path d="M17 20l6-8M17.5 12.5h.1M22.5 19.5h.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-8-4.7-8-10.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 2.5C20 15.3 12 20 12 20z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-pack" viewBox="0 0 80 100"><path d="M14 18 Q40 8 66 18 L72 90 Q40 98 8 90 Z" fill="currentColor"/><path d="M14 18 Q40 26 66 18" fill="none" stroke="rgba(0,0,0,.18)" stroke-width="3"/><rect x="20" y="40" width="40" height="26" rx="8" fill="#fff" opacity=".9"/><circle cx="40" cy="53" r="7" fill="currentColor" opacity=".6"/></symbol>
+  </defs>
+</svg>
+
+<!-- ===== Верхня смуга ===== -->
+<div class="topbar">
+  <div class="wrap">
+    <span><b>Безкоштовна доставка</b> від [800 ₴] · по місту сьогодні, Новою Поштою за 1–2 дні</span>
+    <span>Щодня 9:00–21:00 · [+380 00 000 00 00]</span>
+  </div>
+</div>
+
+<!-- ===== Шапка ===== -->
+<header class="header">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Лапка, на головну">
+      <span class="logo-mark"><svg class="ico" style="color:#fff;width:28px;height:28px"><use href="#i-paw"/></svg></span>
+      <span><b>Лапка</b><small>зоомагазин</small></span>
+    </a>
+    <nav class="nav" aria-label="Головне меню">
+      <a href="index.html">Головна</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="sales.html" class="on">Акції</a>
+      <a href="delivery.html">Доставка</a>
+      <a href="contacts.html">Контакти</a>
+    </nav>
+    <label class="search">
+      <svg class="ico" style="color:#8A948F"><use href="#i-search"/></svg>
+      <span style="position:absolute;left:-9999px">Пошук</span>
+      <input type="search" placeholder="Корм, наповнювач, іграшка…">
+    </label>
+    <div class="hicons">
+      <button class="hicon" type="button" aria-label="Обране"><svg class="ico"><use href="#i-heart"/></svg></button>
+      <button class="hicon" type="button" aria-label="Кошик"><svg class="ico"><use href="#i-bag"/></svg><span class="badge" id="cartCount">0</span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+  <ol class="breadcrumb" aria-label="Навігація сторінкою">
+    <li><a href="index.html">Головна</a></li>
+    <li>Акції та знижки</li>
+  </ol>
+</div>
+
+<section class="sales-section">
+  <div class="wrap">
+
+    <!-- Банер -->
+    <div class="sales-banner">
+      <div>
+        <h1>Акції та знижки</h1>
+        <p>Оновлюємо щотижня — підпишіться на Telegram, щоб не пропустити</p>
+      </div>
+      <a class="btn btn-dark" href="contacts.html" style="position:relative;z-index:1">Підписатися в Telegram</a>
+    </div>
+
+    <!-- Фільтри акцій -->
+    <div class="sales-filter" role="group" aria-label="Фільтри акцій">
+      <button class="sfilter on" type="button" data-filter="all">Усі акції</button>
+      <button class="sfilter" type="button" data-filter="food">Знижки на корм</button>
+      <button class="sfilter" type="button" data-filter="new">Нові надходження</button>
+      <button class="sfilter" type="button" data-filter="week">До кінця тижня</button>
+    </div>
+
+    <!-- Сітка товарів зі знижками -->
+    <div class="products">
+      <article class="card" data-prices="285,499,942" data-old="336,588,1108" data-filter="food week">
+        <div class="pimg" style="background:var(--peach)"><span class="ptag sale">−15%</span><button class="fav" type="button" aria-label="В обране"><svg class="ico" style="width:20px"><use href="#i-heart"/></svg></button><svg width="120" height="150" style="color:var(--coral)"><use href="#i-pack"/></svg></div>
+        <h3><a href="product.html" style="text-decoration:none;color:inherit">Hill's Science Plan Sterilised, курка</a></h3>
+        <div class="meta">Hill's · стерилізовані</div>
+        <div class="sizes"><button class="size" type="button" aria-pressed="false">400 г</button><button class="size" type="button" aria-pressed="true">1.5 кг</button><button class="size" type="button" aria-pressed="false">3 кг</button></div>
+        <div class="buy"><span class="price"><span class="pv">[499 ₴]</span><span class="old">[588 ₴]</span></span><button class="add" type="button" aria-label="У кошик"><svg class="ico"><use href="#i-plus"/></svg></button></div>
+      </article>
+
+      <article class="card" data-prices="238,441" data-old="265,490" data-filter="food">
+        <div class="pimg" style="background:var(--sky)"><span class="ptag sale">−10%</span><button class="fav" type="button" aria-label="В обране"><svg class="ico" style="width:20px"><use href="#i-heart"/></svg></button><svg width="120" height="150" style="color:#4A7BD0"><use href="#i-pack"/></svg></div>
+        <h3>Наповнювач комкуючий, без запаху</h3>
+        <div class="meta">[Бренд] · бентонітовий</div>
+        <div class="sizes"><button class="size" type="button" aria-pressed="true">5 л</button><button class="size" type="button" aria-pressed="false">10 л</button></div>
+        <div class="buy"><span class="price"><span class="pv">[238 ₴]</span><span class="old">[265 ₴]</span></span><button class="add" type="button" aria-label="У кошик"><svg class="ico"><use href="#i-plus"/></svg></button></div>
+      </article>
+
+      <article class="card" data-prices="102,157" data-old="120,185" data-filter="food week">
+        <div class="pimg" style="background:var(--butter)"><span class="ptag sale">−15%</span><button class="fav" type="button" aria-label="В обране"><svg class="ico" style="width:20px"><use href="#i-heart"/></svg></button><svg width="120" height="150" style="color:#C88A00"><use href="#i-pack"/></svg></div>
+        <h3>Ласощі, подушечки з лососем</h3>
+        <div class="meta">[Бренд] · для шерсті</div>
+        <div class="sizes"><button class="size" type="button" aria-pressed="true">60 г</button><button class="size" type="button" aria-pressed="false">120 г</button></div>
+        <div class="buy"><span class="price"><span class="pv">[102 ₴]</span><span class="old">[120 ₴]</span></span><button class="add" type="button" aria-label="У кошик"><svg class="ico"><use href="#i-plus"/></svg></button></div>
+      </article>
+
+      <article class="card" data-prices="504,623" data-old="720,890" data-filter="new">
+        <div class="pimg" style="background:var(--lilac)"><span class="ptag sale">−30%</span><button class="fav" type="button" aria-label="В обране"><svg class="ico" style="width:20px"><use href="#i-heart"/></svg></button><svg width="120" height="150" style="color:#7A5BD6"><use href="#i-pack"/></svg></div>
+        <h3>Лежанка з бортиками, м'яка</h3>
+        <div class="meta">Для котів і малих порід</div>
+        <div class="sizes"><button class="size" type="button" aria-pressed="true">M</button><button class="size" type="button" aria-pressed="false">L</button></div>
+        <div class="buy"><span class="price"><span class="pv">[504 ₴]</span><span class="old">[720 ₴]</span></span><button class="add" type="button" aria-label="У кошик"><svg class="ico"><use href="#i-plus"/></svg></button></div>
+      </article>
+
+      <article class="card" data-prices="488,945" data-old="542,1050" data-filter="food">
+        <div class="pimg" style="background:var(--mint)"><span class="ptag sale">−10%</span><button class="fav" type="button" aria-label="В обране"><svg class="ico" style="width:20px"><use href="#i-heart"/></svg></button><svg width="120" height="150" style="color:var(--green)"><use href="#i-pack"/></svg></div>
+        <h3>Royal Canin Sterilised, сухий корм</h3>
+        <div class="meta">Royal Canin · стерилізовані</div>
+        <div class="sizes"><button class="size" type="button" aria-pressed="true">1.5 кг</button><button class="size" type="button" aria-pressed="false">4 кг</button></div>
+        <div class="buy"><span class="price"><span class="pv">[488 ₴]</span><span class="old">[542 ₴]</span></span><button class="add" type="button" aria-label="У кошик"><svg class="ico"><use href="#i-plus"/></svg></button></div>
+      </article>
+
+      <article class="card" data-prices="1341" data-old="1490" data-filter="food week">
+        <div class="pimg" style="background:var(--sky)"><span class="ptag sale">−10%</span><button class="fav" type="button" aria-label="В обране"><svg class="ico" style="width:20px"><use href="#i-heart"/></svg></button><svg width="120" height="150" style="color:#4A7BD0"><use href="#i-pack"/></svg></div>
+        <h3>Вологий корм Hill's з куркою (24 шт × 85 г)</h3>
+        <div class="meta">Hill's · для стерилізованих</div>
+        <div class="buy"><span class="price"><span class="pv">[1 341 ₴]</span><span class="old">[1 490 ₴]</span></span><button class="add" type="button" aria-label="У кошик"><svg class="ico"><use href="#i-plus"/></svg></button></div>
+      </article>
+
+      <article class="card" data-prices="166" data-old="185" data-filter="new">
+        <div class="pimg" style="background:var(--peach)"><span class="ptag sale">−10%</span><button class="fav" type="button" aria-label="В обране"><svg class="ico" style="width:20px"><use href="#i-heart"/></svg></button><svg width="120" height="150" style="color:var(--coral)"><use href="#i-pack"/></svg></div>
+        <h3>Вітаміни для котів, таблетки для імунітету</h3>
+        <div class="meta">[Бренд] · 60 таблеток</div>
+        <div class="buy"><span class="price"><span class="pv">[166 ₴]</span><span class="old">[185 ₴]</span></span><button class="add" type="button" aria-label="У кошик"><svg class="ico"><use href="#i-plus"/></svg></button></div>
+      </article>
+
+      <article class="card" data-prices="224" data-old="320" data-filter="new week">
+        <div class="pimg" style="background:var(--butter)"><span class="ptag sale">−30%</span><button class="fav" type="button" aria-label="В обране"><svg class="ico" style="width:20px"><use href="#i-heart"/></svg></button><svg width="120" height="150" style="color:#C88A00"><use href="#i-pack"/></svg></div>
+        <h3>Миска керамічна, 350 мл</h3>
+        <div class="meta">Для котів і малих порід</div>
+        <div class="buy"><span class="price"><span class="pv">[224 ₴]</span><span class="old">[320 ₴]</span></span><button class="add" type="button" aria-label="У кошик"><svg class="ico"><use href="#i-plus"/></svg></button></div>
+      </article>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<!-- ===== Футер ===== -->
+<footer class="footer" id="footer">
+  <div class="wrap">
+    <div class="cols">
+      <div><b style="font-size:24px">Лапка</b><span>Зоомагазин для котів, собак і всіх, хто з хвостом.</span><br><br><span>[адреса магазину]<br>Щодня 9:00–21:00</span></div>
+      <div><b>Каталог</b><a href="catalog.html">Котам</a><a href="catalog.html">Собакам</a><a href="catalog.html">Гризунам</a><a href="sales.html">Акції</a></div>
+      <div><b>Покупцям</b><a href="delivery.html">Доставка та оплата</a><a href="delivery.html">Повернення</a><a href="delivery.html">Бонусна програма</a><a href="contacts.html">Контакти</a></div>
+      <div><b>Зв'язок</b><span>[+380 00 000 00 00]</span><a href="contacts.html">Telegram</a><a href="contacts.html">Viber</a><a href="contacts.html">Instagram</a></div>
+    </div>
+    <div class="bottom"><span>© 2026 Лапка</span><span>Сайт зроблено в tagwise</span></div>
+  </div>
+</footer>
+
+<script>
+/* ===== Фільтри акцій ===== */
+const sfilters = document.querySelectorAll('.sfilter');
+const cards = document.querySelectorAll('.products .card');
+
+sfilters.forEach(btn => {
+  btn.addEventListener('click', () => {
+    sfilters.forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    const filter = btn.dataset.filter;
+    cards.forEach(card => {
+      if (filter === 'all') {
+        card.style.display = '';
+      } else {
+        const cardFilters = card.dataset.filter || '';
+        card.style.display = cardFilters.split(' ').includes(filter) ? '' : 'none';
+      }
+    });
+  });
+});
+
+/* ===== Картки: фасовки + кошик ===== */
+document.querySelectorAll('.card').forEach(card => {
+  if (!card.dataset.prices) return;
+  const ps = card.dataset.prices.split(',');
+  const os = card.dataset.old ? card.dataset.old.split(',') : [];
+  const szs = card.querySelectorAll('.size');
+  szs.forEach((b, i) => b.addEventListener('click', () => {
+    szs.forEach(s => s.setAttribute('aria-pressed', 'false'));
+    b.setAttribute('aria-pressed', 'true');
+    const pv = card.querySelector('.pv');
+    const ov = card.querySelector('.old');
+    if (pv) pv.textContent = '[' + ps[i] + ' ₴]';
+    if (ov) ov.textContent = os[i] ? '[' + os[i] + ' ₴]' : '';
+  }));
+  const addBtn = card.querySelector('.add');
+  if (addBtn) {
+    addBtn.addEventListener('click', () => {
+      const c = document.getElementById('cartCount');
+      c.textContent = +c.textContent + 1;
+      addBtn.classList.add('done');
+      addBtn.innerHTML = '<svg class="ico"><use href="#i-check"/></svg>';
+      setTimeout(() => { addBtn.classList.remove('done'); addBtn.innerHTML = '<svg class="ico"><use href="#i-plus"/></svg>'; }, 1400);
+    });
+  }
+});
+</script>
+</body>
+</html>

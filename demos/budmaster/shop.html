@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Каталог — БудМайстер</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/shop.css">
+</head>
+<body>
+
+<!-- ============================================================
+     TOP BAR
+     ============================================================ -->
+<div class="top-bar">
+  <div class="container">
+    <div class="top-bar__inner">
+      <div class="top-bar__items">
+        <span class="top-bar__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+          пн–сб 8:00–18:00
+        </span>
+        <a href="tel:+380000000000" class="top-bar__item top-bar__phone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.14 1.26 2 2 0 012.11 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          [ваш телефон]
+        </a>
+        <span class="top-bar__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+          </svg>
+          Доставка по місту і Новою Поштою
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="site-header" role="banner">
+  <div class="container">
+    <div class="header-inner">
+
+      <a href="index.html" class="site-logo" aria-label="БудМайстер — головна">
+        <svg class="site-logo__icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="44" height="44" rx="8" fill="#E85D04"/>
+          <text x="22" y="32" font-family="Montserrat,sans-serif" font-weight="800" font-size="26" fill="#fff" text-anchor="middle">Б</text>
+        </svg>
+        <span class="site-logo__name">БудМайстер</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Головна навігація">
+        <ul class="site-nav__list">
+          <li><a href="index.html" class="site-nav__link">Головна</a></li>
+          <li><a href="shop.html" class="site-nav__link active">Каталог</a></li>
+          <li><a href="index.html#delivery" class="site-nav__link">Доставка</a></li>
+          <li><a href="index.html#about" class="site-nav__link">Про нас</a></li>
+          <li><a href="index.html#contacts" class="site-nav__link">Контакти</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="header-icon-btn" aria-label="Пошук">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+        <a href="#" class="header-icon-btn" aria-label="Кошик — 2 товари">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <span class="cart-badge" aria-label="2 товари у кошику">2</span>
+        </a>
+        <button class="hamburger" aria-label="Меню" aria-expanded="false" aria-controls="mobile-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav" aria-label="Мобільна навігація">
+  <ul class="mobile-nav__list">
+    <li><a href="index.html" class="mobile-nav__link">Головна</a></li>
+    <li><a href="shop.html" class="mobile-nav__link">Каталог</a></li>
+    <li><a href="index.html#delivery" class="mobile-nav__link">Доставка</a></li>
+    <li><a href="index.html#about" class="mobile-nav__link">Про нас</a></li>
+    <li><a href="index.html#contacts" class="mobile-nav__link">Контакти</a></li>
+  </ul>
+</nav>
+
+
+<!-- ============================================================
+     SHOP PAGE
+     ============================================================ -->
+<main>
+  <div class="container">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Хлібні крихти">
+      <a href="index.html">Головна</a>
+      <span class="breadcrumb__sep" aria-hidden="true">›</span>
+      <span class="breadcrumb__current">Каталог</span>
+    </nav>
+
+    <div class="shop-page">
+
+      <!-- Shop header -->
+      <div class="shop-header">
+        <h1>Каталог</h1>
+        <div class="shop-header__right">
+          <span class="shop-counter">Показано 1–12 з 312 товарів</span>
+          <select class="shop-sort" aria-label="Сортування товарів">
+            <option>За популярністю</option>
+            <option>Ціна: від дешевших</option>
+            <option>Ціна: від дорожчих</option>
+            <option>Новинки</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Mobile filters toggle -->
+      <button class="filters-toggle" aria-label="Показати фільтри">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/>
+        </svg>
+        <span class="filters-toggle__text">Показати фільтри</span>
+      </button>
+
+      <div class="shop-layout">
+
+        <!-- ---- SIDEBAR ---- -->
+        <aside class="sidebar" aria-label="Фільтри">
+
+          <div class="sidebar-section">
+            <div class="sidebar-section__title">Пошук</div>
+            <div class="sidebar-search">
+              <svg class="sidebar-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+              <input type="search" placeholder="Назва товару..." aria-label="Пошук товарів">
+            </div>
+          </div>
+
+          <div class="sidebar-section">
+            <div class="sidebar-section__title">Категорії</div>
+            <ul class="checkbox-list" role="group" aria-label="Категорії товарів">
+              <li>
+                <label class="checkbox-item">
+                  <input type="checkbox" aria-label="Цемент та суміші">
+                  <span class="checkbox-item__label">Цемент та суміші</span>
+                  <span class="checkbox-item__count">(48)</span>
+                </label>
+              </li>
+              <li>
+                <label class="checkbox-item">
+                  <input type="checkbox" aria-label="Цегла та блоки">
+                  <span class="checkbox-item__label">Цегла та блоки</span>
+                  <span class="checkbox-item__count">(36)</span>
+                </label>
+              </li>
+              <li>
+                <label class="checkbox-item">
+                  <input type="checkbox" aria-label="Утеплення">
+                  <span class="checkbox-item__label">Утеплення</span>
+                  <span class="checkbox-item__count">(29)</span>
+                </label>
+              </li>
+              <li>
+                <label class="checkbox-item">
+                  <input type="checkbox" aria-label="Оздоблення">
+                  <span class="checkbox-item__label">Оздоблення</span>
+                  <span class="checkbox-item__count">(87)</span>
+                </label>
+              </li>
+              <li>
+                <label class="checkbox-item">
+                  <input type="checkbox" aria-label="Підлога та ламінат">
+                  <span class="checkbox-item__label">Підлога та ламінат</span>
+                  <span class="checkbox-item__count">(54)</span>
+                </label>
+              </li>
+              <li>
+                <label class="checkbox-item">
+                  <input type="checkbox" aria-label="Інструменти">
+                  <span class="checkbox-item__label">Інструменти</span>
+                  <span class="checkbox-item__count">(58)</span>
+                </label>
+              </li>
+            </ul>
+          </div>
+
+          <div class="sidebar-section">
+            <div class="sidebar-section__title">Ціна, ₴</div>
+            <div class="price-inputs">
+              <div class="price-field">
+                <label for="price-from">від</label>
+                <input type="number" id="price-from" class="price-input" placeholder="0" min="0" aria-label="Мінімальна ціна">
+                <span class="price-currency">₴</span>
+              </div>
+              <span class="price-dash">—</span>
+              <div class="price-field">
+                <label for="price-to">до</label>
+                <input type="number" id="price-to" class="price-input" placeholder="50 000" min="0" aria-label="Максимальна ціна">
+                <span class="price-currency">₴</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar-section">
+            <div class="sidebar-section__title">Бренди</div>
+            <ul class="checkbox-list" role="group" aria-label="Бренди">
+              <li><label class="checkbox-item"><input type="checkbox" aria-label="Knauf"><span class="checkbox-item__label">Knauf</span></label></li>
+              <li><label class="checkbox-item"><input type="checkbox" aria-label="Rockwool"><span class="checkbox-item__label">Rockwool</span></label></li>
+              <li><label class="checkbox-item"><input type="checkbox" aria-label="Ceresit"><span class="checkbox-item__label">Ceresit</span></label></li>
+              <li><label class="checkbox-item"><input type="checkbox" aria-label="Kronospan"><span class="checkbox-item__label">Kronospan</span></label></li>
+              <li><label class="checkbox-item"><input type="checkbox" aria-label="Rauf"><span class="checkbox-item__label">Rauf</span></label></li>
+            </ul>
+          </div>
+
+          <div class="sidebar-actions">
+            <button class="btn btn-blue btn-full">Застосувати фільтри</button>
+          </div>
+
+        </aside>
+
+        <!-- ---- GRID ---- -->
+        <div>
+          <div class="products-grid products-grid--3">
+
+            <!-- 1 -->
+            <article class="product-card">
+              <a href="product.html" class="product-card__img-wrap" aria-label="Цемент Portland М400, 50 кг">
+                <div class="product-card__placeholder">
+                  <span class="product-card__placeholder-icon">🏗️</span>
+                  <span class="product-card__placeholder-text">Цемент</span>
+                </div>
+                <div class="product-card__badges"><span class="badge badge--hot">Хіт</span></div>
+              </a>
+              <div class="product-card__body">
+                <a href="product.html" class="product-card__name">Цемент Portland М400, 50 кг</a>
+                <span class="product-card__unit">за мішок</span>
+                <div class="product-card__pricing">
+                  <span class="product-card__price">185 ₴</span>
+                </div>
+                <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+              </div>
+            </article>
+
+            <!-- 2 -->
+            <article class="product-card">
+              <a href="shop.html" class="product-card__img-wrap" aria-label="Гіпсокартон Knauf 12.5 мм">
+                <div class="product-card__placeholder">
+                  <span class="product-card__placeholder-icon">📋</span>
+                  <span class="product-card__placeholder-text">Knauf</span>
+                </div>
+              </a>
+              <div class="product-card__body">
+                <a href="shop.html" class="product-card__name">Гіпсокартон Knauf 12.5 мм</a>
+                <span class="product-card__unit">за лист</span>
+                <div class="product-card__pricing">
+                  <span class="product-card__price">245 ₴</span>
+                </div>
+                <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+              </div>
+            </article>
+
+            <!-- 3 -->
+            <article class="product-card">
+              <a href="shop.html" class="product-card__img-wrap" aria-label="Мінеральна вата Rockwool 50 мм">
+                <div class="product-card__placeholder">
+                  <span class="product-card__placeholder-icon">🌡️</span>
+                  <span class="product-card__placeholder-text">Rockwool</span>
+                </div>
+                <div class="product-card__badges"><span class="badge badge--sale">-10%</span></div>
+              </a>
+              <div class="product-card__body">
+                <a href="shop.html" class="product-card__name">Мінеральна вата Rockwool 50 мм</a>
+                <span class="product-card__unit">упак. 5.76 м²</span>
+                <div class="product-card__pricing">
+                  <span class="product-card__price">920 ₴</span>
+                  <span class="product-card__price-old">1 022 ₴</span>
+                </div>
+                <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+              </div>
+            </article>
+
+            <!-- 4 -->
+            <article class="product-card">
+              <a href="shop.html" class="product-card__img-wrap" aria-label="Фарба біла інтер'єрна 10 л">
+                <div class="product-card__placeholder">
+                  <span class="product-card__placeholder-icon">🖌️</span>
+                  <span class="product-card__placeholder-text">Фарба</span>
+                </div>
+              </a>
+              <div class="product-card__body">
+                <a href="shop.html" class="product-card__name">Фарба біла інтер'єрна 10 л</a>
+                <span class="product-card__unit">за відро</span>
+                <div class="product-card__pricing">
+                  <span class="product-card__price">380 ₴</span>
+                </div>
+                <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+              </div>
+            </article>
+
+            <!-- 5 -->
+            <article class="product-card">
+              <a href="shop.html" class="product-card__img-wrap" aria-label="Шпаклівка Knauf Фінішна 25 кг">
+                <div class="product-card__placeholder">
+                  <span class="product-card__placeholder-icon">🏺</span>
+                  <span class="product-card__placeholder-text">Knauf</span>
+                </div>
+              </a>
+              <div class="product-card__body">
+                <a href="shop.html" class="product-card__name">Шпаклівка Knauf Фінішна 25 кг</a>
+                <span class="product-card__unit">за мішок</span>
+                <div class="product-card__pricing">
+                  <span class="product-card__price">165 ₴</span>
+                </div>
+                <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+              </div>
+            </article>
+
+            <!-- 6 -->
+            <article class="product-card">
+              <a href="shop.html" class="product-card__img-wrap" aria-label="Клей Ceresit CM 11, 25 кг">
+                <div class="product-card__placeholder">
+                  <span class="product-card__placeholder-icon">🔲</span>
+                  <span class="product-card__placeholder-text">Ceresit</span>
+                </div>
+                <div class="product-card__badges"><span class="badge badge--hot">Хіт</span></div>
+              </a>
+              <div class="product-card__body">
+                <a href="shop.html" class="product-card__name">Клей Ceresit CM 11, 25 кг</a>
+                <span class="product-card__unit">за мішок</span>
+                <div class="product-card__pricing">
+                  <span class="product-card__price">195 ₴</span>
+                </div>
+                <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+              </div>
+            </article>
+
+            <!-- 7 -->
+            <article class="product-card">
+              <a href="shop.html" class="product-card__img-wrap" aria-label="Ламінат Kronospan 8 мм AC4">
+                <div class="product-card__placeholder">
+                  <span class="product-card__placeholder-icon">🏠</span>
+                  <span class="product-card__placeholder-text">Kronospan</span>
+                </div>
+              </a>
+              <div class="product-card__body">
+                <a href="shop.html" class="product-card__name">Ламінат Kronospan 8 мм AC4</a>
+                <span class="product-card__unit">за м²</span>
+                <div class="product-card__pricing">
+                  <span class="product-card__price">185 ₴/м²</span>
+                </div>
+                <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+              </div>
+            </article>
+
+            <!-- 8 -->
+            <article class="product-card">
+              <a href="shop.html" class="product-card__img-wrap" aria-label="Пінополістирол 100 мм">
+                <div class="product-card__placeholder">
+                  <span class="product-card__placeholder-icon">🧊</span>
+                  <span class="product-card__placeholder-text">Пінополістирол</span>
+                </div>
+              </a>
+              <div class="product-card__body">
+                <a href="shop.html" class="product-card__name">Пінополістирол 100 мм</a>
+                <span class="product-card__unit">за лист 1×0.5 м</span>
+                <div class="product-card__pricing">
+                  <span class="product-card__price">145 ₴</span>
+                </div>
+                <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+              </div>
+            </article>
+
+            <!-- 9 -->
+            <article class="product-card">
+              <a href="shop.html" class="product-card__img-wrap" aria-label="Арматура ⌀12, 11.7 м">
+                <div class="product-card__placeholder">
+                  <span class="product-card__placeholder-icon">⚙️</span>
+                  <span class="product-card__placeholder-text">Арматура</span>
+                </div>
+                <div class="product-card__badges"><span class="badge badge--new">Новинка</span></div>
+              </a>
+              <div class="product-card__body">
+                <a href="shop.html" class="product-card__name">Арматура ⌀12, 11.7 м</a>
+                <span class="product-card__unit">за прут</span>
+                <div class="product-card__pricing">
+                  <span class="product-card__price">285 ₴</span>
+                </div>
+                <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+              </div>
+            </article>
+
+            <!-- 10 -->
+            <article class="product-card">
+              <a href="shop.html" class="product-card__img-wrap" aria-label="Плитка керамічна 60×60">
+                <div class="product-card__placeholder">
+                  <span class="product-card__placeholder-icon">🔲</span>
+                  <span class="product-card__placeholder-text">Плитка</span>
+                </div>
+              </a>
+              <div class="product-card__body">
+                <a href="shop.html" class="product-card__name">Плитка керамічна 60×60</a>
+                <span class="product-card__unit">за м²</span>
+                <div class="product-card__pricing">
+                  <span class="product-card__price">320 ₴/м²</span>
+                </div>
+                <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+              </div>
+            </article>
+
+            <!-- 11 -->
+            <article class="product-card">
+              <a href="shop.html" class="product-card__img-wrap" aria-label="Профіль CD 60, 3 м">
+                <div class="product-card__placeholder">
+                  <span class="product-card__placeholder-icon">📏</span>
+                  <span class="product-card__placeholder-text">Профіль</span>
+                </div>
+              </a>
+              <div class="product-card__body">
+                <a href="shop.html" class="product-card__name">Профіль CD 60, 3 м</a>
+                <span class="product-card__unit">за штуку</span>
+                <div class="product-card__pricing">
+                  <span class="product-card__price">65 ₴</span>
+                </div>
+                <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+              </div>
+            </article>
+
+            <!-- 12 -->
+            <article class="product-card">
+              <a href="shop.html" class="product-card__img-wrap" aria-label="Пісок будівельний, 50 кг">
+                <div class="product-card__placeholder">
+                  <span class="product-card__placeholder-icon">⏳</span>
+                  <span class="product-card__placeholder-text">Пісок</span>
+                </div>
+              </a>
+              <div class="product-card__body">
+                <a href="shop.html" class="product-card__name">Пісок будівельний, 50 кг</a>
+                <span class="product-card__unit">за мішок</span>
+                <div class="product-card__pricing">
+                  <span class="product-card__price">95 ₴</span>
+                </div>
+                <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+              </div>
+            </article>
+
+          </div><!-- /.products-grid -->
+
+          <!-- Pagination -->
+          <nav class="pagination" aria-label="Сторінки каталогу">
+            <button class="pagination__btn" aria-label="Попередня сторінка">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true">
+                <polyline points="15 18 9 12 15 6"/>
+              </svg>
+            </button>
+            <button class="pagination__btn active" aria-current="page">1</button>
+            <button class="pagination__btn">2</button>
+            <button class="pagination__btn">3</button>
+            <span class="pagination__sep">…</span>
+            <button class="pagination__btn">26</button>
+            <button class="pagination__btn" aria-label="Наступна сторінка">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16" aria-hidden="true">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </button>
+          </nav>
+
+        </div><!-- /.grid col -->
+      </div><!-- /.shop-layout -->
+    </div><!-- /.shop-page -->
+  </div><!-- /.container -->
+</main>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer" id="contacts">
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-grid">
+
+        <div>
+          <div class="footer-col__logo">
+            <svg width="36" height="36" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+              <rect width="44" height="44" rx="8" fill="#E85D04"/>
+              <text x="22" y="32" font-family="Montserrat,sans-serif" font-weight="800" font-size="26" fill="#fff" text-anchor="middle">Б</text>
+            </svg>
+            <span class="footer-col__logo-name">БудМайстер</span>
+          </div>
+          <p class="footer-col__desc">Будівельні матеріали з доставкою. Роздрібно та оптом.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Telegram">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.69 7.96c-.12.57-.46.71-.93.44l-2.56-1.88-1.23 1.19c-.14.14-.25.25-.5.25l.18-2.57 4.64-4.19c.2-.18-.05-.28-.31-.1L7.49 14.4l-2.49-.78c-.54-.17-.55-.54.12-.8l9.74-3.75c.45-.16.84.11.78.73z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-col__title">Каталог</h3>
+          <ul class="footer-links">
+            <li><a href="shop.html">Цемент та суміші</a></li>
+            <li><a href="shop.html">Цегла та блоки</a></li>
+            <li><a href="shop.html">Утеплення</a></li>
+            <li><a href="shop.html">Оздоблення</a></li>
+            <li><a href="shop.html">Підлога</a></li>
+            <li><a href="shop.html">Інструменти</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-col__title">Покупцям</h3>
+          <ul class="footer-links">
+            <li><a href="index.html#delivery">Доставка та оплата</a></li>
+            <li><a href="#">Повернення</a></li>
+            <li><a href="index.html#delivery">Гуртовим клієнтам</a></li>
+            <li><a href="index.html#contacts">Контакти</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-col__title">Контакти</h3>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.14 1.26 2 2 0 012.11 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+            <span>[ваш телефон]</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <span>[ваш email]</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span>[адреса]</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <span>пн–сб 8:00–18:00</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-meta">
+      <div class="footer-meta-inner">
+        <p class="footer-copy">© 2024 БудМайстер. Усі права захищено.</p>
+        <a href="https://tagwise.com.ua" class="tw-badge" target="_blank" rel="noopener" title="Сайт розроблено в Tagwise">
+          <span class="tw-badge__tag">tag</span>
+          <span class="tw-badge__text">Сайт зроблено в tagwise</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/shop.js"></script>
+</body>
+</html>

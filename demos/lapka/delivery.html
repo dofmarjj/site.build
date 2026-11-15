@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Доставка та оплата — Лапка зоомагазин</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@500;700;800&family=Onest:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- ===== Іконки (SVG-спрайт) ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-paw" viewBox="0 0 24 24"><circle cx="12" cy="15.5" r="4.5" fill="currentColor"/><circle cx="5.5" cy="10" r="2.2" fill="currentColor"/><circle cx="9.5" cy="5.8" r="2.2" fill="currentColor"/><circle cx="14.5" cy="5.8" r="2.2" fill="currentColor"/><circle cx="18.5" cy="10" r="2.2" fill="currentColor"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-8-4.7-8-10.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 2.5C20 15.3 12 20 12 20z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6h12v10H2zM14 10h4l3 3v3h-7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="6" cy="18" r="2" fill="currentColor"/><circle cx="17" cy="18" r="2" fill="currentColor"/></symbol>
+    <symbol id="i-gift" viewBox="0 0 24 24"><path d="M4 10h16v10H4zM3 7h18v3H3zM12 7v13" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 7c-2-4-6-3-5 0M12 7c2-4 6-3 5 0" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-return" viewBox="0 0 24 24"><path d="M4 9h11a5 5 0 0 1 0 10H8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M8 5L4 9l4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 10h20" stroke="currentColor" stroke-width="2"/><path d="M6 15h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 4.5-7 13-7 13S5 13.5 5 9a7 7 0 0 1 7-7z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9" r="2.5" fill="currentColor"/></symbol>
+  </defs>
+</svg>
+
+<!-- ===== Верхня смуга ===== -->
+<div class="topbar">
+  <div class="wrap">
+    <span><b>Безкоштовна доставка</b> від [800 ₴] · по місту сьогодні, Новою Поштою за 1–2 дні</span>
+    <span>Щодня 9:00–21:00 · [+380 00 000 00 00]</span>
+  </div>
+</div>
+
+<!-- ===== Шапка ===== -->
+<header class="header">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Лапка, на головну">
+      <span class="logo-mark"><svg class="ico" style="color:#fff;width:28px;height:28px"><use href="#i-paw"/></svg></span>
+      <span><b>Лапка</b><small>зоомагазин</small></span>
+    </a>
+    <nav class="nav" aria-label="Головне меню">
+      <a href="index.html">Головна</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="sales.html">Акції</a>
+      <a href="delivery.html" class="on">Доставка</a>
+      <a href="contacts.html">Контакти</a>
+    </nav>
+    <label class="search">
+      <svg class="ico" style="color:#8A948F"><use href="#i-search"/></svg>
+      <span style="position:absolute;left:-9999px">Пошук</span>
+      <input type="search" placeholder="Корм, наповнювач, іграшка…">
+    </label>
+    <div class="hicons">
+      <button class="hicon" type="button" aria-label="Обране"><svg class="ico"><use href="#i-heart"/></svg></button>
+      <button class="hicon" type="button" aria-label="Кошик"><svg class="ico"><use href="#i-bag"/></svg><span class="badge" id="cartCount">0</span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+  <ol class="breadcrumb" aria-label="Навігація сторінкою">
+    <li><a href="index.html">Головна</a></li>
+    <li>Доставка та оплата</li>
+  </ol>
+
+  <div class="page-hero" style="background:var(--sky)">
+    <h1>Доставка та оплата</h1>
+    <p>Доставляємо по всій Україні — швидко та зручно</p>
+    <svg class="ph-icon" width="120" height="120" style="color:#4A7BD0"><use href="#i-truck"/></svg>
+  </div>
+</div>
+
+<section class="delivery-section">
+  <div class="wrap">
+    <div class="delivery-grid">
+
+      <!-- Ліва колонка: Доставка -->
+      <div>
+        <h2 class="info-h2">Способи доставки</h2>
+
+        <div class="del-card">
+          <div class="dcard-ico" style="background:var(--peach)">
+            <svg class="ico" style="color:var(--coral)"><use href="#i-truck"/></svg>
+          </div>
+          <div>
+            <h3>Нова Пошта</h3>
+            <p>1–2 дні по всій Україні. Вартість за тарифами Нової Пошти. <b>Безкоштовно</b> при замовленні від [800 ₴]. Відправляємо щодня до 17:00.</p>
+          </div>
+        </div>
+
+        <div class="del-card">
+          <div class="dcard-ico" style="background:var(--mint)">
+            <svg class="ico" style="color:var(--green)"><use href="#i-truck"/></svg>
+          </div>
+          <div>
+            <h3>Кур'єр по місту</h3>
+            <p>Доставка в день замовлення до 21:00 (замовлення до 18:00). <b>від [80 ₴]</b>. Безкоштовно при замовленні від [800 ₴].</p>
+          </div>
+        </div>
+
+        <div class="del-card">
+          <div class="dcard-ico" style="background:var(--butter)">
+            <svg class="ico" style="color:#8A6200"><use href="#i-pin"/></svg>
+          </div>
+          <div>
+            <h3>Самовивіз</h3>
+            <p>[адреса магазину]. Щодня 9:00–21:00. <b>Безкоштовно</b>. Готовність замовлення підтвердимо телефоном або SMS.</p>
+          </div>
+        </div>
+
+        <p class="info-p" style="margin-top:20px">Замовлення оформлені у вихідні та святкові дні опрацьовуємо у перший робочий день. Про статус відправлення повідомляємо SMS або Telegram.</p>
+
+        <!-- Відстеження -->
+        <div style="background:var(--paper);border-radius:var(--r);padding:22px 24px;border:1px solid var(--line);margin-top:8px">
+          <h3 style="font-size:16px;font-weight:700;margin:0 0 8px">Відстеження посилки</h3>
+          <p style="font-size:14px;color:var(--ink2);margin:0">Трек-номер Нової Пошти надсилаємо на вказаний номер телефону після відправки. Відстежити можна на сайті або в додатку Нова Пошта.</p>
+        </div>
+      </div>
+
+      <!-- Права колонка: Оплата + Повернення -->
+      <div>
+        <h2 class="info-h2">Способи оплати</h2>
+        <table class="pay-table">
+          <thead>
+            <tr>
+              <th>Спосіб</th>
+              <th>Опис</th>
+              <th>Комісія</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Карткою онлайн</td>
+              <td>Visa, Mastercard — захищена оплата через платіжний шлюз</td>
+              <td>Безкоштовно</td>
+            </tr>
+            <tr>
+              <td>При отриманні</td>
+              <td>Готівкою або карткою кур'єру / на відділенні Нової Пошти</td>
+              <td>За тарифом НП</td>
+            </tr>
+            <tr>
+              <td>По рахунку для ФОП</td>
+              <td>Оплата на рахунок ФОП з ПДВ або без. Рахунок-фактура після підтвердження</td>
+              <td>Безкоштовно</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 class="info-h2" style="margin-top:40px">Повернення та обмін</h2>
+        <div style="background:var(--cream);border-radius:var(--r);padding:24px 26px">
+          <p class="info-p">Ми приймаємо повернення закритих, невідкритих упаковок протягом <b>14 днів</b> з моменту отримання. Товар має бути в оригінальній упаковці, без слідів використання. Вартість зворотньої доставки оплачується покупцем, якщо причиною не є наша помилка.</p>
+          <p class="info-p" style="margin:0">Щоб ініціювати повернення, зв'яжіться з нами в Telegram, Viber або за телефоном [+380 00 000 00 00]. Менеджер надасть детальні інструкції та адресу для відправки. Кошти повертаємо протягом <b>3–5 робочих днів</b> після отримання товару.</p>
+        </div>
+
+        <h2 class="info-h2" style="margin-top:40px">Бонусна програма</h2>
+        <div style="background:var(--butter);border-radius:var(--r);padding:24px 26px">
+          <p class="info-p" style="color:var(--ink)">З кожної покупки повертаємо <b>[3%]</b> на бонусний рахунок. Бонусами можна оплатити до [50%] вартості наступного замовлення. Нараховуємо бонуси автоматично — реєстрація не потрібна.</p>
+          <a class="btn btn-dark" href="contacts.html" style="margin-top:4px">Дізнатися більше</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ===== Футер ===== -->
+<footer class="footer" id="footer">
+  <div class="wrap">
+    <div class="cols">
+      <div><b style="font-size:24px">Лапка</b><span>Зоомагазин для котів, собак і всіх, хто з хвостом.</span><br><br><span>[адреса магазину]<br>Щодня 9:00–21:00</span></div>
+      <div><b>Каталог</b><a href="catalog.html">Котам</a><a href="catalog.html">Собакам</a><a href="catalog.html">Гризунам</a><a href="sales.html">Акції</a></div>
+      <div><b>Покупцям</b><a href="delivery.html">Доставка та оплата</a><a href="delivery.html">Повернення</a><a href="delivery.html">Бонусна програма</a><a href="contacts.html">Контакти</a></div>
+      <div><b>Зв'язок</b><span>[+380 00 000 00 00]</span><a href="contacts.html">Telegram</a><a href="contacts.html">Viber</a><a href="contacts.html">Instagram</a></div>
+    </div>
+    <div class="bottom"><span>© 2026 Лапка</span><span>Сайт зроблено в tagwise</span></div>
+  </div>
+</footer>
+
+</body>
+</html>

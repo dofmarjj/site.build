@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>БудМайстер — Будівельні матеріали з доставкою</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/shop.css">
+</head>
+<body>
+
+<!-- ============================================================
+     TOP BAR
+     ============================================================ -->
+<div class="top-bar">
+  <div class="container">
+    <div class="top-bar__inner">
+      <div class="top-bar__items">
+        <span class="top-bar__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+          пн–сб 8:00–18:00
+        </span>
+        <a href="tel:+380000000000" class="top-bar__item top-bar__phone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.14 1.26 2 2 0 012.11 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          [ваш телефон]
+        </a>
+        <span class="top-bar__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+          </svg>
+          Доставка по місту і Новою Поштою
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="site-header" role="banner">
+  <div class="container">
+    <div class="header-inner">
+
+      <!-- Logo -->
+      <a href="index.html" class="site-logo" aria-label="БудМайстер — головна">
+        <svg class="site-logo__icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="44" height="44" rx="8" fill="#E85D04"/>
+          <text x="22" y="32" font-family="Montserrat,sans-serif" font-weight="800" font-size="26" fill="#fff" text-anchor="middle">Б</text>
+        </svg>
+        <span class="site-logo__name">БудМайстер</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="site-nav" aria-label="Головна навігація">
+        <ul class="site-nav__list">
+          <li><a href="index.html" class="site-nav__link active">Головна</a></li>
+          <li><a href="shop.html" class="site-nav__link">Каталог</a></li>
+          <li><a href="#delivery" class="site-nav__link">Доставка</a></li>
+          <li><a href="#about" class="site-nav__link">Про нас</a></li>
+          <li><a href="#contacts" class="site-nav__link">Контакти</a></li>
+        </ul>
+      </nav>
+
+      <!-- Actions -->
+      <div class="header-actions">
+        <button class="header-icon-btn" aria-label="Пошук">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+        <a href="#" class="header-icon-btn" aria-label="Кошик — 2 товари">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <span class="cart-badge" aria-label="2 товари у кошику">2</span>
+        </a>
+        <button class="hamburger" aria-label="Меню" aria-expanded="false" aria-controls="mobile-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- Mobile nav -->
+<nav class="mobile-nav" id="mobile-nav" aria-label="Мобільна навігація">
+  <ul class="mobile-nav__list">
+    <li><a href="index.html" class="mobile-nav__link">Головна</a></li>
+    <li><a href="shop.html" class="mobile-nav__link">Каталог</a></li>
+    <li><a href="#delivery" class="mobile-nav__link">Доставка</a></li>
+    <li><a href="#about" class="mobile-nav__link">Про нас</a></li>
+    <li><a href="#contacts" class="mobile-nav__link">Контакти</a></li>
+  </ul>
+</nav>
+
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" aria-label="Головний банер">
+  <div class="hero__pattern" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero__inner">
+      <div class="hero__content">
+        <span class="hero__tag">Роздріб та опт</span>
+        <h1 class="hero__title">Будівельні матеріали<br>з доставкою</h1>
+        <p class="hero__desc">Цемент, цегла, утеплення, оздоблення — великий вибір у наявності. Відвантаження в день замовлення.</p>
+        <div class="hero__actions">
+          <a href="shop.html" class="btn btn-primary btn-lg">Перейти до каталогу</a>
+          <a href="#" class="btn btn-outline-white btn-lg">Прайс-лист</a>
+        </div>
+      </div>
+      <div class="hero__facts">
+        <div class="hero__fact">
+          <div class="hero__fact-value">5 000+</div>
+          <div class="hero__fact-label">товарів у наявності</div>
+        </div>
+        <div class="hero__fact">
+          <div class="hero__fact-value">Від 1 шт</div>
+          <div class="hero__fact-label">або від палети</div>
+        </div>
+        <div class="hero__fact">
+          <div class="hero__fact-value">Доставка</div>
+          <div class="hero__fact-label">по місту власним транспортом</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<main>
+  <div class="container">
+
+    <!-- ============================================================
+         CATEGORIES
+         ============================================================ -->
+    <section class="categories" aria-labelledby="cats-title">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title" id="cats-title">Категорії товарів</h2>
+        </div>
+        <a href="shop.html" class="btn btn-outline btn-sm">Всі категорії</a>
+      </div>
+      <div class="categories-grid">
+        <a href="shop.html" class="category-card">
+          <div class="category-card__emoji">🏗️</div>
+          <div class="category-card__name">Цемент та суміші</div>
+          <div class="category-card__count">248 товарів</div>
+        </a>
+        <a href="shop.html" class="category-card">
+          <div class="category-card__emoji">🧱</div>
+          <div class="category-card__name">Цегла та блоки</div>
+          <div class="category-card__count">136 товарів</div>
+        </a>
+        <a href="shop.html" class="category-card">
+          <div class="category-card__emoji">🌡️</div>
+          <div class="category-card__name">Утеплення</div>
+          <div class="category-card__count">94 товари</div>
+        </a>
+        <a href="shop.html" class="category-card">
+          <div class="category-card__emoji">🖌️</div>
+          <div class="category-card__name">Оздоблення</div>
+          <div class="category-card__count">312 товарів</div>
+        </a>
+        <a href="shop.html" class="category-card">
+          <div class="category-card__emoji">🏠</div>
+          <div class="category-card__name">Підлога та ламінат</div>
+          <div class="category-card__count">187 товарів</div>
+        </a>
+        <a href="shop.html" class="category-card">
+          <div class="category-card__emoji">🔧</div>
+          <div class="category-card__name">Інструменти</div>
+          <div class="category-card__count">521 товар</div>
+        </a>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         HITS
+         ============================================================ -->
+    <section class="products-section" aria-labelledby="hits-title">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title" id="hits-title">Хіти продажів</h2>
+          <p class="section-subtitle" style="margin-bottom:0;">Найпопулярніші товари цього місяця</p>
+        </div>
+        <a href="shop.html" class="btn btn-outline btn-sm">Всі товари</a>
+      </div>
+
+      <div class="products-grid">
+
+        <!-- 1 Цемент -->
+        <article class="product-card">
+          <a href="product.html" class="product-card__img-wrap" aria-label="Цемент Portland М400, 50 кг">
+            <div class="product-card__placeholder">
+              <span class="product-card__placeholder-icon">🏗️</span>
+              <span class="product-card__placeholder-text">Цемент</span>
+            </div>
+            <div class="product-card__badges">
+              <span class="badge badge--hot">Хіт</span>
+            </div>
+          </a>
+          <div class="product-card__body">
+            <a href="product.html" class="product-card__name">Цемент Portland М400, 50 кг</a>
+            <span class="product-card__unit">за мішок</span>
+            <div class="product-card__pricing">
+              <span class="product-card__price">185 ₴</span>
+            </div>
+            <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+          </div>
+        </article>
+
+        <!-- 2 Гіпсокартон -->
+        <article class="product-card">
+          <a href="shop.html" class="product-card__img-wrap" aria-label="Гіпсокартон Knauf 1200×2500×12.5 мм">
+            <div class="product-card__placeholder">
+              <span class="product-card__placeholder-icon">📋</span>
+              <span class="product-card__placeholder-text">Гіпсокартон</span>
+            </div>
+          </a>
+          <div class="product-card__body">
+            <a href="shop.html" class="product-card__name">Гіпсокартон Knauf 1200×2500×12.5 мм</a>
+            <span class="product-card__unit">за лист</span>
+            <div class="product-card__pricing">
+              <span class="product-card__price">245 ₴</span>
+            </div>
+            <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+          </div>
+        </article>
+
+        <!-- 3 Мінеральна вата -->
+        <article class="product-card">
+          <a href="shop.html" class="product-card__img-wrap" aria-label="Мінеральна вата Rockwool 50 мм, упак. 5.76 м²">
+            <div class="product-card__placeholder">
+              <span class="product-card__placeholder-icon">🌡️</span>
+              <span class="product-card__placeholder-text">Rockwool</span>
+            </div>
+            <div class="product-card__badges">
+              <span class="badge badge--sale">-10%</span>
+            </div>
+          </a>
+          <div class="product-card__body">
+            <a href="shop.html" class="product-card__name">Мінеральна вата Rockwool 50 мм, упак. 5.76 м²</a>
+            <span class="product-card__unit">за упаковку</span>
+            <div class="product-card__pricing">
+              <span class="product-card__price">920 ₴</span>
+              <span class="product-card__price-old">1 022 ₴</span>
+            </div>
+            <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+          </div>
+        </article>
+
+        <!-- 4 Фарба -->
+        <article class="product-card">
+          <a href="shop.html" class="product-card__img-wrap" aria-label="Фарба інтер'єрна біла, 10 л">
+            <div class="product-card__placeholder">
+              <span class="product-card__placeholder-icon">🖌️</span>
+              <span class="product-card__placeholder-text">Фарба</span>
+            </div>
+          </a>
+          <div class="product-card__body">
+            <a href="shop.html" class="product-card__name">Фарба інтер'єрна біла, 10 л</a>
+            <span class="product-card__unit">за відро</span>
+            <div class="product-card__pricing">
+              <span class="product-card__price">380 ₴</span>
+            </div>
+            <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+          </div>
+        </article>
+
+        <!-- 5 Шпаклівка -->
+        <article class="product-card">
+          <a href="shop.html" class="product-card__img-wrap" aria-label="Шпаклівка фінішна Knauf Фінішна, 25 кг">
+            <div class="product-card__placeholder">
+              <span class="product-card__placeholder-icon">🏺</span>
+              <span class="product-card__placeholder-text">Шпаклівка</span>
+            </div>
+          </a>
+          <div class="product-card__body">
+            <a href="shop.html" class="product-card__name">Шпаклівка фінішна Knauf Фінішна, 25 кг</a>
+            <span class="product-card__unit">за мішок</span>
+            <div class="product-card__pricing">
+              <span class="product-card__price">165 ₴</span>
+            </div>
+            <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+          </div>
+        </article>
+
+        <!-- 6 Клей Ceresit -->
+        <article class="product-card">
+          <a href="shop.html" class="product-card__img-wrap" aria-label="Клей для плитки Ceresit CM 11, 25 кг">
+            <div class="product-card__placeholder">
+              <span class="product-card__placeholder-icon">🔲</span>
+              <span class="product-card__placeholder-text">Ceresit</span>
+            </div>
+            <div class="product-card__badges">
+              <span class="badge badge--hot">Хіт</span>
+            </div>
+          </a>
+          <div class="product-card__body">
+            <a href="shop.html" class="product-card__name">Клей для плитки Ceresit CM 11, 25 кг</a>
+            <span class="product-card__unit">за мішок</span>
+            <div class="product-card__pricing">
+              <span class="product-card__price">195 ₴</span>
+            </div>
+            <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+          </div>
+        </article>
+
+        <!-- 7 Ламінат -->
+        <article class="product-card">
+          <a href="shop.html" class="product-card__img-wrap" aria-label="Ламінат 8 мм AC4 Kronospan">
+            <div class="product-card__placeholder">
+              <span class="product-card__placeholder-icon">🏠</span>
+              <span class="product-card__placeholder-text">Kronospan</span>
+            </div>
+          </a>
+          <div class="product-card__body">
+            <a href="shop.html" class="product-card__name">Ламінат 8 мм AC4 Kronospan</a>
+            <span class="product-card__unit">за м²</span>
+            <div class="product-card__pricing">
+              <span class="product-card__price">185 ₴/м²</span>
+            </div>
+            <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+          </div>
+        </article>
+
+        <!-- 8 Пінополістирол -->
+        <article class="product-card">
+          <a href="shop.html" class="product-card__img-wrap" aria-label="Пінополістирол EPS 100 мм, 1×0.5 м">
+            <div class="product-card__placeholder">
+              <span class="product-card__placeholder-icon">🧊</span>
+              <span class="product-card__placeholder-text">Пінополістирол</span>
+            </div>
+          </a>
+          <div class="product-card__body">
+            <a href="shop.html" class="product-card__name">Пінополістирол EPS 100 мм, 1×0.5 м</a>
+            <span class="product-card__unit">за лист</span>
+            <div class="product-card__pricing">
+              <span class="product-card__price">145 ₴</span>
+            </div>
+            <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         B2B BANNER
+         ============================================================ -->
+    <div class="b2b-banner" id="delivery">
+      <div class="b2b-banner__content">
+        <div class="b2b-banner__tag">Опт</div>
+        <div class="b2b-banner__title">Гуртові ціни від 50 000 ₴</div>
+        <p class="b2b-banner__desc">Персональний менеджер, відстрочка платежу, доставка за домовленістю. Працюємо з юридичними особами та ФОП.</p>
+      </div>
+      <div class="b2b-banner__action">
+        <a href="#contacts" class="btn btn-primary btn-lg">Залишити заявку</a>
+      </div>
+    </div>
+
+
+    <!-- ============================================================
+         ADVANTAGES
+         ============================================================ -->
+    <section class="advantages" id="about" aria-labelledby="adv-title">
+      <div class="section-header">
+        <h2 class="section-title" id="adv-title">Чому обирають БудМайстер</h2>
+      </div>
+      <div class="advantages-grid">
+        <div class="advantage-card">
+          <div class="advantage-card__icon">🏭</div>
+          <div class="advantage-card__title">Оригінальний товар</div>
+          <p class="advantage-card__desc">Офіційні дистриб'ютори Knauf, Rockwool, Ceresit, Kronospan. Гарантія справжності кожної позиції.</p>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-card__icon">🚛</div>
+          <div class="advantage-card__title">Доставка по місту</div>
+          <p class="advantage-card__desc">Власний транспорт, негабаритний вантаж. Відвантаження в день замовлення при наявності на складі.</p>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-card__icon">💳</div>
+          <div class="advantage-card__title">Оплата частинами</div>
+          <p class="advantage-card__desc">ПриватБанк та monobank, 0% до 10 місяців. Оформлення прямо на сайті без довідок.</p>
+        </div>
+        <div class="advantage-card">
+          <div class="advantage-card__icon">↩️</div>
+          <div class="advantage-card__title">Повернення 14 днів</div>
+          <p class="advantage-card__desc">Повернемо або обміняємо без зайвих питань. Товар повертається у первинній упаковці.</p>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /.container -->
+</main>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer" id="contacts">
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-grid">
+
+        <!-- Col 1: Brand -->
+        <div>
+          <div class="footer-col__logo">
+            <svg width="36" height="36" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+              <rect width="44" height="44" rx="8" fill="#E85D04"/>
+              <text x="22" y="32" font-family="Montserrat,sans-serif" font-weight="800" font-size="26" fill="#fff" text-anchor="middle">Б</text>
+            </svg>
+            <span class="footer-col__logo-name">БудМайстер</span>
+          </div>
+          <p class="footer-col__desc">Будівельні матеріали з доставкою. Роздрібно та оптом.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Telegram">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.69 7.96c-.12.57-.46.71-.93.44l-2.56-1.88-1.23 1.19c-.14.14-.25.25-.5.25l.18-2.57 4.64-4.19c.2-.18-.05-.28-.31-.1L7.49 14.4l-2.49-.78c-.54-.17-.55-.54.12-.8l9.74-3.75c.45-.16.84.11.78.73z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Catalog -->
+        <div>
+          <h3 class="footer-col__title">Каталог</h3>
+          <ul class="footer-links">
+            <li><a href="shop.html">Цемент та суміші</a></li>
+            <li><a href="shop.html">Цегла та блоки</a></li>
+            <li><a href="shop.html">Утеплення</a></li>
+            <li><a href="shop.html">Оздоблення</a></li>
+            <li><a href="shop.html">Підлога</a></li>
+            <li><a href="shop.html">Інструменти</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Buyers -->
+        <div>
+          <h3 class="footer-col__title">Покупцям</h3>
+          <ul class="footer-links">
+            <li><a href="#delivery">Доставка та оплата</a></li>
+            <li><a href="#">Повернення</a></li>
+            <li><a href="#delivery">Гуртовим клієнтам</a></li>
+            <li><a href="#contacts">Контакти</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Contacts -->
+        <div>
+          <h3 class="footer-col__title">Контакти</h3>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.14 1.26 2 2 0 012.11 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+            <span>[ваш телефон]</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <span>[ваш email]</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span>[адреса]</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <span>пн–сб 8:00–18:00</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Meta bar -->
+    <div class="footer-meta">
+      <div class="footer-meta-inner">
+        <p class="footer-copy">© 2024 БудМайстер. Усі права захищено.</p>
+        <a href="https://tagwise.com.ua" class="tw-badge" target="_blank" rel="noopener" title="Сайт розроблено в Tagwise">
+          <span class="tw-badge__tag">tag</span>
+          <span class="tw-badge__text">Сайт зроблено в tagwise</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/shop.js"></script>
+</body>
+</html>

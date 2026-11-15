@@ -49,7 +49,7 @@
       <nav id="site-nav" class="site-nav" aria-label="Основна навігація">
         <a href="how-it-works.html">Як це працює</a>
         <a href="#prices">Ціни</a>
-        <a href="#auto">Автоматизація</a>
+        <a href="automation.html">Автоматизація</a>
         <a href="#demo">Приклади</a>
         <a href="#faq">Питання</a>
       </nav>
@@ -291,38 +291,76 @@
   <div class="container">
     <div style="display:flex;flex-wrap:wrap;gap:48px">
 
-      <div style="flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:16px">
+      <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:16px">
         <h2 class="heading-lg">Менше ручної роботи</h2>
         <p style="color:var(--text)">Наша спеціалізація — інтернет-магазини. Робимо так, щоб ціни, залишки і замовлення оновлювались самі, а не вручну по вечорах.</p>
+        <p style="font-size:13px;color:var(--text)">Усі послуги підключаються окремо — платите лише за те, що потрібно.</p>
       </div>
 
-      <div class="auto-grid" style="flex:2 1 560px;min-width:0">
+      <div style="flex:2 1 580px;min-width:0;display:flex;flex-direction:column;gap:20px">
+        <div class="auto-grid">
 
-        <div class="card--green-border auto-card">
-          <strong class="auto-card__title">Синхронізація з маркетплейсами</strong>
-          <span class="auto-card__desc">Prom, Rozetka, Epicentr: товари, ціни, залишки</span>
-          <span class="auto-card__price">$200 + $30/міс</span>
+          <div class="card--green-border auto-card">
+            <strong class="auto-card__title">Сповіщення в Telegram</strong>
+            <span class="auto-card__desc">Кожне нове замовлення і заявка одразу приходять вам у Telegram.</span>
+            <div class="auto-card__price-row">
+              <span class="auto-card__price">$70</span>
+              <span class="auto-card__label">· разово</span>
+            </div>
+          </div>
+
+          <div class="card--green-border auto-card">
+            <strong class="auto-card__title">Онлайн-оплата</strong>
+            <span class="auto-card__desc">Покупець платить карткою прямо на сайті: LiqPay, WayForPay або monobank.</span>
+            <div class="auto-card__price-row">
+              <span class="auto-card__price">$130</span>
+              <span class="auto-card__label">· разово</span>
+            </div>
+          </div>
+
+          <div class="card--green-border auto-card">
+            <strong class="auto-card__title">Нова Пошта</strong>
+            <span class="auto-card__desc">Вибір міста й відділення, розрахунок вартості доставки, ТТН створюється автоматично.</span>
+            <div class="auto-card__price-row">
+              <span class="auto-card__price">$260</span>
+              <span class="auto-card__label">· разово</span>
+            </div>
+          </div>
+
+          <div class="card--green-border auto-card">
+            <strong class="auto-card__title">Маркетплейси</strong>
+            <span class="auto-card__desc">Товари, ціни й залишки самі оновлюються на Prom, Rozetka та Epicentr.</span>
+            <div class="auto-card__price-row">
+              <span class="auto-card__price">$200</span>
+              <span class="auto-card__label">· разово</span>
+              <span class="auto-card__price">+ $30/міс</span>
+              <span class="auto-card__label">підтримка</span>
+            </div>
+          </div>
+
+          <div class="card--green-border auto-card">
+            <strong class="auto-card__title">Telegram-бот</strong>
+            <span class="auto-card__desc">Відповідає клієнтам і приймає замовлення 24/7, навіть коли ви не на зв'язку.</span>
+            <div class="auto-card__price-row">
+              <span class="auto-card__price">від $320</span>
+              <span class="auto-card__label">· разово</span>
+            </div>
+          </div>
+
+          <div class="card--green-border auto-card">
+            <strong class="auto-card__title">Склад і 1С / BAS</strong>
+            <span class="auto-card__desc">Обмін товарами, залишками й замовленнями з вашою обліковою програмою.</span>
+            <div class="auto-card__price-row">
+              <span class="auto-card__price">від $1 000</span>
+              <span class="auto-card__label">· разово, залежить від конфігурації</span>
+            </div>
+          </div>
+
         </div>
 
-        <div class="card--green-border auto-card">
-          <strong class="auto-card__title">Зв'язок зі складом і 1С / BAS</strong>
-          <span class="auto-card__desc">обмін товарами, залишками і замовленнями</span>
-          <span class="auto-card__price">від $1 000</span>
-        </div>
-
-        <div class="card--green-border auto-card">
-          <strong class="auto-card__title">Оплата і Нова Пошта</strong>
-          <span class="auto-card__desc">онлайн-оплата, розрахунок доставки, ТТН</span>
-          <span class="auto-card__price">$130 · $260</span>
-        </div>
-
-        <div class="card--green-border auto-card">
-          <strong class="auto-card__title">Telegram-бот і сповіщення</strong>
-          <span class="auto-card__desc">замовлення в Telegram, заявки, відповіді 24/7</span>
-          <span class="auto-card__price">від $70</span>
-        </div>
-
+        <p><a href="automation.html" class="btn btn--secondary" style="display:inline-flex">Детальніше про автоматизацію →</a></p>
       </div>
+
     </div>
   </div>
 </section>
@@ -339,20 +377,29 @@
 
       <div class="demo-grid">
 
-        <a href="#demo" class="demo-card">
-          <div class="demo-card__img">[скриншот демо]</div>
+        <a href="demos/budmaster/index.html" class="demo-card" target="_blank" rel="noopener">
+          <div class="demo-card__img">
+            <iframe src="demos/budmaster/index.html" class="demo-card__iframe" tabindex="-1" aria-hidden="true" loading="lazy"></iframe>
+            <div class="demo-card__overlay"><span>Переглянути демо →</span></div>
+          </div>
           <strong class="demo-card__title">Будматеріали</strong>
           <span class="demo-card__sub">каталог, розрахунок, доставка</span>
         </a>
 
-        <a href="#demo" class="demo-card">
-          <div class="demo-card__img">[скриншот демо]</div>
+        <a href="demos/lapka/index.html" class="demo-card" target="_blank" rel="noopener">
+          <div class="demo-card__img">
+            <iframe src="demos/lapka/index.html" class="demo-card__iframe" tabindex="-1" aria-hidden="true" loading="lazy"></iframe>
+            <div class="demo-card__overlay"><span>Переглянути демо →</span></div>
+          </div>
           <strong class="demo-card__title">Зоомагазин</strong>
           <span class="demo-card__sub">кошик, залишки зі складу</span>
         </a>
 
-        <a href="#demo" class="demo-card">
-          <div class="demo-card__img">[скриншот демо]</div>
+        <a href="demos/kvity/index.html" class="demo-card" target="_blank" rel="noopener">
+          <div class="demo-card__img">
+            <iframe src="demos/kvity/index.html" class="demo-card__iframe" tabindex="-1" aria-hidden="true" loading="lazy"></iframe>
+            <div class="demo-card__overlay"><span>Переглянути демо →</span></div>
+          </div>
           <strong class="demo-card__title">Квіти</strong>
           <span class="demo-card__sub">букети, доставка до часу</span>
         </a>
@@ -507,7 +554,7 @@
 <footer class="site-footer">
   <div class="container">
     <div class="site-footer__inner">
-      <span>© 2025 tagwise — сайти і автоматизація для магазинів</span>
+      <span>© 2026 tagwise — сайти і автоматизація для магазинів</span>
       <span>
         <a href="offer.html">Публічна оферта</a>
         &nbsp;·&nbsp;

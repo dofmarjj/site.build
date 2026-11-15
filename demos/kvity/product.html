@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Рожева хмара — Florie</title>
+  <link rel="stylesheet" href="assets/css/shop.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="container">
+    <span>Доставка сьогодні — замовте до 14:00</span>
+    <span>📞 <a href="tel:+380000000000">+38 (000) 000-00-00</a>&ensp;·&ensp;пн–нд 8:00–21:00</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <nav class="header-nav">
+      <a href="shop.html">Каталог</a>
+      <a href="#">Букети</a>
+      <a href="#">Рослини</a>
+      <a href="#">Корпоративним</a>
+    </nav>
+    <a href="index.html" class="site-logo">
+      <span class="site-logo__name">Florie</span>
+      <span class="site-logo__sub">квіткова крамниця</span>
+    </a>
+    <div class="header-actions">
+      <a href="#" aria-label="Пошук">
+        <svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </a>
+      <a href="#" aria-label="Кошик">
+        <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </a>
+    </div>
+    <button class="nav-toggle" aria-label="Меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav">
+    <a href="shop.html">Каталог</a>
+    <a href="#">Букети</a>
+    <a href="#">Рослини</a>
+    <a href="#">+38 (000) 000-00-00</a>
+  </nav>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="container">
+    <ol>
+      <li><a href="index.html">Головна</a></li>
+      <li><a href="shop.html">Каталог</a></li>
+      <li>Рожева хмара</li>
+    </ol>
+  </div>
+</div>
+
+<!-- PRODUCT -->
+<div class="container">
+  <div class="product-layout">
+
+    <!-- Gallery -->
+    <div class="product-gallery">
+      <div class="gallery-main" id="galleryMain">
+        <img src="assets/img/gallery_1.jpg"
+             alt="Рожева хмара — головне фото" id="mainImg">
+      </div>
+      <div class="gallery-thumbs">
+        <button class="gallery-thumb active" onclick="switchImg(this, 'assets/img/gallery_1.jpg')">
+          <img src="assets/img/gallery_1.jpg" alt="">
+        </button>
+        <button class="gallery-thumb" onclick="switchImg(this, 'assets/img/gallery_2.jpg')">
+          <img src="assets/img/gallery_2.jpg" alt="">
+        </button>
+        <button class="gallery-thumb" onclick="switchImg(this, 'assets/img/gallery_3.jpg')">
+          <img src="assets/img/gallery_3.jpg" alt="">
+        </button>
+        <button class="gallery-thumb" onclick="switchImg(this, 'assets/img/gallery_4.jpg')">
+          <img src="assets/img/gallery_4.jpg" alt="">
+        </button>
+      </div>
+    </div>
+
+    <!-- Info -->
+    <div class="product-info">
+      <p class="product-info__cat">Троянди</p>
+      <h1 class="product-info__name">Рожева хмара</h1>
+      <div class="product-info__rating">
+        <span class="stars" aria-label="5 зірок">★★★★★</span>
+        <span>4.9 · 32 відгуки</span>
+      </div>
+
+      <div class="product-info__price">
+        <span class="price-main">1 450 ₴</span>
+      </div>
+
+      <p class="product-info__desc">
+        Ніжний букет з 25 крупних піністих троянд сорту Mondial. М'який рожевий колір, щільні голівки,
+        тривалий термін стояння до 10 днів. Оформлення: папір тиш'ю, крафт, атласна стрічка.
+      </p>
+
+      <!-- Size -->
+      <div class="option-group">
+        <p class="option-label">Розмір</p>
+        <div class="option-pills">
+          <button class="option-pill" onclick="selectPill(this)">S · 15 шт · 980 ₴</button>
+          <button class="option-pill selected" onclick="selectPill(this)">M · 25 шт · 1 450 ₴</button>
+          <button class="option-pill" onclick="selectPill(this)">L · 35 шт · 1 980 ₴</button>
+        </div>
+      </div>
+
+      <!-- Ribbon -->
+      <div class="option-group">
+        <p class="option-label">Колір стрічки</p>
+        <div class="option-pills">
+          <button class="option-pill selected" onclick="selectPill(this)">Пудровий</button>
+          <button class="option-pill" onclick="selectPill(this)">Білий</button>
+          <button class="option-pill" onclick="selectPill(this)">Бордо</button>
+          <button class="option-pill" onclick="selectPill(this)">Зелений</button>
+        </div>
+      </div>
+
+      <!-- Delivery time -->
+      <div class="option-group time-picker">
+        <p class="option-label">Час доставки</p>
+        <div class="time-slots">
+          <button class="time-slot unavailable" disabled>10:00–12:00</button>
+          <button class="time-slot selected" onclick="selectSlot(this)">12:00–14:00</button>
+          <button class="time-slot" onclick="selectSlot(this)">14:00–16:00</button>
+          <button class="time-slot" onclick="selectSlot(this)">16:00–18:00</button>
+          <button class="time-slot" onclick="selectSlot(this)">18:00–20:00</button>
+          <button class="time-slot" onclick="selectSlot(this)">20:00–21:00</button>
+        </div>
+      </div>
+
+      <!-- Add to cart -->
+      <div class="cart-action">
+        <button class="btn--cart" onclick="addToCart(this, 'Рожева хмара')">Додати в кошик</button>
+        <button class="btn--wishlist" aria-label="До бажань">
+          <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </button>
+      </div>
+
+      <!-- Meta -->
+      <ul class="product-meta">
+        <li><span><strong>Склад:</strong> Троянди Mondial, зелень (рускус, піттоспорум)</span></li>
+        <li><span><strong>Упаковка:</strong> Папір тиш'ю + крафт + атласна стрічка</span></li>
+        <li><span><strong>Термін стояння:</strong> 7–10 днів при дотриманні умов</span></li>
+        <li><span><strong>Артикул:</strong> FL-TRZ-025</span></li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+<!-- RELATED PRODUCTS -->
+<section class="related">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Схожі букети</h2>
+      <a href="shop.html" class="section-link">Дивитися всі →</a>
+    </div>
+    <div class="products-grid">
+      <article class="product-card">
+        <a href="product.html" class="product-card__img">
+          <img src="assets/img/product_wildflowers.jpg" alt="Лісова казка" loading="lazy">
+          <div class="product-card__quick"><button onclick="addToCart(this,'Лісова казка')">Додати в кошик</button></div>
+        </a>
+        <a href="product.html"><h3 class="product-card__name">Лісова казка</h3></a>
+        <span class="product-card__meta">Польові квіти · мікс</span>
+        <div class="product-card__price"><span class="price-current">980 ₴</span><span class="price-old">1 200 ₴</span></div>
+      </article>
+      <article class="product-card">
+        <a href="product.html" class="product-card__img">
+          <img src="assets/img/product_peonies.jpg" alt="Вишня" loading="lazy">
+          <div class="product-card__quick"><button onclick="addToCart(this,'Вишня')">Додати в кошик</button></div>
+        </a>
+        <a href="product.html"><h3 class="product-card__name">Вишня</h3></a>
+        <span class="product-card__meta">Піонії · 15 шт</span>
+        <div class="product-card__price"><span class="price-current">1 760 ₴</span><span class="price-old">2 200 ₴</span></div>
+      </article>
+      <article class="product-card">
+        <a href="product.html" class="product-card__img">
+          <img src="assets/img/product_white.jpg" alt="Альба" loading="lazy">
+          <div class="product-card__quick"><button onclick="addToCart(this,'Альба')">Додати в кошик</button></div>
+        </a>
+        <a href="product.html"><h3 class="product-card__name">Альба</h3></a>
+        <span class="product-card__meta">Лізіантус · 20 шт</span>
+        <div class="product-card__price"><span class="price-current">1 190 ₴</span></div>
+      </article>
+      <article class="product-card">
+        <a href="product.html" class="product-card__img">
+          <img src="assets/img/product_sunflowers.jpg" alt="Сонячний день" loading="lazy">
+          <div class="product-card__quick"><button onclick="addToCart(this,'Сонячний день')">Додати в кошик</button></div>
+        </a>
+        <a href="product.html"><h3 class="product-card__name">Сонячний день</h3></a>
+        <span class="product-card__meta">Соняшники · 11 шт</span>
+        <div class="product-card__price"><span class="price-current">620 ₴</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand__logo">Florie</div>
+        <p class="footer-brand__desc">Квіткова крамниця з доставкою того самого дня.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram">Ig</a>
+          <a href="#" aria-label="Telegram">Tg</a>
+          <a href="#" aria-label="Facebook">Fb</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Каталог</h4>
+        <ul>
+          <li><a href="shop.html">Усі букети</a></li>
+          <li><a href="shop.html">Троянди</a></li>
+          <li><a href="shop.html">Піонії</a></li>
+          <li><a href="shop.html">Польові</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Інформація</h4>
+        <ul>
+          <li><a href="#">Доставка та оплата</a></li>
+          <li><a href="#">Як замовити</a></li>
+          <li><a href="#">Питання та відповіді</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Контакти</h4>
+        <ul>
+          <li><a href="tel:+380000000000">+38 (000) 000-00-00</a></li>
+          <li><a href="#">info@florie.com.ua</a></li>
+          <li><a href="#">пн–нд: 8:00–21:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Florie.</span>
+      <a href="../../index.html" class="tagwise-badge" target="_blank" rel="noopener">
+        <span class="tagwise-badge__tag">TW</span>
+        Сайт на Tagwise
+      </a>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="assets/js/shop.js"></script>
+</body>
+</html>

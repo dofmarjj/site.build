@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Оформлення замовлення — Лапка зоомагазин</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geologica:wght@500;700;800&family=Onest:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- ===== Іконки (SVG-спрайт) ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-paw" viewBox="0 0 24 24"><circle cx="12" cy="15.5" r="4.5" fill="currentColor"/><circle cx="5.5" cy="10" r="2.2" fill="currentColor"/><circle cx="9.5" cy="5.8" r="2.2" fill="currentColor"/><circle cx="14.5" cy="5.8" r="2.2" fill="currentColor"/><circle cx="18.5" cy="10" r="2.2" fill="currentColor"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-8-4.7-8-10.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 8 2.5C20 15.3 12 20 12 20z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6h12v10H2zM14 10h4l3 3v3h-7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="6" cy="18" r="2" fill="currentColor"/><circle cx="17" cy="18" r="2" fill="currentColor"/></symbol>
+    <symbol id="i-gift" viewBox="0 0 24 24"><path d="M4 10h16v10H4zM3 7h18v3H3zM12 7v13" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 7c-2-4-6-3-5 0M12 7c2-4 6-3 5 0" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-pack" viewBox="0 0 80 100"><path d="M14 18 Q40 8 66 18 L72 90 Q40 98 8 90 Z" fill="currentColor"/><path d="M14 18 Q40 26 66 18" fill="none" stroke="rgba(0,0,0,.18)" stroke-width="3"/><rect x="20" y="40" width="40" height="26" rx="8" fill="#fff" opacity=".9"/><circle cx="40" cy="53" r="7" fill="currentColor" opacity=".6"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 10h20" stroke="currentColor" stroke-width="2"/><path d="M6 15h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 4.5-7 13-7 13S5 13.5 5 9a7 7 0 0 1 7-7z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9" r="2.5" fill="currentColor"/></symbol>
+  </defs>
+</svg>
+
+<!-- ===== Верхня смуга ===== -->
+<div class="topbar">
+  <div class="wrap">
+    <span><b>Безкоштовна доставка</b> від [800 ₴] · по місту сьогодні, Новою Поштою за 1–2 дні</span>
+    <span>Щодня 9:00–21:00 · [+380 00 000 00 00]</span>
+  </div>
+</div>
+
+<!-- ===== Шапка ===== -->
+<header class="header">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Лапка, на головну">
+      <span class="logo-mark"><svg class="ico" style="color:#fff;width:28px;height:28px"><use href="#i-paw"/></svg></span>
+      <span><b>Лапка</b><small>зоомагазин</small></span>
+    </a>
+    <nav class="nav" aria-label="Головне меню">
+      <a href="index.html">Головна</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="sales.html">Акції</a>
+      <a href="delivery.html">Доставка</a>
+      <a href="contacts.html">Контакти</a>
+    </nav>
+    <label class="search">
+      <svg class="ico" style="color:#8A948F"><use href="#i-search"/></svg>
+      <span style="position:absolute;left:-9999px">Пошук</span>
+      <input type="search" placeholder="Корм, наповнювач, іграшка…">
+    </label>
+    <div class="hicons">
+      <button class="hicon" type="button" aria-label="Обране"><svg class="ico"><use href="#i-heart"/></svg></button>
+      <button class="hicon" type="button" aria-label="Кошик"><svg class="ico"><use href="#i-bag"/></svg><span class="badge">3</span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+  <ol class="breadcrumb" aria-label="Навігація сторінкою">
+    <li><a href="index.html">Головна</a></li>
+    <li><a href="cart.html">Кошик</a></li>
+    <li>Оформлення замовлення</li>
+  </ol>
+  <h1 style="font-size:clamp(28px,3.5vw,44px);font-weight:800;margin-bottom:28px">Оформлення замовлення</h1>
+</div>
+
+<!-- ===== Форма оформлення ===== -->
+<section class="checkout-section">
+  <div class="wrap">
+    <div class="checkout-layout">
+      <!-- Лівий стовпець: кроки форми -->
+      <div>
+        <form class="checkout-steps" id="checkoutForm" novalidate>
+
+          <!-- 1. Контакти -->
+          <div class="chsec">
+            <h2 class="chsec-title">
+              <span class="chsec-num">1</span>
+              Контактні дані
+            </h2>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="firstName">Ім'я</label>
+                <input type="text" id="firstName" name="firstName" placeholder="[Ім'я]" required autocomplete="given-name">
+              </div>
+              <div class="form-field">
+                <label for="lastName">Прізвище</label>
+                <input type="text" id="lastName" name="lastName" placeholder="[Прізвище]" required autocomplete="family-name">
+              </div>
+            </div>
+            <div class="form-field" style="margin-top:12px">
+              <label for="phone">Телефон</label>
+              <input type="tel" id="phone" name="phone" placeholder="+38 0__ ___ __ __" required autocomplete="tel">
+            </div>
+            <div class="form-field" style="margin-top:12px">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="[email@example.com]" autocomplete="email">
+            </div>
+          </div>
+
+          <!-- 2. Доставка -->
+          <div class="chsec">
+            <h2 class="chsec-title">
+              <span class="chsec-num">2</span>
+              Спосіб доставки
+            </h2>
+            <div class="delivery-opts" role="radiogroup" aria-label="Спосіб доставки">
+              <div class="del-opt">
+                <input type="radio" name="delivery" id="del-np" value="nova-poshta" checked>
+                <label for="del-np">
+                  <span class="dico-wrap"><svg class="ico"><use href="#i-truck"/></svg></span>
+                  Нова Пошта відділення
+                </label>
+              </div>
+              <div class="del-opt">
+                <input type="radio" name="delivery" id="del-np-box" value="nova-poshta-box">
+                <label for="del-np-box">
+                  <span class="dico-wrap"><svg class="ico"><use href="#i-bag"/></svg></span>
+                  Нова Пошта поштомат
+                </label>
+              </div>
+              <div class="del-opt">
+                <input type="radio" name="delivery" id="del-courier" value="courier">
+                <label for="del-courier">
+                  <span class="dico-wrap"><svg class="ico"><use href="#i-pin"/></svg></span>
+                  Кур'єр по місту
+                </label>
+              </div>
+            </div>
+
+            <!-- Поля Нова Пошта -->
+            <div class="np-fields" id="npFields">
+              <div class="form-field">
+                <label for="city">Місто</label>
+                <select id="city" name="city">
+                  <option value="">— Оберіть місто —</option>
+                  <option>[Київ]</option>
+                  <option>[Харків]</option>
+                  <option>[Дніпро]</option>
+                  <option>[Одеса]</option>
+                  <option>[Запоріжжя]</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="branch">Відділення Нової Пошти</label>
+                <select id="branch" name="branch">
+                  <option value="">— Спочатку оберіть місто —</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Поля Кур'єр (приховані за замовчуванням) -->
+            <div class="np-fields" id="courierFields" style="display:none">
+              <div class="form-field">
+                <label for="courierCity">Місто</label>
+                <input type="text" id="courierCity" name="courierCity" placeholder="[Введіть місто]">
+              </div>
+              <div class="form-field">
+                <label for="address">Вулиця, будинок, квартира</label>
+                <input type="text" id="address" name="address" placeholder="[Введіть адресу]" autocomplete="street-address">
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Оплата -->
+          <div class="chsec">
+            <h2 class="chsec-title">
+              <span class="chsec-num">3</span>
+              Спосіб оплати
+            </h2>
+            <div class="pay-opts" role="radiogroup" aria-label="Спосіб оплати">
+              <div class="pay-opt">
+                <input type="radio" name="payment" id="pay-card" value="card" checked>
+                <label for="pay-card">
+                  <span class="pmark"></span>
+                  <span class="pico"><svg class="ico"><use href="#i-card"/></svg></span>
+                  <span>
+                    <span style="display:block;font-weight:700">Оплата карткою онлайн</span>
+                    <span style="font-size:13px;color:var(--ink2);font-weight:400">Visa, Mastercard — безпечна оплата</span>
+                  </span>
+                </label>
+              </div>
+              <div class="pay-opt">
+                <input type="radio" name="payment" id="pay-cod" value="cod">
+                <label for="pay-cod">
+                  <span class="pmark"></span>
+                  <span class="pico"><svg class="ico"><use href="#i-gift"/></svg></span>
+                  <span>
+                    <span style="display:block;font-weight:700">Оплата при отриманні</span>
+                    <span style="font-size:13px;color:var(--ink2);font-weight:400">Готівкою або карткою кур'єру / на пошті</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Коментар -->
+          <div class="chsec">
+            <h2 class="chsec-title">
+              <span class="chsec-num">4</span>
+              Коментар до замовлення
+            </h2>
+            <div class="form-field">
+              <label for="comment">Побажання (необов'язково)</label>
+              <textarea id="comment" name="comment" placeholder="Є побажання до замовлення?"></textarea>
+            </div>
+          </div>
+
+          <!-- Кнопка -->
+          <button class="btn btn-coral" type="submit" style="font-size:18px;min-height:60px;width:100%">
+            Замовити
+          </button>
+          <p class="legal-note">Натискаючи кнопку «Замовити», ви погоджуєтесь з умовами публічної оферти та надаєте згоду на обробку персональних даних відповідно до Закону України «Про захист персональних даних».</p>
+        </form>
+
+        <!-- Дякуємо (прихований) -->
+        <div id="thankYou" style="display:none;text-align:center;padding:60px 20px;background:var(--paper);border-radius:var(--r-lg);border:1px solid var(--line)">
+          <div style="width:72px;height:72px;border-radius:50%;background:var(--mint);display:grid;place-items:center;margin:0 auto 20px">
+            <svg class="ico" style="width:36px;height:36px;color:var(--green)"><use href="#i-check"/></svg>
+          </div>
+          <h2 style="font-size:28px;font-weight:800;margin:0 0 12px">Дякуємо за замовлення!</h2>
+          <p style="color:var(--ink2);font-size:16px;margin:0 0 28px">Ми зв'яжемося з вами найближчим часом для підтвердження. Перевірте телефон або email.</p>
+          <a class="btn btn-coral" href="index.html">На головну</a>
+        </div>
+      </div>
+
+      <!-- Правий стовпець: підсумок -->
+      <div class="order-summary">
+        <h2 class="os-title">Ваше замовлення</h2>
+
+        <div class="os-item">
+          <div class="os-img" style="background:var(--peach)"><svg width="40" height="50" style="color:var(--coral)"><use href="#i-pack"/></svg></div>
+          <span class="os-name">Hill's Science Plan Sterilised 1.5 кг × 2</span>
+          <span class="os-line-price">[1 178 ₴]</span>
+        </div>
+        <div class="os-item">
+          <div class="os-img" style="background:var(--sky)"><svg width="40" height="50" style="color:#4A7BD0"><use href="#i-pack"/></svg></div>
+          <span class="os-name">Наповнювач комкуючий, 5 л × 1</span>
+          <span class="os-line-price">[265 ₴]</span>
+        </div>
+        <div class="os-item">
+          <div class="os-img" style="background:var(--mint)"><svg width="40" height="50" style="color:var(--green)"><use href="#i-pack"/></svg></div>
+          <span class="os-name">Іграшка для котів, мишка з пером × 1</span>
+          <span class="os-line-price">[120 ₴]</span>
+        </div>
+
+        <hr class="os-divider">
+        <div class="os-row"><span>Товари (3)</span><b>[1 563 ₴]</b></div>
+        <div class="os-row"><span>Доставка</span><b style="color:var(--green)">Безкоштовно</b></div>
+        <div class="os-row"><span>Знижка</span><b>−[0 ₴]</b></div>
+
+        <div class="os-total-row">
+          <span>До сплати</span>
+          <span class="os-total">[1 563 ₴]</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ===== Футер ===== -->
+<footer class="footer" id="footer">
+  <div class="wrap">
+    <div class="cols">
+      <div><b style="font-size:24px">Лапка</b><span>Зоомагазин для котів, собак і всіх, хто з хвостом.</span><br><br><span>[адреса магазину]<br>Щодня 9:00–21:00</span></div>
+      <div><b>Каталог</b><a href="catalog.html">Котам</a><a href="catalog.html">Собакам</a><a href="catalog.html">Гризунам</a><a href="sales.html">Акції</a></div>
+      <div><b>Покупцям</b><a href="delivery.html">Доставка та оплата</a><a href="delivery.html">Повернення</a><a href="delivery.html">Бонусна програма</a><a href="contacts.html">Контакти</a></div>
+      <div><b>Зв'язок</b><span>[+380 00 000 00 00]</span><a href="contacts.html">Telegram</a><a href="contacts.html">Viber</a><a href="contacts.html">Instagram</a></div>
+    </div>
+    <div class="bottom"><span>© 2026 Лапка</span><span>Сайт зроблено в tagwise</span></div>
+  </div>
+</footer>
+
+<script>
+/* ===== Переключення способу доставки ===== */
+const deliveryRadios = document.querySelectorAll('input[name="delivery"]');
+const npFields = document.getElementById('npFields');
+const courierFields = document.getElementById('courierFields');
+
+deliveryRadios.forEach(radio => {
+  radio.addEventListener('change', () => {
+    if (radio.value === 'courier') {
+      npFields.style.display = 'none';
+      courierFields.style.display = 'flex';
+    } else {
+      npFields.style.display = 'flex';
+      courierFields.style.display = 'none';
+    }
+  });
+});
+
+/* ===== Відправка форми ===== */
+document.getElementById('checkoutForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const firstName = document.getElementById('firstName').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  if (!firstName || !phone) {
+    alert("Будь ласка, заповніть обов'язкові поля: Ім'я та Телефон.");
+    return;
+  }
+  document.getElementById('checkoutForm').style.display = 'none';
+  document.getElementById('thankYou').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+</body>
+</html>

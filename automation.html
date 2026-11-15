@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Автоматизація інтернет-магазину — Prom, Rozetka, Нова Пошта, 1С | Tagwise</title>
+  <meta name="description" content="Автоматичне оновлення цін і залишків на сайті та маркетплейсах, ТТН Нової Пошти, онлайн-оплата, Telegram-бот, інтеграція з 1С. Фіксована ціна до старту.">
+
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://tagwise.com.ua/automation.html">
+  <meta property="og:title"       content="Автоматизація інтернет-магазину | Tagwise">
+  <meta property="og:description" content="Ціни, залишки, замовлення і доставка оновлюються самі. Фіксована ціна до старту.">
+
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="canonical" href="https://tagwise.com.ua/automation.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- Прелоадер -->
+<div id="tw-preloader" role="status" aria-live="polite" aria-label="Завантаження">
+  <div class="tw-pl__hang">
+    <span class="tw-pl__string" aria-hidden="true"></span>
+    <div class="tw-pl__logo" aria-hidden="true">
+      <span class="tw-pl__tag"><i class="tw-pl__hole"></i>tag</span><span class="tw-pl__wise"><b>w</b><b>i</b><b>s</b><b>e</b></span>
+    </div>
+  </div>
+  <div class="tw-pl__bar" aria-hidden="true"><span></span></div>
+</div>
+
+<!-- ============================================================
+     ШАПКА
+     ============================================================ -->
+<header class="site-header" id="top">
+  <div class="container">
+    <div class="site-header__inner">
+
+      <a href="index.html" class="logo" aria-label="tagwise, на головну">
+        <span class="logo__tag">tag</span><span class="logo__wise">wise</span>
+      </a>
+
+      <nav id="site-nav" class="site-nav" aria-label="Основна навігація">
+        <a href="how-it-works.html">Як це працює</a>
+        <a href="index.html#prices">Ціни</a>
+        <a href="automation.html" aria-current="page">Автоматизація</a>
+        <a href="index.html#demo">Приклади</a>
+        <a href="index.html#faq">Питання</a>
+      </nav>
+
+      <a href="#contact" class="btn btn--primary header-cta">Розрахувати</a>
+
+      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Відкрити меню">
+        <span></span><span></span><span></span>
+      </button>
+
+    </div>
+  </div>
+</header>
+
+
+<main>
+
+<!-- ============================================================
+     1. HERO
+     ============================================================ -->
+<section class="section">
+  <div class="container">
+    <div class="hero">
+      <div class="hero__content">
+
+        <span class="tag-badge tag-badge--sm" aria-label="автоматизація">автоматизація</span>
+
+        <h1 class="heading-xl">Магазин,<br>який працює сам</h1>
+
+        <p style="font-size:20px;color:var(--text);max-width:560px">
+          Ціни, залишки, замовлення і доставка оновлюються автоматично — на сайті, Prom, Rozetka та Epicentr. Ви займаєтесь продажами, а не перенесенням цифр з таблиці в таблицю.
+        </p>
+
+        <div class="hero__cta">
+          <a href="#contact" class="btn btn--primary btn--lg">Розрахувати автоматизацію</a>
+          <a href="#video" class="btn btn--secondary btn--lg">Дивитись відео</a>
+        </div>
+
+      </div>
+
+      <div class="hero__preview">
+        <div class="mock-browser card--accent-shadow">
+          <div class="mock-browser__bar">
+            <span class="mock-browser__dot"></span>
+            <span class="mock-browser__dot"></span>
+            <span class="mock-browser__dot"></span>
+            <span class="mock-browser__url">tagwise.com.ua — автоматизація</span>
+          </div>
+          <div class="mock-browser__body">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+              <strong style="font-size:18px">Синхронізація</strong>
+              <span style="font-size:12px;background:var(--accent);padding:2px 10px;border-radius:4px;font-weight:700">активна</span>
+            </div>
+            <div class="mock-browser__sync">
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;justify-content:space-between;font-size:13px;padding:8px 0;border-bottom:1px solid var(--border)">
+                  <span>Корм для котів 2 кг</span>
+                  <span style="font-family:var(--font-mono);font-weight:700;color:var(--green)">489 ₴ ✓</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:13px;padding:8px 0;border-bottom:1px solid var(--border)">
+                  <span>Лежанка M · залишок: 3</span>
+                  <span style="font-family:var(--font-mono);font-weight:700;color:var(--green)">720 ₴ ✓</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:13px;padding:8px 0">
+                  <span>Нове замовлення #847</span>
+                  <span style="font-size:12px;background:#E5F0EC;color:var(--green);padding:2px 8px;border-radius:4px;font-weight:600">→ Telegram</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     2. ВІДЕО
+     ============================================================ -->
+<section id="video" class="section section--dark">
+  <div class="container">
+    <div style="display:flex;flex-direction:column;gap:32px;align-items:center;max-width:900px;margin:0 auto">
+
+      <h2 class="heading-lg" style="text-align:center">Подивіться, як це виглядає</h2>
+
+      <div class="video-frame" style="width:100%">
+        <video src="automation/tagwise-automation.mp4"
+               poster="assets/img/automation-poster.jpg"
+               playsinline muted preload="metadata"
+               id="auto-video"
+               aria-label="Відео: автоматизація інтернет-магазину Tagwise"></video>
+      </div>
+
+      <p class="video-caption">40 секунд про те, що ми автоматизуємо</p>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     3. ЩО ВИ ЗАРАЗ РОБИТЕ ВРУЧНУ
+     ============================================================ -->
+<section class="section section--white">
+  <div class="container">
+    <div style="display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start">
+
+      <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:16px">
+        <h2 class="heading-lg">Що ви зараз робите вручну</h2>
+        <p style="color:var(--text)">Це типовий день власника магазину без автоматизації. Пізнаєте себе?</p>
+        <p style="font-size:14px;color:var(--muted)">У середньому це [N] годин на тиждень, які можна повернути собі.</p>
+      </div>
+
+      <div style="flex:2 1 500px;min-width:0">
+        <div class="pain-table" role="table" aria-label="Вручну проти автоматично">
+
+          <div class="pain-row pain-row--head" role="row">
+            <div role="columnheader">❌&ensp;Вручну зараз</div>
+            <div role="columnheader">✅&ensp;Автоматично з Tagwise</div>
+          </div>
+
+          <div class="pain-row" role="row">
+            <div role="cell">Щоранку переносите ціни з прайсу постачальника</div>
+            <div role="cell">Ціни оновлюються з прайсу самі</div>
+          </div>
+          <div class="pain-row" role="row">
+            <div role="cell">Продали на Prom — правите залишок на сайті й Rozetka</div>
+            <div role="cell">Залишок зменшується всюди одразу</div>
+          </div>
+          <div class="pain-row" role="row">
+            <div role="cell">Переписуєте замовлення з різних площадок</div>
+            <div role="cell">Усі замовлення в одному місці і в Telegram</div>
+          </div>
+          <div class="pain-row" role="row">
+            <div role="cell">Заповнюєте ТТН Нової Пошти руками</div>
+            <div role="cell">ТТН створюється з замовлення</div>
+          </div>
+          <div class="pain-row" role="row">
+            <div role="cell">Відповідаєте на однакові питання вночі</div>
+            <div role="cell">Бот відповідає і приймає замовлення 24/7</div>
+          </div>
+          <div class="pain-row" role="row">
+            <div role="cell">Увечері рахуєте, скільки продали</div>
+            <div role="cell">Звіт приходить сам о 21:00</div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     4. СХЕМА «ЯК ЦЕ ПРАЦЮЄ»
+     ============================================================ -->
+<section class="section">
+  <div class="container">
+    <div style="display:flex;flex-wrap:wrap;gap:48px;align-items:center">
+
+      <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:16px">
+        <h2 class="heading-lg">Tagwise — клей між усіма системами</h2>
+        <p style="color:var(--text)">Не потрібно купувати дорогу CRM чи 1С, якщо у вас їх немає. Підключаємо те, що вже є.</p>
+      </div>
+
+      <div style="flex:2 1 480px;min-width:0;overflow-x:auto">
+        <div class="schema" aria-label="Схема інтеграцій">
+
+          <ul class="schema__col" aria-label="Джерела даних">
+            <li class="schema__node">Прайс постачальника</li>
+            <li class="schema__node">1С / BAS</li>
+            <li class="schema__node">Excel / CSV</li>
+          </ul>
+
+          <div class="schema__connector" aria-hidden="true">→</div>
+
+          <div class="schema__hub" aria-label="Tagwise">
+            <span class="logo" style="flex-direction:column;gap:0">
+              <span class="logo__tag" style="font-size:10px;line-height:1.2">tag</span><span class="logo__wise" style="font-size:10px;line-height:1.2">wise</span>
+            </span>
+          </div>
+
+          <div class="schema__connector" aria-hidden="true">→</div>
+
+          <ul class="schema__col" aria-label="Куди передаємо">
+            <li class="schema__node">Сайт</li>
+            <li class="schema__node">Prom</li>
+            <li class="schema__node">Rozetka</li>
+            <li class="schema__node">Epicentr</li>
+            <li class="schema__node">Нова Пошта</li>
+            <li class="schema__node">Telegram</li>
+          </ul>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     5. ПОСЛУГИ ДЕТАЛЬНО
+     ============================================================ -->
+<section class="section section--white">
+  <div class="container">
+    <div style="display:flex;flex-direction:column;gap:40px">
+
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px">
+        <h2 class="heading-lg">Послуги і що входить</h2>
+        <p style="color:var(--muted);font-size:15px">Кожна підключається окремо — платите лише за потрібне</p>
+      </div>
+
+      <div class="svc-grid">
+
+        <!-- 1. Telegram-сповіщення -->
+        <div class="svc-card">
+          <div>
+            <div class="svc-card__name">Сповіщення в Telegram</div>
+            <div class="svc-card__price-row">
+              <span class="svc-card__price">$70</span>
+              <span class="svc-card__label">· разово</span>
+            </div>
+          </div>
+          <div class="svc-card__section">
+            <div class="svc-card__section-title">Що входить</div>
+            <ul class="svc-card__list">
+              <li>Нові замовлення і заявки з сайту миттєво в Telegram</li>
+              <li>Склад замовлення, контакти покупця, сума</li>
+              <li>Можна підключити кількох менеджерів</li>
+            </ul>
+          </div>
+          <div class="svc-card__section">
+            <div class="svc-card__section-title">Що потрібно від вас</div>
+            <ul class="svc-card__list">
+              <li>Telegram власника або менеджера</li>
+            </ul>
+          </div>
+          <div class="svc-card__term">Термін: [N] днів</div>
+        </div>
+
+        <!-- 2. Онлайн-оплата -->
+        <div class="svc-card">
+          <div>
+            <div class="svc-card__name">Онлайн-оплата</div>
+            <div class="svc-card__price-row">
+              <span class="svc-card__price">$130</span>
+              <span class="svc-card__label">· разово</span>
+            </div>
+          </div>
+          <div class="svc-card__section">
+            <div class="svc-card__section-title">Що входить</div>
+            <ul class="svc-card__list">
+              <li>Підключення LiqPay, WayForPay або monobank</li>
+              <li>Статус оплати в замовленні</li>
+              <li>Сповіщення про оплату в Telegram</li>
+            </ul>
+          </div>
+          <div class="svc-card__section">
+            <div class="svc-card__section-title">Що потрібно від вас</div>
+            <ul class="svc-card__list">
+              <li>Договір з платіжним сервісом (ФОП)</li>
+              <li>Ключі доступу до платіжного кабінету</li>
+            </ul>
+          </div>
+          <div class="svc-card__term">Термін: [N] днів</div>
+        </div>
+
+        <!-- 3. Нова Пошта -->
+        <div class="svc-card">
+          <div>
+            <div class="svc-card__name">Нова Пошта</div>
+            <div class="svc-card__price-row">
+              <span class="svc-card__price">$260</span>
+              <span class="svc-card__label">· разово</span>
+            </div>
+          </div>
+          <div class="svc-card__section">
+            <div class="svc-card__section-title">Що входить</div>
+            <ul class="svc-card__list">
+              <li>Вибір міста і відділення / поштомату при оформленні</li>
+              <li>Розрахунок вартості доставки</li>
+              <li>Автоматичне створення ТТН</li>
+              <li>Номер ТТН покупцю</li>
+            </ul>
+          </div>
+          <div class="svc-card__section">
+            <div class="svc-card__section-title">Що потрібно від вас</div>
+            <ul class="svc-card__list">
+              <li>Бізнес-кабінет Нової Пошти</li>
+              <li>API-ключ</li>
+            </ul>
+          </div>
+          <div class="svc-card__term">Термін: [N] днів</div>
+        </div>
+
+        <!-- 4. Маркетплейси -->
+        <div class="svc-card">
+          <div>
+            <div class="svc-card__name">Маркетплейси</div>
+            <div class="svc-card__price-row">
+              <span class="svc-card__price">$200</span>
+              <span class="svc-card__label">· разово</span>
+              <span class="svc-card__price">+ $30/міс</span>
+              <span class="svc-card__label">підтримка</span>
+            </div>
+          </div>
+          <div class="svc-card__section">
+            <div class="svc-card__section-title">Що входить</div>
+            <ul class="svc-card__list">
+              <li>Вивантаження товарів на Prom, Rozetka, Epicentr</li>
+              <li>Автооновлення цін і залишків</li>
+              <li>Замовлення з площадок в одному місці</li>
+            </ul>
+          </div>
+          <div class="svc-card__section">
+            <div class="svc-card__section-title">Щомісяця — підтримка</div>
+            <ul class="svc-card__list">
+              <li>Площадки змінюють правила — ми стежимо, щоб усе працювало</li>
+            </ul>
+          </div>
+          <div class="svc-card__section">
+            <div class="svc-card__section-title">Що потрібно від вас</div>
+            <ul class="svc-card__list">
+              <li>Доступ до кабінетів продавця на маркетплейсах</li>
+            </ul>
+          </div>
+          <div class="svc-card__term">Термін: [N] днів</div>
+        </div>
+
+        <!-- 5. Telegram-бот -->
+        <div class="svc-card">
+          <div>
+            <div class="svc-card__name">Telegram-бот</div>
+            <div class="svc-card__price-row">
+              <span class="svc-card__price">від $320</span>
+              <span class="svc-card__label">· разово</span>
+            </div>
+          </div>
+          <div class="svc-card__section">
+            <div class="svc-card__section-title">Що входить</div>
+            <ul class="svc-card__list">
+              <li>Відповіді на часті питання покупців</li>
+              <li>Каталог і прийом замовлень у Telegram</li>
+              <li>Складні питання — передача менеджеру</li>
+            </ul>
+          </div>
+          <div class="svc-card__section">
+            <div class="svc-card__section-title">Що потрібно від вас</div>
+            <ul class="svc-card__list">
+              <li>Список частих питань і відповідей</li>
+            </ul>
+          </div>
+          <div class="svc-card__term">Термін: [N] днів</div>
+        </div>
+
+        <!-- 6. Склад і 1С / BAS -->
+        <div class="svc-card">
+          <div>
+            <div class="svc-card__name">Склад і 1С / BAS</div>
+            <div class="svc-card__price-row">
+              <span class="svc-card__price">від $1 000</span>
+              <span class="svc-card__label">· разово</span>
+            </div>
+          </div>
+          <div class="svc-card__section">
+            <div class="svc-card__section-title">Що входить</div>
+            <ul class="svc-card__list">
+              <li>Обмін товарами, цінами, залишками</li>
+              <li>Замовлення з сайту потрапляють в 1С</li>
+              <li>Налаштування під вашу конфігурацію</li>
+            </ul>
+          </div>
+          <div class="svc-card__section">
+            <div class="svc-card__section-title">Що потрібно від вас</div>
+            <ul class="svc-card__list">
+              <li>Доступ до 1С / BAS</li>
+              <li>Контакт вашого бухгалтера або програміста 1С</li>
+            </ul>
+          </div>
+          <p class="svc-card__note">Точну ціну називаємо після безкоштовного аудиту.</p>
+          <div class="svc-card__term">Термін: [N] тижнів</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     6. ЯК МИ ПРАЦЮЄМО
+     ============================================================ -->
+<section class="section section--dark">
+  <div class="container">
+    <div style="display:flex;flex-direction:column;gap:48px">
+
+      <h2 class="heading-lg">Як ми працюємо</h2>
+
+      <div class="how-steps">
+
+        <div class="how-step">
+          <span class="how-step__num">01</span>
+          <div class="how-step__title">Заявка</div>
+          <p class="how-step__text">Розповідаєте, що забирає найбільше часу у вашому магазині.</p>
+        </div>
+
+        <div class="how-step">
+          <span class="how-step__num">02</span>
+          <div class="how-step__title">Безкоштовний аудит, 30 хв</div>
+          <p class="how-step__text">Дивимось ваш магазин і процеси, з'ясовуємо, що автоматизувати першим.</p>
+        </div>
+
+        <div class="how-step">
+          <span class="how-step__num">03</span>
+          <div class="how-step__title">Фіксована ціна</div>
+          <p class="how-step__text">Називаємо суму і термін до старту роботи. Ціна не зростає в процесі.</p>
+        </div>
+
+        <div class="how-step">
+          <span class="how-step__num">04</span>
+          <div class="how-step__title">Запуск і перевірка</div>
+          <p class="how-step__text">Налаштовуємо, тестуємо на ваших реальних замовленнях, показуємо, як користуватись.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     7. FAQ
+     ============================================================ -->
+<section id="faq" class="section">
+  <div class="container">
+    <div class="faq-layout">
+
+      <h2 class="heading-lg" style="flex:1 1 300px">Часті питання</h2>
+
+      <div class="faq-list" style="flex:2 1 560px">
+
+        <div class="faq-item" style="border-bottom:1px solid var(--border)">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="afaq-1" style="color:var(--ink)">
+            У мене немає 1С. Мені це потрібно?
+            <svg class="faq-trigger__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div id="afaq-1" class="faq-panel" aria-hidden="true">
+            <div class="faq-panel__inner" style="color:var(--text)">
+              Ні. Більшість послуг працює без 1С: ціни з Excel чи прайсу постачальника, залишки на сайті і маркетплейсах. 1С — це лише одна з опцій.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" style="border-bottom:1px solid var(--border)">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="afaq-2" style="color:var(--ink)">
+            Можна почати з однієї послуги?
+            <svg class="faq-trigger__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div id="afaq-2" class="faq-panel" aria-hidden="true">
+            <div class="faq-panel__inner" style="color:var(--text)">
+              Так. Кожна послуга підключається незалежно — платите лише за те, що потрібно зараз. Докладіть пізніше ще одну, якщо буде потреба.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" style="border-bottom:1px solid var(--border)">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="afaq-3" style="color:var(--ink)">
+            Що, якщо маркетплейс змінить правила?
+            <svg class="faq-trigger__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div id="afaq-3" class="faq-panel" aria-hidden="true">
+            <div class="faq-panel__inner" style="color:var(--text)">
+              Для маркетплейсів є підтримка $30/міс — ми стежимо за змінами і оновлюємо інтеграцію самі, не чекаючи, поки ви помітите проблему.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" style="border-bottom:1px solid var(--border)">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="afaq-4" style="color:var(--ink)">
+            Хто власник доступів і даних?
+            <svg class="faq-trigger__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div id="afaq-4" class="faq-panel" aria-hidden="true">
+            <div class="faq-panel__inner" style="color:var(--text)">
+              Ви. Усі ключі і кабінети оформлені на вас — ми не зберігаємо ваші паролі після завершення налаштування.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" style="border-bottom:1px solid var(--border)">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="afaq-5" style="color:var(--ink)">
+            Скільки часу займає підключення?
+            <svg class="faq-trigger__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div id="afaq-5" class="faq-panel" aria-hidden="true">
+            <div class="faq-panel__inner" style="color:var(--text)">
+              Від [N] днів для Telegram-сповіщень до [N] тижнів для 1С / BAS. Точний термін — після аудиту, до старту роботи.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="afaq-6" style="color:var(--ink)">
+            Працюєте з магазинами не на Tagwise?
+            <svg class="faq-trigger__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div id="afaq-6" class="faq-panel" aria-hidden="true">
+            <div class="faq-panel__inner" style="color:var(--text)">
+              [уточнити: так / ні]
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     8. ФОРМА
+     ============================================================ -->
+<section id="contact" class="section section--white">
+  <div class="container">
+    <div class="contact-layout">
+
+      <div class="contact-info">
+        <h2 class="heading-lg">Записатися на безкоштовний аудит</h2>
+        <p style="color:var(--text)">Подивимось на ваш магазин і процеси, скажемо, що автоматизувати першим і скільки це коштує. Безкоштовно, 30 хвилин.</p>
+        <div class="contact-info__links">
+          <span>Telegram: <strong>[<a href="#">@tagwise_ua</a>]</strong></span>
+          <span>Телефон: <strong>[+380 …]</strong></span>
+          <span>Пошта: <strong>[hello@tagwise.com.ua]</strong></span>
+        </div>
+      </div>
+
+      <form id="auto-form" class="card lead-form" novalidate>
+
+        <input type="text" name="website" id="af-hp" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <div class="form-group">
+          <label class="form-label">Що хочете автоматизувати</label>
+          <div class="chip-group" id="service-chips">
+            <label class="chip"><input type="checkbox" name="service" value="Telegram-сповіщення"> Telegram-сповіщення</label>
+            <label class="chip"><input type="checkbox" name="service" value="Онлайн-оплата"> Онлайн-оплата</label>
+            <label class="chip"><input type="checkbox" name="service" value="Нова Пошта"> Нова Пошта</label>
+            <label class="chip"><input type="checkbox" name="service" value="Маркетплейси"> Маркетплейси</label>
+            <label class="chip"><input type="checkbox" name="service" value="Telegram-бот"> Telegram-бот</label>
+            <label class="chip"><input type="checkbox" name="service" value="1С / BAS"> 1С / BAS</label>
+            <label class="chip"><input type="checkbox" name="service" value="Не знаю, порадьте"> Не знаю, порадьте</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="af-name">Назва магазину</label>
+          <input class="form-input" id="af-name" type="text" name="name" placeholder="Зоомагазин «Лапка»" required autocomplete="organization">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="af-where">Де продаєте</label>
+          <input class="form-input" id="af-where" type="text" name="where" placeholder="Сайт, Prom, Rozetka…">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="af-contact">Telegram або телефон</label>
+          <input class="form-input" id="af-contact" type="text" name="contact" placeholder="@username або +380…" required autocomplete="tel">
+        </div>
+
+        <label class="form-checkbox">
+          <input type="checkbox" id="af-agree" name="agree" required>
+          Погоджуюся з умовами <a href="offer.html">публічної оферти</a>
+        </label>
+
+        <div id="auto-form-msg" class="form-message" role="alert"></div>
+
+        <button type="submit" class="btn btn--accent btn--lg">Записатися на безкоштовний аудит</button>
+
+      </form>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<!-- ============================================================
+     ПІДВАЛ
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__inner">
+      <span>© 2026 tagwise — сайти і автоматизація для магазинів</span>
+      <span>
+        <a href="offer.html">Публічна оферта</a>
+        &nbsp;·&nbsp;
+        <a href="privacy.html">Політика конфіденційності</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+(function () {
+  /* ── Відео: autoplay/pause на intersection ── */
+  var vid = document.getElementById('auto-video');
+  if (vid && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { vid.play(); } else { vid.pause(); }
+      });
+    }, { threshold: 0.4 });
+    io.observe(vid);
+  }
+
+  /* ── Форма автоматизації ── */
+  var form = document.getElementById('auto-form');
+  var msg  = document.getElementById('auto-form-msg');
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (document.getElementById('af-hp').value) return;
+
+    var agree = document.getElementById('af-agree');
+    if (!agree.checked) {
+      agree.focus();
+      return;
+    }
+
+    var services = Array.from(form.querySelectorAll('input[name="service"]:checked'))
+                        .map(function (c) { return c.value; });
+
+    var payload = {
+      name:     document.getElementById('af-name').value.trim(),
+      where:    document.getElementById('af-where').value.trim(),
+      contact:  document.getElementById('af-contact').value.trim(),
+      services: services.length ? services.join(', ') : 'не обрано',
+      page:     'automation'
+    };
+
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+
+    fetch('api/lead.php', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(payload)
+    })
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      if (data.ok) {
+        msg.className = 'form-message is-success';
+        msg.textContent = 'Заявку прийнято! Напишемо вам найближчим часом.';
+        form.reset();
+      } else {
+        throw new Error(data.error || 'error');
+      }
+    })
+    .catch(function () {
+      msg.className = 'form-message is-error';
+      msg.textContent = "Не вдалося надіслати заявку. Перевірте з'єднання з мережею.";
+    })
+    .finally(function () { btn.disabled = false; });
+  });
+})();
+</script>
+</body>
+</html>

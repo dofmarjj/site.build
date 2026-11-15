@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Каталог — Florie</title>
+  <link rel="stylesheet" href="assets/css/shop.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="container">
+    <span>Доставка сьогодні — замовте до 14:00</span>
+    <span>📞 <a href="tel:+380000000000">+38 (000) 000-00-00</a>&ensp;·&ensp;пн–нд 8:00–21:00</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <nav class="header-nav">
+      <a href="shop.html" class="active">Каталог</a>
+      <a href="#">Букети</a>
+      <a href="#">Рослини</a>
+      <a href="#">Корпоративним</a>
+    </nav>
+    <a href="index.html" class="site-logo">
+      <span class="site-logo__name">Florie</span>
+      <span class="site-logo__sub">квіткова крамниця</span>
+    </a>
+    <div class="header-actions">
+      <a href="#" aria-label="Пошук">
+        <svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </a>
+      <a href="#" aria-label="Кошик">
+        <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </a>
+    </div>
+    <button class="nav-toggle" aria-label="Меню" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <nav class="mobile-nav">
+    <a href="shop.html">Каталог</a>
+    <a href="#">Букети</a>
+    <a href="#">Рослини</a>
+    <a href="#">+38 (000) 000-00-00</a>
+  </nav>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <h1 class="page-hero__title">Каталог букетів</h1>
+  </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div class="container">
+    <ol>
+      <li><a href="index.html">Головна</a></li>
+      <li>Каталог</li>
+    </ol>
+  </div>
+</div>
+
+<!-- SHOP LAYOUT -->
+<div class="container">
+  <div class="shop-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="shop-sidebar">
+
+      <div class="filter-block">
+        <h2 class="filter-title">Категорія</h2>
+        <ul class="filter-list">
+          <li><label class="filter-check"><input type="checkbox" checked> Усі букети <span class="filter-check__count">48</span></label></li>
+          <li><label class="filter-check"><input type="checkbox"> Троянди <span class="filter-check__count">18</span></label></li>
+          <li><label class="filter-check"><input type="checkbox"> Піонії <span class="filter-check__count">9</span></label></li>
+          <li><label class="filter-check"><input type="checkbox"> Польові <span class="filter-check__count">12</span></label></li>
+          <li><label class="filter-check"><input type="checkbox"> Соняшники <span class="filter-check__count">6</span></label></li>
+          <li><label class="filter-check"><input type="checkbox"> Рослини <span class="filter-check__count">14</span></label></li>
+        </ul>
+      </div>
+
+      <div class="filter-block">
+        <h2 class="filter-title">Привід</h2>
+        <ul class="filter-list">
+          <li><label class="filter-check"><input type="checkbox"> День народження</label></li>
+          <li><label class="filter-check"><input type="checkbox"> Річниця</label></li>
+          <li><label class="filter-check"><input type="checkbox"> Вибачення</label></li>
+          <li><label class="filter-check"><input type="checkbox"> Просто так</label></li>
+          <li><label class="filter-check"><input type="checkbox"> Весілля</label></li>
+        </ul>
+      </div>
+
+      <div class="filter-block">
+        <h2 class="filter-title">Ціна, ₴</h2>
+        <div class="price-inputs">
+          <div class="price-input-wrap">
+            <span class="price-currency">від</span>
+            <input type="number" placeholder="0" min="0" id="priceFrom" aria-label="Ціна від">
+          </div>
+          <span class="price-sep">—</span>
+          <div class="price-input-wrap">
+            <span class="price-currency">до</span>
+            <input type="number" placeholder="5000" min="0" id="priceTo" aria-label="Ціна до">
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-block">
+        <h2 class="filter-title">Кількість квітів</h2>
+        <ul class="filter-list">
+          <li><label class="filter-check"><input type="checkbox"> До 10 шт</label></li>
+          <li><label class="filter-check"><input type="checkbox"> 11–20 шт</label></li>
+          <li><label class="filter-check"><input type="checkbox"> 21–35 шт</label></li>
+          <li><label class="filter-check"><input type="checkbox"> 36+ шт</label></li>
+        </ul>
+      </div>
+
+    </aside>
+
+    <!-- PRODUCTS -->
+    <main>
+      <div class="shop-toolbar">
+        <span class="shop-toolbar__count">48 товарів</span>
+        <div class="shop-sort">
+          <label for="sortSelect">Сортувати:</label>
+          <select id="sortSelect" aria-label="Сортування">
+            <option>Популярні</option>
+            <option>Дешевші спочатку</option>
+            <option>Дорожчі спочатку</option>
+            <option>Новинки</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="products-grid">
+
+        <article class="product-card">
+          <a href="product.html" class="product-card__img">
+            <img src="assets/img/product_roses.jpg" alt="Рожева хмара" loading="lazy">
+            <span class="product-card__badge badge--new">Новинка</span>
+            <div class="product-card__quick"><button onclick="addToCart(this,'Рожева хмара')">Додати в кошик</button></div>
+          </a>
+          <a href="product.html"><h3 class="product-card__name">Рожева хмара</h3></a>
+          <span class="product-card__meta">Троянди · 25 шт</span>
+          <div class="product-card__price"><span class="price-current">1 450 ₴</span></div>
+        </article>
+
+        <article class="product-card">
+          <a href="product.html" class="product-card__img">
+            <img src="assets/img/product_wildflowers.jpg" alt="Лісова казка" loading="lazy">
+            <div class="product-card__quick"><button onclick="addToCart(this,'Лісова казка')">Додати в кошик</button></div>
+          </a>
+          <a href="product.html"><h3 class="product-card__name">Лісова казка</h3></a>
+          <span class="product-card__meta">Польові квіти · мікс</span>
+          <div class="product-card__price"><span class="price-current">980 ₴</span><span class="price-old">1 200 ₴</span></div>
+        </article>
+
+        <article class="product-card">
+          <a href="product.html" class="product-card__img">
+            <img src="assets/img/product_peonies.jpg" alt="Вишня" loading="lazy">
+            <span class="product-card__badge badge--sale">−20%</span>
+            <div class="product-card__quick"><button onclick="addToCart(this,'Вишня')">Додати в кошик</button></div>
+          </a>
+          <a href="product.html"><h3 class="product-card__name">Вишня</h3></a>
+          <span class="product-card__meta">Піонії · 15 шт</span>
+          <div class="product-card__price"><span class="price-current">1 760 ₴</span><span class="price-old">2 200 ₴</span></div>
+        </article>
+
+        <article class="product-card">
+          <a href="product.html" class="product-card__img">
+            <img src="assets/img/product_white.jpg" alt="Альба" loading="lazy">
+            <div class="product-card__quick"><button onclick="addToCart(this,'Альба')">Додати в кошик</button></div>
+          </a>
+          <a href="product.html"><h3 class="product-card__name">Альба</h3></a>
+          <span class="product-card__meta">Лізіантус · 20 шт</span>
+          <div class="product-card__price"><span class="price-current">1 190 ₴</span></div>
+        </article>
+
+        <article class="product-card">
+          <a href="product.html" class="product-card__img">
+            <img src="assets/img/product_sunflowers.jpg" alt="Сонячний день" loading="lazy">
+            <div class="product-card__quick"><button onclick="addToCart(this,'Сонячний день')">Додати в кошик</button></div>
+          </a>
+          <a href="product.html"><h3 class="product-card__name">Сонячний день</h3></a>
+          <span class="product-card__meta">Соняшники · 11 шт</span>
+          <div class="product-card__price"><span class="price-current">620 ₴</span></div>
+        </article>
+
+        <article class="product-card">
+          <a href="product.html" class="product-card__img">
+            <img src="assets/img/product_plants.jpg" alt="Зелена симфонія" loading="lazy">
+            <span class="product-card__badge badge--new">Новинка</span>
+            <div class="product-card__quick"><button onclick="addToCart(this,'Зелена симфонія')">Додати в кошик</button></div>
+          </a>
+          <a href="product.html"><h3 class="product-card__name">Зелена симфонія</h3></a>
+          <span class="product-card__meta">Рослини · горщик</span>
+          <div class="product-card__price"><span class="price-current">850 ₴</span></div>
+        </article>
+
+      </div>
+
+      <!-- PAGINATION -->
+      <nav class="pagination" aria-label="Сторінки">
+        <span class="current" aria-current="page">1</span>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">→</a>
+      </nav>
+    </main>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand__logo">Florie</div>
+        <p class="footer-brand__desc">Квіткова крамниця з доставкою того самого дня.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram">Ig</a>
+          <a href="#" aria-label="Telegram">Tg</a>
+          <a href="#" aria-label="Facebook">Fb</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Каталог</h4>
+        <ul>
+          <li><a href="shop.html">Усі букети</a></li>
+          <li><a href="shop.html">Троянди</a></li>
+          <li><a href="shop.html">Піонії</a></li>
+          <li><a href="shop.html">Польові</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Інформація</h4>
+        <ul>
+          <li><a href="#">Доставка та оплата</a></li>
+          <li><a href="#">Як замовити</a></li>
+          <li><a href="#">Питання та відповіді</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Контакти</h4>
+        <ul>
+          <li><a href="tel:+380000000000">+38 (000) 000-00-00</a></li>
+          <li><a href="#">info@florie.com.ua</a></li>
+          <li><a href="#">пн–нд: 8:00–21:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Florie.</span>
+      <a href="../../index.html" class="tagwise-badge" target="_blank" rel="noopener">
+        <span class="tagwise-badge__tag">TW</span>
+        Сайт на Tagwise
+      </a>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="assets/js/shop.js"></script>
+</body>
+</html>

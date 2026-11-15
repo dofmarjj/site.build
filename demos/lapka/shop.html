@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Магазин — Лапка</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/shop.css">
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="site-header" role="banner">
+  <div class="container">
+    <div class="header-inner">
+
+      <a href="index.html" class="site-logo" aria-label="Лапка — головна">
+        <svg class="site-logo__icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="14" cy="10" r="4.5" fill="#2A7D4F"/>
+          <circle cx="26" cy="10" r="4.5" fill="#2A7D4F"/>
+          <circle cx="8"  cy="18" r="3.5" fill="#2A7D4F"/>
+          <circle cx="32" cy="18" r="3.5" fill="#2A7D4F"/>
+          <ellipse cx="20" cy="27" rx="10" ry="9" fill="#2A7D4F"/>
+          <circle cx="14" cy="24" r="2.5" fill="#fff" opacity=".6"/>
+          <circle cx="20" cy="22" r="2.5" fill="#fff" opacity=".6"/>
+          <circle cx="26" cy="24" r="2.5" fill="#fff" opacity=".6"/>
+        </svg>
+        <div class="site-logo__text">
+          <span class="site-logo__name">Лапка</span>
+          <span class="site-logo__tagline">Зоомагазин для котів та собак</span>
+        </div>
+      </a>
+
+      <nav class="site-nav" aria-label="Головна навігація">
+        <ul class="site-nav__list">
+          <li><a href="index.html" class="site-nav__link">Головна</a></li>
+          <li><a href="shop.html" class="site-nav__link active">Магазин</a></li>
+          <li><a href="index.html#delivery" class="site-nav__link">Доставка</a></li>
+          <li><a href="index.html#contacts" class="site-nav__link">Контакти</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="header-icon-btn" aria-label="Пошук">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+        <a href="#" class="header-icon-btn" aria-label="Кошик — 3 товари">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <span class="cart-badge" aria-label="3 товари у кошику">3</span>
+        </a>
+        <button class="hamburger" aria-label="Меню" aria-expanded="false" aria-controls="mobile-nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobile-nav" aria-label="Мобільна навігація">
+  <ul class="mobile-nav__list">
+    <li><a href="index.html" class="mobile-nav__link">Головна</a></li>
+    <li><a href="shop.html" class="mobile-nav__link">Магазин</a></li>
+    <li><a href="index.html#delivery" class="mobile-nav__link">Доставка</a></li>
+    <li><a href="index.html#contacts" class="mobile-nav__link">Контакти</a></li>
+  </ul>
+</nav>
+
+
+<!-- ============================================================
+     MAIN
+     ============================================================ -->
+<main>
+  <div class="container">
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Хлібні крихти">
+      <a href="index.html">Головна</a>
+      <span class="breadcrumb__sep" aria-hidden="true">›</span>
+      <span class="breadcrumb__current">Магазин</span>
+    </nav>
+
+    <!-- Shop page header -->
+    <div class="shop-page">
+      <div class="shop-header">
+        <h1>Магазин</h1>
+        <div class="shop-header__right">
+          <span class="shop-counter">Показано 1–12 з 48 товарів</span>
+          <label for="shop-sort" class="sr-only">Сортування</label>
+          <select id="shop-sort" class="shop-sort" aria-label="Сортувати за">
+            <option>За популярністю</option>
+            <option>Ціна: від дешевих</option>
+            <option>Ціна: від дорогих</option>
+            <option>Новинки</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Mobile filters toggle -->
+      <button class="filters-toggle" aria-expanded="false" aria-controls="sidebar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/>
+          <line x1="10" y1="18" x2="14" y2="18"/>
+        </svg>
+        <span class="filters-toggle__text">Показати фільтри</span>
+      </button>
+
+      <!-- Layout -->
+      <div class="shop-layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar" aria-label="Фільтри товарів">
+
+          <!-- Search -->
+          <div class="sidebar-section">
+            <div class="sidebar-section__title">Пошук</div>
+            <div class="sidebar-search">
+              <svg class="sidebar-search__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+              <input type="search" placeholder="Знайти товар..." aria-label="Пошук товарів">
+            </div>
+          </div>
+
+          <!-- Categories -->
+          <div class="sidebar-section">
+            <div class="sidebar-section__title">Категорії</div>
+            <ul class="checkbox-list">
+              <li>
+                <label class="checkbox-item">
+                  <input type="checkbox" checked>
+                  <span class="checkbox-item__label">Корм для котів</span>
+                  <span class="checkbox-item__count">24</span>
+                </label>
+              </li>
+              <li>
+                <label class="checkbox-item">
+                  <input type="checkbox">
+                  <span class="checkbox-item__label">Корм для собак</span>
+                  <span class="checkbox-item__count">18</span>
+                </label>
+              </li>
+              <li>
+                <label class="checkbox-item">
+                  <input type="checkbox">
+                  <span class="checkbox-item__label">Аксесуари</span>
+                  <span class="checkbox-item__count">32</span>
+                </label>
+              </li>
+              <li>
+                <label class="checkbox-item">
+                  <input type="checkbox">
+                  <span class="checkbox-item__label">Іграшки</span>
+                  <span class="checkbox-item__count">15</span>
+                </label>
+              </li>
+              <li>
+                <label class="checkbox-item">
+                  <input type="checkbox">
+                  <span class="checkbox-item__label">Ліки та догляд</span>
+                  <span class="checkbox-item__count">11</span>
+                </label>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Price range -->
+          <div class="sidebar-section">
+            <div class="sidebar-section__title">Ціна</div>
+            <div class="price-inputs">
+              <input type="text" class="price-input" value="50" aria-label="Мінімальна ціна"><span class="price-currency">₴</span>
+              <span class="price-dash">—</span>
+              <input type="text" class="price-input" value="2 500" aria-label="Максимальна ціна"><span class="price-currency">₴</span>
+            </div>
+          </div>
+
+          <!-- Brands -->
+          <div class="sidebar-section">
+            <div class="sidebar-section__title">Бренди</div>
+            <ul class="checkbox-list">
+              <li>
+                <label class="checkbox-item">
+                  <input type="checkbox" checked>
+                  <span class="checkbox-item__label">Royal Canin</span>
+                </label>
+              </li>
+              <li>
+                <label class="checkbox-item">
+                  <input type="checkbox">
+                  <span class="checkbox-item__label">Hills</span>
+                </label>
+              </li>
+              <li>
+                <label class="checkbox-item">
+                  <input type="checkbox">
+                  <span class="checkbox-item__label">Purina</span>
+                </label>
+              </li>
+              <li>
+                <label class="checkbox-item">
+                  <input type="checkbox">
+                  <span class="checkbox-item__label">Brit</span>
+                </label>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Apply button -->
+          <div class="sidebar-actions">
+            <button class="btn btn-green btn-full">Застосувати фільтри</button>
+          </div>
+
+        </aside>
+
+        <!-- Products grid -->
+        <section aria-label="Список товарів">
+          <div class="products-grid products-grid--3">
+
+            <!-- 1 -->
+            <article class="product-card">
+              <a href="product.html" class="product-card__img-wrap" aria-label="Royal Canin Indoor Adult для котів 2 кг">
+                <div class="product-card__placeholder">
+                  <span class="product-card__placeholder-emoji">🐱</span>
+                  <span class="product-card__placeholder-text">Royal Canin</span>
+                </div>
+                <div class="product-card__badges">
+                  <span class="badge badge--sale">-15%</span>
+                </div>
+              </a>
+              <div class="product-card__body">
+                <a href="product.html" class="product-card__name">Royal Canin Indoor Adult для котів 2 кг</a>
+                <div class="product-card__pricing">
+                  <span class="product-card__price">489 ₴</span>
+                  <span class="product-card__price-old">575 ₴</span>
+                </div>
+                <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+              </div>
+            </article>
+
+            <!-- 2 -->
+            <article class="product-card">
+              <a href="shop.html" class="product-card__img-wrap" aria-label="Hills Science Plan для собак Small 3 кг">
+                <div class="product-card__placeholder">
+                  <span class="product-card__placeholder-emoji">🐶</span>
+                  <span class="product-card__placeholder-text">Hills Science Plan</span>
+                </div>
+                <div class="product-card__badges">
+                  <span class="badge badge--hot">Хіт</span>
+                </div>
+              </a>
+              <div class="product-card__body">
+                <a href="shop.html" class="product-card__name">Hills Science Plan для собак Small 3 кг</a>
+                <div class="product-card__pricing">
+                  <span class="product-card__price">680 ₴</span>
+                </div>
+                <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+              </div>
+            </article>
+
+            <!-- 3 -->
+            <article class="product-card">
+              <a href="shop.html" class="product-card__img-wrap" aria-label="Purina ONE для котів 1.5 кг">
+                <div class="product-card__placeholder">
+                  <span class="product-card__placeholder-emoji">🐱</span>
+                  <span class="product-card__placeholder-text">Purina ONE</span>
+                </div>
+              </a>
+              <div class="product-card__body">
+                <a href="shop.html" class="product-card__name">Purina ONE для котів 1.5 кг</a>
+                <div class="product-card__pricing">
+                  <span class="product-card__price">275 ₴</span>
+                </div>
+                <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+              </div>
+            </article>
+
+            <!-- 4 -->
+            <article class="product-card">
+              <a href="shop.html" class="product-card__img-wrap" aria-label="Brit Care Cat Sensitive 2 кг">
+                <div class="product-card__placeholder">
+                  <span class="product-card__placeholder-emoji">🐱</span>
+                  <span class="product-card__placeholder-text">Brit Care</span>
+                </div>
+              </a>
+              <div class="product-card__body">
+                <a href="shop.html" class="product-card__name">Brit Care Cat Sensitive 2 кг</a>
+                <div class="product-card__pricing">
+                  <span class="product-card__price">395 ₴</span>
+                </div>
+                <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+              </div>
+            </article>
+
+            <!-- 5 -->
+            <article class="product-card">
+              <a href="shop.html" class="product-card__img-wrap" aria-label="Лежанка плюшева Хмаринка M">
+                <div class="product-card__placeholder">
+                  <span class="product-card__placeholder-emoji">🛏️</span>
+                  <span class="product-card__placeholder-text">Лежанка</span>
+                </div>
+              </a>
+              <div class="product-card__body">
+                <a href="shop.html" class="product-card__name">Лежанка плюшева «Хмаринка» M</a>
+                <div class="product-card__pricing">
+                  <span class="product-card__price">720 ₴</span>
+                </div>
+                <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+              </div>
+            </article>
+
+            <!-- 6 -->
+            <article class="product-card">
+              <a href="shop.html" class="product-card__img-wrap" aria-label="Шлейка нейлонова S/M">
+                <div class="product-card__placeholder">
+                  <span class="product-card__placeholder-emoji">🦮</span>
+                  <span class="product-card__placeholder-text">Шлейка</span>
+                </div>
+                <div class="product-card__badges">
+                  <span class="badge badge--new">Новинка</span>
+                </div>
+              </a>
+              <div class="product-card__body">
+                <a href="shop.html" class="product-card__name">Шлейка нейлонова S/M</a>
+                <div class="product-card__pricing">
+                  <span class="product-card__price">315 ₴</span>
+                </div>
+                <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+              </div>
+            </article>
+
+            <!-- 7 -->
+            <article class="product-card">
+              <a href="shop.html" class="product-card__img-wrap" aria-label="Нашийник шкіряний з гравіруванням">
+                <div class="product-card__placeholder">
+                  <span class="product-card__placeholder-emoji">🏷️</span>
+                  <span class="product-card__placeholder-text">Нашийник</span>
+                </div>
+              </a>
+              <div class="product-card__body">
+                <a href="shop.html" class="product-card__name">Нашийник шкіряний з гравіруванням</a>
+                <div class="product-card__pricing">
+                  <span class="product-card__price">245 ₴</span>
+                </div>
+                <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+              </div>
+            </article>
+
+            <!-- 8 -->
+            <article class="product-card">
+              <a href="shop.html" class="product-card__img-wrap" aria-label="Іграшка мишка з котячою м'ятою">
+                <div class="product-card__placeholder">
+                  <span class="product-card__placeholder-emoji">🐭</span>
+                  <span class="product-card__placeholder-text">Іграшка</span>
+                </div>
+              </a>
+              <div class="product-card__body">
+                <a href="shop.html" class="product-card__name">Іграшка мишка з котячою м'ятою</a>
+                <div class="product-card__pricing">
+                  <span class="product-card__price">89 ₴</span>
+                </div>
+                <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+              </div>
+            </article>
+
+            <!-- 9 -->
+            <article class="product-card">
+              <a href="shop.html" class="product-card__img-wrap" aria-label="Переноска пластикова 48×32">
+                <div class="product-card__placeholder">
+                  <span class="product-card__placeholder-emoji">🧳</span>
+                  <span class="product-card__placeholder-text">Переноска</span>
+                </div>
+              </a>
+              <div class="product-card__body">
+                <a href="shop.html" class="product-card__name">Переноска пластикова 48×32</a>
+                <div class="product-card__pricing">
+                  <span class="product-card__price">850 ₴</span>
+                </div>
+                <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+              </div>
+            </article>
+
+            <!-- 10 -->
+            <article class="product-card">
+              <a href="shop.html" class="product-card__img-wrap" aria-label="Щітка-рукавичка для вичісування">
+                <div class="product-card__placeholder">
+                  <span class="product-card__placeholder-emoji">🧤</span>
+                  <span class="product-card__placeholder-text">Щітка</span>
+                </div>
+              </a>
+              <div class="product-card__body">
+                <a href="shop.html" class="product-card__name">Щітка-рукавичка для вичісування</a>
+                <div class="product-card__pricing">
+                  <span class="product-card__price">195 ₴</span>
+                </div>
+                <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+              </div>
+            </article>
+
+            <!-- 11 -->
+            <article class="product-card">
+              <a href="shop.html" class="product-card__img-wrap" aria-label="Пісочниця кутова з кришкою">
+                <div class="product-card__placeholder">
+                  <span class="product-card__placeholder-emoji">🏠</span>
+                  <span class="product-card__placeholder-text">Пісочниця</span>
+                </div>
+              </a>
+              <div class="product-card__body">
+                <a href="shop.html" class="product-card__name">Пісочниця кутова з кришкою</a>
+                <div class="product-card__pricing">
+                  <span class="product-card__price">450 ₴</span>
+                </div>
+                <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+              </div>
+            </article>
+
+            <!-- 12 -->
+            <article class="product-card">
+              <a href="shop.html" class="product-card__img-wrap" aria-label="Когтеточка Мадрид кутова">
+                <div class="product-card__placeholder">
+                  <span class="product-card__placeholder-emoji">🌴</span>
+                  <span class="product-card__placeholder-text">Когтеточка</span>
+                </div>
+              </a>
+              <div class="product-card__body">
+                <a href="shop.html" class="product-card__name">Когтеточка «Мадрид» кутова</a>
+                <div class="product-card__pricing">
+                  <span class="product-card__price">1 240 ₴</span>
+                </div>
+                <button class="btn btn-primary btn-full btn-add-to-cart">До кошика</button>
+              </div>
+            </article>
+
+          </div><!-- /.products-grid -->
+
+          <!-- Pagination -->
+          <nav class="pagination" aria-label="Сторінки каталогу">
+            <button class="pagination__btn" aria-label="Попередня сторінка">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="15 18 9 12 15 6"/>
+              </svg>
+            </button>
+            <button class="pagination__btn active" aria-current="page" aria-label="Сторінка 1">1</button>
+            <button class="pagination__btn" aria-label="Сторінка 2">2</button>
+            <button class="pagination__btn" aria-label="Сторінка 3">3</button>
+            <span class="pagination__sep" aria-hidden="true">…</span>
+            <button class="pagination__btn" aria-label="Сторінка 4">4</button>
+            <button class="pagination__btn" aria-label="Наступна сторінка">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </button>
+          </nav>
+
+        </section><!-- /products -->
+      </div><!-- /.shop-layout -->
+    </div><!-- /.shop-page -->
+
+  </div><!-- /.container -->
+</main>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer" id="contacts">
+  <div class="container">
+    <div class="footer-main">
+      <div class="footer-grid">
+
+        <div>
+          <div class="footer-col__logo">
+            <svg width="32" height="32" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <circle cx="14" cy="10" r="4.5" fill="#2A7D4F"/>
+              <circle cx="26" cy="10" r="4.5" fill="#2A7D4F"/>
+              <circle cx="8"  cy="18" r="3.5" fill="#2A7D4F"/>
+              <circle cx="32" cy="18" r="3.5" fill="#2A7D4F"/>
+              <ellipse cx="20" cy="27" rx="10" ry="9" fill="#2A7D4F"/>
+            </svg>
+            <span class="footer-col__logo-name">Лапка</span>
+          </div>
+          <p class="footer-col__desc">Корм, аксесуари та ліки для котів, собак і гризунів. Доставка по місту і Новою Поштою.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.72a8.16 8.16 0 004.77 1.52V6.79a4.85 4.85 0 01-1-.1z"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Telegram">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8l-1.69 7.96c-.12.57-.46.71-.93.44l-2.56-1.88-1.23 1.19c-.14.14-.25.25-.5.25l.18-2.57 4.64-4.19c.2-.18-.05-.28-.31-.1L7.49 14.4l-2.49-.78c-.54-.17-.55-.54.12-.8l9.74-3.75c.45-.16.84.11.78.73z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-col__title">Магазин</h3>
+          <ul class="footer-links">
+            <li><a href="shop.html">Корм для котів</a></li>
+            <li><a href="shop.html">Корм для собак</a></li>
+            <li><a href="shop.html">Аксесуари</a></li>
+            <li><a href="shop.html">Іграшки</a></li>
+            <li><a href="shop.html">Ліки та догляд</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-col__title">Інфо</h3>
+          <ul class="footer-links">
+            <li><a href="index.html#delivery">Доставка та оплата</a></li>
+            <li><a href="#">Повернення</a></li>
+            <li><a href="#contacts">Контакти</a></li>
+            <li><a href="#">Акції</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-col__title">Контакти</h3>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.14 1.26 2 2 0 012.11 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+            <span>[ваш телефон]</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <span>[ваш email]</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <span>[години роботи]</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-meta">
+      <div class="footer-meta-inner">
+        <p class="footer-copy">© 2024 Лапка. Усі права захищено.</p>
+        <a href="https://tagwise.com.ua" class="tw-badge" target="_blank" rel="noopener" title="Сайт розроблено в Tagwise">
+          <span class="tw-badge__tag">tag</span>
+          <span class="tw-badge__text">Сайт зроблено в tagwise</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/shop.js"></script>
+</body>
+</html>
