@@ -169,7 +169,8 @@
       }
     }
 
-    nextStep();
+    // Показати вибір, не просуватись автоматично
+    renderStep();
   }
 
   function nextStep() {
@@ -207,21 +208,22 @@
     if (!def) return;
 
     const isMulti  = def.type === 'multi';
-    const curAns   = st.answers[stepKey] || (isMulti ? [] : null);
-    const hasBack  = st.cur > 0 && (st.cur > st.startFrom || st.startFrom > 0);
-    const canNext  = isMulti && Array.isArray(curAns) && curAns.length > 0;
+    const curAns   = st.answers[stepKey] !== undefined ? st.answers[stepKey] : (isMulti ? [] : null);
+    const hasBack  = st.cur > 0;
+    const hasAns   = isMulti ? (Array.isArray(curAns) && curAns.length > 0) : (curAns !== null && curAns !== undefined);
+    const totalStr = st.steps.includes('result') ? ` з ${visCount}` : '';
 
     body.innerHTML = `
       <div class="qz__step">
         <div>
-          <div class="qz__meta">Питання ${dispNum} з ${visCount}</div>
+          <div class="qz__meta">Питання ${dispNum}${totalStr}</div>
           <div class="qz__q">${def.q}</div>
           ${def.hint ? `<div class="qz__hint-text">${def.hint}</div>` : ''}
         </div>
         <div class="qz__choices" id="qz-choices"></div>
         <div class="qz__nav">
           ${hasBack ? `<button class="qz__back" id="qz-back">← Назад</button>` : ''}
-          ${isMulti ? `<button class="btn btn--primary" id="qz-next" style="margin-left:auto"${canNext ? '' : ' disabled'}>Далі →</button>` : ''}
+          <button class="btn btn--primary" id="qz-next" style="margin-left:auto"${hasAns ? '' : ' disabled'}>Далі →</button>
         </div>
       </div>`;
 
@@ -246,8 +248,7 @@
     });
 
     document.getElementById('qz-back')?.addEventListener('click', prevStep);
-    const nextBtn = document.getElementById('qz-next');
-    if (nextBtn) nextBtn.addEventListener('click', nextStep);
+    document.getElementById('qz-next')?.addEventListener('click', nextStep);
   }
 
   // ── Результати ──
