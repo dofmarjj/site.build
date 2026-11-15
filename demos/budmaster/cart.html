@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Кошик — БудМайстер</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6h12v10H2zM14 10h4l3 3v3h-7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="6" cy="18" r="2" fill="currentColor"/><circle cx="17" cy="18" r="2" fill="currentColor"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24"><path d="M3 4h2l2.4 11h11L21 7H6.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="9" cy="19.5" r="1.6" fill="currentColor"/><circle cx="17" cy="19.5" r="1.6" fill="currentColor"/></symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 3v4h4M9 12h6M9 16h6" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="c-sack" viewBox="0 0 80 80"><path d="M18 14h44l6 54H12z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M18 14l4-6h36l4 6M24 34h32M24 44h32" fill="none" stroke="currentColor" stroke-width="3"/><text x="40" y="60" text-anchor="middle" font-family="Oswald,sans-serif" font-size="11" font-weight="700" fill="currentColor">25 КГ</text></symbol>
+    <symbol id="c-brick" viewBox="0 0 80 80"><path d="M8 22h30v14H8zM42 22h30v14H42zM24 40h30v14H24zM8 40h12v14H8zM58 40h14v14H58zM8 58h30v14H8zM42 58h30v14H42z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/></symbol>
+    <symbol id="c-roll" viewBox="0 0 80 80"><ellipse cx="24" cy="40" rx="12" ry="22" fill="none" stroke="currentColor" stroke-width="3"/><path d="M24 18h40v44H24" fill="none" stroke="currentColor" stroke-width="3"/><ellipse cx="24" cy="40" rx="5" ry="9" fill="none" stroke="currentColor" stroke-width="3"/><path d="M40 18v44M52 18v44" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M5 7h14l-1 13H6L5 7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2M3 7h18" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-credit" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 10h20" stroke="currentColor" stroke-width="2"/><path d="M6 15h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<div class="topbar">
+  <div class="wrap">
+    <span><svg class="ico" style="width:16px"><use href="#i-clock"/></svg>Пн–Сб <b>8:00–18:00</b></span>
+    <span><svg class="ico" style="width:16px"><use href="#i-truck"/></svg>Відвантаження <b>в день замовлення</b></span>
+    <span class="push"><svg class="ico" style="width:16px"><use href="#i-phone"/></svg><b>[+380 00 000 00 00]</b></span>
+  </div>
+</div>
+
+<header class="header">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="БудМайстер, на головну"><span class="logo-mark">БМ</span><b>БудМайстер</b></a>
+    <nav class="nav" aria-label="Головна навігація">
+      <a href="index.html">Головна</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="delivery.html">Доставка</a>
+      <a href="wholesale.html">Оптовим клієнтам</a>
+      <a href="contacts.html">Контакти</a>
+    </nav>
+    <form class="search" role="search" onsubmit="return false">
+      <label for="q" style="position:absolute;left:-9999px">Пошук товарів</label>
+      <input id="q" type="search" placeholder="Цемент, гіпсокартон, OSB, профіль…">
+      <button type="submit">Знайти</button>
+    </form>
+    <div class="hlinks">
+      <a class="hl" href="wholesale.html"><svg class="ico"><use href="#i-doc"/></svg>Прайс</a>
+      <a class="hl" href="contacts.html"><svg class="ico"><use href="#i-user"/></svg>Кабінет</a>
+      <a class="hl cart active" href="cart.html" aria-label="Кошик"><svg class="ico"><use href="#i-cart"/></svg>Кошик<span class="count">3</span></a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="cart-section">
+  <div class="wrap">
+    <h1 style="font-family:var(--display);font-size:clamp(28px,3.5vw,42px);font-weight:700;text-transform:uppercase;margin:0 0 24px">Кошик</h1>
+
+    <div class="cart-layout">
+      <!-- Товари -->
+      <div>
+        <div class="cart-items-wrap" id="cartItems">
+          <div class="ci-head">
+            <span>Фото</span>
+            <span>Товар</span>
+            <span style="text-align:right">Ціна</span>
+            <span style="text-align:center">К-сть</span>
+            <span style="text-align:right">Сума</span>
+          </div>
+
+          <!-- Рядок 1: Цемент -->
+          <div class="cart-row" data-price="168" data-weight="25" id="row1">
+            <div class="cr-img"><svg width="48" height="48" aria-hidden="true"><use href="#c-sack"/></svg></div>
+            <div>
+              <div class="cr-name"><a href="product.html" style="text-decoration:none;color:inherit">Цемент ПЦ II/Б-Ш-400, мішок 25 кг</a></div>
+              <div class="cr-sku">Арт. [10245]</div>
+              <div class="cr-pack">мішок 25 кг</div>
+            </div>
+            <div class="cr-price mono">[168] ₴<div class="cr-price-bulk">від палети [152] ₴</div></div>
+            <div class="cr-qty">
+              <button type="button" aria-label="Менше">−</button>
+              <input type="number" value="20" min="1" aria-label="Кількість">
+              <button type="button" aria-label="Більше">+</button>
+            </div>
+            <div>
+              <div class="cr-total mono" id="total1">[3 360] ₴</div>
+              <button class="cr-del" type="button" aria-label="Видалити товар" title="Видалити"><svg width="20" height="20"><use href="#i-trash"/></svg></button>
+            </div>
+          </div>
+
+          <!-- Рядок 2: Газоблок -->
+          <div class="cart-row" data-price="74" data-weight="29" id="row2">
+            <div class="cr-img"><svg width="48" height="48" aria-hidden="true"><use href="#c-brick"/></svg></div>
+            <div>
+              <div class="cr-name"><a href="product.html" style="text-decoration:none;color:inherit">Газоблок D500, 600×200×300</a></div>
+              <div class="cr-sku">Арт. [20117]</div>
+              <div class="cr-pack">шт · палета 40 шт</div>
+            </div>
+            <div class="cr-price mono">[74] ₴<div class="cr-price-bulk">від палети [69] ₴</div></div>
+            <div class="cr-qty">
+              <button type="button" aria-label="Менше">−</button>
+              <input type="number" value="40" min="1" aria-label="Кількість">
+              <button type="button" aria-label="Більше">+</button>
+            </div>
+            <div>
+              <div class="cr-total mono" id="total2">[2 960] ₴</div>
+              <button class="cr-del" type="button" aria-label="Видалити товар" title="Видалити"><svg width="20" height="20"><use href="#i-trash"/></svg></button>
+            </div>
+          </div>
+
+          <!-- Рядок 3: Мінвата -->
+          <div class="cart-row" data-price="489" data-weight="18" id="row3">
+            <div class="cr-img"><svg width="48" height="48" aria-hidden="true"><use href="#c-roll"/></svg></div>
+            <div>
+              <div class="cr-name"><a href="product.html" style="text-decoration:none;color:inherit">Мінвата, плита 50 мм (уп. 6 м²)</a></div>
+              <div class="cr-sku">Арт. [30402]</div>
+              <div class="cr-pack">упаковка 6 м²</div>
+            </div>
+            <div class="cr-price mono">[489] ₴<div class="cr-price-bulk">від 20 уп. [455] ₴</div></div>
+            <div class="cr-qty">
+              <button type="button" aria-label="Менше">−</button>
+              <input type="number" value="5" min="1" aria-label="Кількість">
+              <button type="button" aria-label="Більше">+</button>
+            </div>
+            <div>
+              <div class="cr-total mono" id="total3">[2 445] ₴</div>
+              <button class="cr-del" type="button" aria-label="Видалити товар" title="Видалити"><svg width="20" height="20"><use href="#i-trash"/></svg></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Вага та рекомендація транспорту -->
+        <div class="cart-weight">
+          <svg class="ico" style="color:var(--orange)"><use href="#i-truck"/></svg>
+          <span><b>Загальна вага замовлення:</b></span>
+          <span class="wt-val" id="totalWeight">1 750 кг</span>
+          <span style="color:var(--muted)">— рекомендуємо <b>Вантажівку</b> (до 10 т)</span>
+        </div>
+
+        <!-- Оплата за рахунком -->
+        <div style="background:var(--white);border:2px solid var(--line);border-radius:var(--r);padding:14px 20px;margin-top:12px;display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+          <label class="checkbox-row" style="margin:0">
+            <input type="checkbox" id="invoiceCheck">
+            <svg class="ico" style="color:var(--muted)"><use href="#i-credit"/></svg>
+            Оплата за рахунком з ПДВ (для ФОП і юросіб)
+          </label>
+        </div>
+      </div>
+
+      <!-- Підсумок -->
+      <div class="cart-summary">
+        <div class="cs-title">Підсумок</div>
+
+        <div class="cs-row">
+          <span class="cs-label">Товари (3 позиції)</span>
+          <span class="mono" id="goodsTotal">[8 765] ₴</span>
+        </div>
+        <div class="cs-row">
+          <span class="cs-label">Знижка</span>
+          <span style="color:var(--ok)">— ₴</span>
+        </div>
+
+        <!-- Вибір транспорту -->
+        <div class="transport-select">
+          <div class="ts-title">Доставка</div>
+
+          <label class="ts-opt">
+            <input type="radio" name="transport" value="600">
+            <div>
+              <div>Газель (до 1,5 т)</div>
+              <div style="font-size:12px;color:var(--muted);font-weight:400">до 1 500 кг</div>
+            </div>
+            <span class="ts-price mono">від [600] ₴</span>
+          </label>
+
+          <label class="ts-opt">
+            <input type="radio" name="transport" value="1800" checked>
+            <div>
+              <div>Вантажівка (до 10 т)</div>
+              <div style="font-size:12px;color:var(--muted);font-weight:400">до 10 000 кг — рекомендовано</div>
+            </div>
+            <span class="ts-price mono">від [1 800] ₴</span>
+          </label>
+
+          <label class="ts-opt">
+            <input type="radio" name="transport" value="2400">
+            <div>
+              <div>Маніпулятор</div>
+              <div style="font-size:12px;color:var(--muted);font-weight:400">до 7 т, підйом краном</div>
+            </div>
+            <span class="ts-price mono">від [2 400] ₴</span>
+          </label>
+        </div>
+
+        <div class="cs-total" style="margin-top:16px">
+          <span>До сплати</span>
+          <span class="tprice mono" id="finalTotal">[10 565] ₴</span>
+        </div>
+
+        <a class="btn btn-or" href="checkout.html" style="width:100%;margin-top:16px;min-height:54px;font-size:16px">
+          Оформити замовлення <svg class="ico"><use href="#i-arrow"/></svg>
+        </a>
+        <a href="catalog.html" style="display:block;text-align:center;margin-top:12px;font-size:13px;color:var(--muted);text-decoration:none">
+          Продовжити покупки
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="cols">
+      <div><b style="font-size:22px">БудМайстер</b><span>Будматеріали в роздріб і оптом з доставкою на об'єкт.</span><br><br><span>Склад: [адреса]<br>Пн–Сб 8:00–18:00</span></div>
+      <div><b>Каталог</b><a href="catalog.html">Цемент і суміші</a><a href="catalog.html">Цегла та блоки</a><a href="catalog.html">Утеплення</a><a href="catalog.html">Інструмент</a></div>
+      <div><b>Покупцям</b><a href="delivery.html">Доставка та оплата</a><a href="wholesale.html">Оптовим клієнтам</a><a href="delivery.html">Калькулятор</a><a href="delivery.html">Повернення</a></div>
+      <div><b>Контакти</b><span>[+380 00 000 00 00]</span><a href="contacts.html">Viber</a><a href="contacts.html">Telegram</a><a href="contacts.html">[email]</a></div>
+    </div>
+    <div class="bottom"><span>© 2026 БудМайстер</span><span>Сайт зроблено в tagwise</span></div>
+  </div>
+</footer>
+
+<script>
+const fmt = n => Math.round(n).toLocaleString('uk-UA').replace(/\s/g,' ');
+
+/* Дані рядків: id, ціна, вага за одиницю */
+const rows = [
+  { id:'row1', price:168, weightPer:25 },
+  { id:'row2', price:74,  weightPer:29 },
+  { id:'row3', price:489, weightPer:18 }
+];
+
+function getQty(rowEl){ return Math.max(1,+rowEl.querySelector('.cr-qty input').value||1); }
+
+function recalc(){
+  let goodsSum=0, totalKg=0;
+  rows.forEach(r=>{
+    const rowEl=document.getElementById(r.id);
+    if(!rowEl||rowEl.style.display==='none') return;
+    const q=getQty(rowEl);
+    const lineTotal=r.price*q;
+    rowEl.querySelector('.cr-total').textContent='['+fmt(lineTotal)+'] ₴';
+    goodsSum+=lineTotal;
+    totalKg+=r.weightPer*q;
+  });
+  document.getElementById('goodsTotal').textContent='['+fmt(goodsSum)+'] ₴';
+  document.getElementById('totalWeight').textContent=fmt(totalKg)+' кг';
+
+  /* Автовибір транспорту за вагою */
+  const radios=document.querySelectorAll('input[name="transport"]');
+  if(totalKg<=1500) radios[0].checked=true;
+  else radios[1].checked=true;
+
+  /* Підсумок */
+  const selTransport=+document.querySelector('input[name="transport"]:checked').value;
+  document.getElementById('finalTotal').textContent='['+fmt(goodsSum+selTransport)+'] ₴';
+}
+
+/* Степпери */
+rows.forEach(r=>{
+  const rowEl=document.getElementById(r.id);
+  if(!rowEl)return;
+  const inp=rowEl.querySelector('.cr-qty input');
+  const [minus,plus]=rowEl.querySelectorAll('.cr-qty button');
+  minus.addEventListener('click',()=>{ inp.value=Math.max(1,(+inp.value||1)-1); recalc(); });
+  plus.addEventListener('click',()=>{ inp.value=(+inp.value||1)+1; recalc(); });
+  inp.addEventListener('input',recalc);
+
+  /* Видалення */
+  rowEl.querySelector('.cr-del').addEventListener('click',()=>{
+    if(confirm('Видалити товар з кошика?')){ rowEl.style.display='none'; recalc(); }
+  });
+});
+
+/* Перемикання транспорту */
+document.querySelectorAll('input[name="transport"]').forEach(r=>r.addEventListener('change',recalc));
+
+recalc();
+</script>
+</body>
+</html>

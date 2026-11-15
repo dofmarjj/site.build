@@ -50,11 +50,11 @@
       <span><b>Лапка</b><small>зоомагазин</small></span>
     </a>
     <nav class="nav" aria-label="Головне меню">
-      <a class="on" href="#top">Головна</a>
-      <a href="#cats">Каталог</a>
-      <a href="#hits">Акції</a>
-      <a href="#perks">Доставка</a>
-      <a href="#footer">Контакти</a>
+      <a class="on" href="index.html">Головна</a>
+      <a href="catalog.html">Каталог</a>
+      <a href="sales.html">Акції</a>
+      <a href="delivery.html">Доставка</a>
+      <a href="contacts.html">Контакти</a>
     </nav>
     <label class="search">
       <svg class="ico" style="color:#8A948F"><use href="#i-search"/></svg>
@@ -63,7 +63,7 @@
     </label>
     <div class="hicons">
       <button class="hicon" type="button" aria-label="Обране"><svg class="ico"><use href="#i-heart"/></svg></button>
-      <button class="hicon" type="button" aria-label="Кошик, товарів: 2"><svg class="ico"><use href="#i-bag"/></svg><span class="badge" id="cartCount">2</span></button>
+      <a class="hicon" href="cart.html" aria-label="Кошик"><svg class="ico"><use href="#i-bag"/></svg><span class="badge" id="cartCount">2</span></a>
     </div>
   </div>
 </header>
@@ -77,7 +77,7 @@
       <h1>Усе для хвостатих — з доставкою <em>сьогодні<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 14 C 50 4, 120 4, 197 12" fill="none" stroke="#FFD66B" stroke-width="7" stroke-linecap="round"/></svg></em></h1>
       <p class="lead">Корми, наповнювачі, іграшки та догляд для котів, собак і гризунів. Допоможемо підібрати корм під вік і особливості вашого улюбленця.</p>
       <div class="ctas">
-        <a class="btn btn-coral" href="#cats">Перейти в каталог</a>
+        <a class="btn btn-coral" href="catalog.html">Перейти в каталог</a>
         <a class="btn btn-ghost" href="#finder">Підібрати корм</a>
       </div>
       <div class="trust">
@@ -99,15 +99,15 @@
   <div class="wrap">
     <div class="sec-head">
       <div><h2>Кому шукаємо?</h2><p>Обирайте улюбленця — покажемо все потрібне</p></div>
-      <a class="link-arrow" href="#cats">Весь каталог →</a>
+      <a class="link-arrow" href="catalog.html">Весь каталог →</a>
     </div>
     <div class="cats">
-      <a class="cat c1" href="#hits"><span class="cico"><svg width="40" height="40"><use href="#i-cat"/></svg></span><span><b>Котам</b><small>[248] товарів</small></span></a>
-      <a class="cat c2" href="#hits"><span class="cico"><svg width="40" height="40"><use href="#i-dog"/></svg></span><span><b>Собакам</b><small>[196] товарів</small></span></a>
-      <a class="cat c3" href="#hits"><span class="cico"><svg width="40" height="40"><use href="#i-hamster"/></svg></span><span><b>Гризунам</b><small>[64] товари</small></span></a>
-      <a class="cat c4" href="#hits"><span class="cico"><svg width="40" height="40"><use href="#i-fish"/></svg></span><span><b>Птахам і рибкам</b><small>[57] товарів</small></span></a>
-      <a class="cat c5" href="#hits"><span class="cico"><svg width="40" height="40"><use href="#i-care"/></svg></span><span><b>Догляд і ветаптека</b><small>[112] товарів</small></span></a>
-      <a class="cat c6" href="#hits"><span class="cico"><svg width="40" height="40"><use href="#i-tag"/></svg></span><span><b>Акції</b><small>знижки до [30%]</small></span></a>
+      <a class="cat c1" href="catalog.html"><span class="cico"><svg width="40" height="40"><use href="#i-cat"/></svg></span><span><b>Котам</b><small>[248] товарів</small></span></a>
+      <a class="cat c2" href="catalog.html"><span class="cico"><svg width="40" height="40"><use href="#i-dog"/></svg></span><span><b>Собакам</b><small>[196] товарів</small></span></a>
+      <a class="cat c3" href="catalog.html"><span class="cico"><svg width="40" height="40"><use href="#i-hamster"/></svg></span><span><b>Гризунам</b><small>[64] товари</small></span></a>
+      <a class="cat c4" href="catalog.html"><span class="cico"><svg width="40" height="40"><use href="#i-fish"/></svg></span><span><b>Птахам і рибкам</b><small>[57] товарів</small></span></a>
+      <a class="cat c5" href="catalog.html"><span class="cico"><svg width="40" height="40"><use href="#i-care"/></svg></span><span><b>Догляд і ветаптека</b><small>[112] товарів</small></span></a>
+      <a class="cat c6" href="sales.html"><span class="cico"><svg width="40" height="40"><use href="#i-tag"/></svg></span><span><b>Акції</b><small>знижки до [30%]</small></span></a>
     </div>
   </div>
 </section>
@@ -144,7 +144,7 @@
         </div>
         <div class="result">
           <span>Підібрали <b id="fCount">14 кормів</b> для <span id="fWho">дорослого кота</span></span>
-          <a class="btn btn-dark" href="#hits">Показати корми</a>
+          <a class="btn btn-dark" href="catalog.html">Показати корми</a>
         </div>
       </form>
     </div>
@@ -164,29 +164,33 @@
     </div>
     <div class="products">
       <article class="card" data-prices="245,489,1890" data-old=",575,">
+        <a class="card-link" href="product.html" tabindex="-1" aria-hidden="true"></a>
         <div class="pimg" style="background:var(--peach)"><span class="ptag sale">−15%</span><button class="fav" type="button" aria-label="В обране"><svg class="ico" style="width:20px"><use href="#i-heart"/></svg></button><svg width="120" height="150" style="color:var(--coral)"><use href="#i-pack"/></svg></div>
-        <h3>Сухий корм для дорослих котів, з куркою</h3>
+        <h3><a href="product.html" style="text-decoration:none;color:inherit">Сухий корм для дорослих котів, з куркою</a></h3>
         <div class="meta">[Бренд] · стерилізованим</div>
         <div class="sizes"><button class="size" type="button" aria-pressed="false">400 г</button><button class="size" type="button" aria-pressed="true">2 кг</button><button class="size" type="button" aria-pressed="false">10 кг</button></div>
         <div class="buy"><span class="price"><span class="pv">489 ₴</span><span class="old">575 ₴</span></span><button class="add" type="button" aria-label="У кошик"><svg class="ico"><use href="#i-plus"/></svg></button></div>
       </article>
       <article class="card" data-prices="265,489" data-old=",">
+        <a class="card-link" href="product.html" tabindex="-1" aria-hidden="true"></a>
         <div class="pimg" style="background:var(--sky)"><span class="ptag">Хіт</span><button class="fav" type="button" aria-label="В обране"><svg class="ico" style="width:20px"><use href="#i-heart"/></svg></button><svg width="120" height="150" style="color:#4A7BD0"><use href="#i-pack"/></svg></div>
-        <h3>Наповнювач комкуючий, без запаху</h3>
+        <h3><a href="product.html" style="text-decoration:none;color:inherit">Наповнювач комкуючий, без запаху</a></h3>
         <div class="meta">[Бренд] · бентонітовий</div>
         <div class="sizes"><button class="size" type="button" aria-pressed="true">5 л</button><button class="size" type="button" aria-pressed="false">10 л</button></div>
         <div class="buy"><span class="price"><span class="pv">265 ₴</span><span class="old"></span></span><button class="add" type="button" aria-label="У кошик"><svg class="ico"><use href="#i-plus"/></svg></button></div>
       </article>
       <article class="card" data-prices="120,185" data-old=",">
+        <a class="card-link" href="product.html" tabindex="-1" aria-hidden="true"></a>
         <div class="pimg" style="background:var(--butter)"><button class="fav" type="button" aria-label="В обране"><svg class="ico" style="width:20px"><use href="#i-heart"/></svg></button><svg width="120" height="150" style="color:#C88A00"><use href="#i-pack"/></svg></div>
-        <h3>Ласощі для котів, подушечки з лососем</h3>
+        <h3><a href="product.html" style="text-decoration:none;color:inherit">Ласощі для котів, подушечки з лососем</a></h3>
         <div class="meta">[Бренд] · для шерсті</div>
         <div class="sizes"><button class="size" type="button" aria-pressed="true">60 г</button><button class="size" type="button" aria-pressed="false">120 г</button></div>
         <div class="buy"><span class="price"><span class="pv">120 ₴</span><span class="old"></span></span><button class="add" type="button" aria-label="У кошик"><svg class="ico"><use href="#i-plus"/></svg></button></div>
       </article>
       <article class="card" data-prices="720,890" data-old=",">
+        <a class="card-link" href="product.html" tabindex="-1" aria-hidden="true"></a>
         <div class="pimg" style="background:var(--lilac)"><span class="ptag">Новинка</span><button class="fav" type="button" aria-label="В обране"><svg class="ico" style="width:20px"><use href="#i-heart"/></svg></button><svg width="120" height="150" style="color:#7A5BD6"><use href="#i-pack"/></svg></div>
-        <h3>Лежанка з бортиками, м'яка</h3>
+        <h3><a href="product.html" style="text-decoration:none;color:inherit">Лежанка з бортиками, м'яка</a></h3>
         <div class="meta">Для котів і малих порід</div>
         <div class="sizes"><button class="size" type="button" aria-pressed="true">M</button><button class="size" type="button" aria-pressed="false">L</button></div>
         <div class="buy"><span class="price"><span class="pv">720 ₴</span><span class="old"></span></span><button class="add" type="button" aria-label="У кошик"><svg class="ico"><use href="#i-plus"/></svg></button></div>
@@ -235,9 +239,9 @@
   <div class="wrap">
     <div class="cols">
       <div><b style="font-size:24px">Лапка</b><span>Зоомагазин для котів, собак і всіх, хто з хвостом.</span><br><br><span>[адреса магазину]<br>Щодня 9:00–21:00</span></div>
-      <div><b>Каталог</b><a href="#cats">Котам</a><a href="#cats">Собакам</a><a href="#cats">Гризунам</a><a href="#cats">Акції</a></div>
-      <div><b>Покупцям</b><a href="#perks">Доставка та оплата</a><a href="#perks">Повернення</a><a href="#perks">Бонусна програма</a><a href="#footer">Публічна оферта</a></div>
-      <div><b>Зв'язок</b><span>[+380 00 000 00 00]</span><a href="#footer">Telegram</a><a href="#footer">Viber</a><a href="#footer">Instagram</a></div>
+      <div><b>Каталог</b><a href="catalog.html">Котам</a><a href="catalog.html">Собакам</a><a href="catalog.html">Гризунам</a><a href="sales.html">Акції</a></div>
+      <div><b>Покупцям</b><a href="delivery.html">Доставка та оплата</a><a href="delivery.html">Повернення</a><a href="delivery.html">Бонусна програма</a><a href="contacts.html">Контакти</a></div>
+      <div><b>Зв'язок</b><span>[+380 00 000 00 00]</span><a href="contacts.html">Telegram</a><a href="contacts.html">Viber</a><a href="contacts.html">Instagram</a></div>
     </div>
     <div class="bottom"><span>© 2026 Лапка</span><span>Сайт зроблено в tagwise</span></div>
   </div>

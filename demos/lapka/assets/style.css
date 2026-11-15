@@ -45,7 +45,11 @@ h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;margin:0;line-height:1
 .search{flex:1;display:flex;align-items:center;gap:10px;min-width:0;background:var(--paper);border:1.5px solid var(--line);border-radius:999px;padding:0 18px;height:50px}
 .search input{border:0;outline:0;background:transparent;font:inherit;width:100%;min-width:0}
 .hicons{display:flex;gap:6px}
-.hicon{position:relative;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:0;background:transparent}
+.hicon{position:relative;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:0;background:transparent;text-decoration:none;color:inherit}
+/* card click overlay */
+.card{position:relative}
+.card-link{position:absolute;inset:0;border-radius:28px;z-index:0}
+.card h3,.card .meta,.card .pimg,.card .fav,.card .add,.card .sizes,.card .buy{position:relative;z-index:1}
 .hicon:hover{background:var(--peach)}
 .badge{position:absolute;top:4px;right:2px;min-width:20px;height:20px;padding:0 5px;border-radius:999px;background:var(--coral);color:#fff;font-size:12px;font-weight:700;display:grid;place-items:center}
 
