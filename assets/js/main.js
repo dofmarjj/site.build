@@ -1,11 +1,36 @@
 /* ===================================================
    Tagwise — main.js
+   - Прелоадер
    - Мобільне меню
    - FAQ-акордеон
    - Розгортання детального прайсу
    - Відправка форми через fetch
    - Кнопка «вгору»
    =================================================== */
+
+/* ---- Прелоадер (запускається відразу, до DOMContentLoaded) ---- */
+(function () {
+  var el      = document.getElementById('tw-preloader');
+  if (!el) return;
+  var MIN_SHOW = 1200;  // мінімум показу — щоб анімація відіграла
+  var MAX_SHOW = 6000;  // страховка на випадок довгого завантаження
+  var start   = Date.now();
+  var hidden  = false;
+
+  function hide() {
+    if (hidden) return;
+    hidden = true;
+    var wait = Math.max(0, MIN_SHOW - (Date.now() - start));
+    setTimeout(function () {
+      el.classList.add('is-done');
+      setTimeout(function () { el.style.display = 'none'; }, 500);
+    }, wait);
+  }
+
+  if (document.readyState === 'complete') hide();
+  else window.addEventListener('load', hide);
+  setTimeout(hide, MAX_SHOW);
+})();
 
 document.addEventListener('DOMContentLoaded', () => {
 
