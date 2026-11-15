@@ -1,5 +1,2 @@
 User-agent: *
-Allow: /
-Disallow: /api/
-
-Sitemap: https://tagwise.com.ua/sitemap.xml
+Disallow: /
