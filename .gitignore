@@ -1,0 +1,5 @@
+# Конфіг з токенами — НЕ комітити!
+/api/config.php
+
+# macOS
+.DS_Store

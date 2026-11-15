@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tagwise — прелоадер</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@800&display=swap">
+
+<!-- ===================== 1. CSS ПРЕЛОАДЕРА → в <head> (или в style.css) ===================== -->
+<style>
+  #tw-preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 56px;
+    background: #12141A;
+    transition: opacity .45s ease, visibility .45s ease;
+  }
+  #tw-preloader.is-done { opacity: 0; visibility: hidden; }
+
+  /* Ценник висит на нитке: точка вращения — верх нитки */
+  .tw-pl__hang {
+    position: relative;
+    transform-origin: 30px -72px;
+    animation:
+      tw-swing-in 1.1s cubic-bezier(.3,.7,.4,1) both,
+      tw-sway 2.6s ease-in-out 1.1s infinite;
+  }
+  .tw-pl__string {
+    position: absolute;
+    left: 29px;
+    top: -72px;
+    bottom: 50%;          /* нитка доходит до отверстия ценника */
+    z-index: 2;
+    width: 2px;
+    background: #9AA0AB;  /* нитка видна и на тёмном фоне, и на жёлтом ценнике */
+    border-radius: 2px;
+  }
+
+  .tw-pl__logo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Unbounded', 'Arial Black', Arial, sans-serif;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .tw-pl__tag {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    background: #F2C230;
+    color: #12141A;
+    padding: 10px 16px 14px 48px;
+    clip-path: polygon(22px 0, 100% 0, 100% 100%, 22px 100%, 0 50%);
+  }
+  /* Отверстие ценника */
+  .tw-pl__hole {
+    position: absolute;
+    left: 22px;
+    top: 50%;
+    width: 14px;
+    height: 14px;
+    margin-top: -7px;
+    border-radius: 50%;
+    background: #12141A;
+  }
+  .tw-pl__wise { display: inline-flex; color: #F1F2EE; }
+  .tw-pl__wise b {
+    font-weight: inherit;
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(14px);
+    animation: tw-letter .45s cubic-bezier(.2,.8,.3,1) forwards;
+  }
+  .tw-pl__wise b:nth-child(1) { animation-delay: .45s; }
+  .tw-pl__wise b:nth-child(2) { animation-delay: .53s; }
+  .tw-pl__wise b:nth-child(3) { animation-delay: .61s; }
+  .tw-pl__wise b:nth-child(4) { animation-delay: .69s; }
+
+  /* Полоска загрузки */
+  .tw-pl__bar {
+    position: relative;
+    width: 160px;
+    height: 3px;
+    border-radius: 3px;
+    background: #2A2E37;
+    overflow: hidden;
+  }
+  .tw-pl__bar span {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 40%;
+    border-radius: 3px;
+    background: #F2C230;
+    animation: tw-bar 1.2s ease-in-out infinite;
+  }
+
+  @keyframes tw-swing-in {
+    0%   { transform: translateY(-140px) rotate(-14deg); opacity: 0; }
+    35%  { transform: translateY(0) rotate(9deg); opacity: 1; }
+    55%  { transform: rotate(-5deg); }
+    75%  { transform: rotate(2.5deg); }
+    100% { transform: rotate(0deg); }
+  }
+  @keyframes tw-sway {
+    0%, 100% { transform: rotate(0deg); }
+    50%      { transform: rotate(2deg); }
+  }
+  @keyframes tw-letter { to { opacity: 1; transform: translateY(0); } }
+  @keyframes tw-bar {
+    0%   { left: -40%; }
+    100% { left: 100%; }
+  }
+
+  @media (max-width: 480px) {
+    .tw-pl__logo { font-size: 36px; }
+    .tw-pl__tag { padding: 8px 12px 11px 40px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tw-pl__hang, .tw-pl__wise b, .tw-pl__bar span { animation: none; }
+    .tw-pl__wise b { opacity: 1; transform: none; }
+    .tw-pl__bar span { left: 30%; }
+  }
+</style>
+<!-- ===================== /CSS ПРЕЛОАДЕРА ===================== -->
+
+<!-- Только для демо, на сайт не переносить -->
+<style>
+  body { margin: 0; font-family: system-ui, sans-serif; background: #F1F2EE; color: #12141A; }
+  .demo { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 24px; text-align: center; }
+  .demo button { font: inherit; font-weight: 600; padding: 12px 22px; border-radius: 10px; border: none; background: #12141A; color: #F1F2EE; cursor: pointer; }
+  .demo button:focus-visible { outline: 2px solid #F2C230; outline-offset: 3px; }
+</style>
+</head>
+<body>
+
+<!-- ===================== 2. HTML ПРЕЛОАДЕРА → сразу после <body> ===================== -->
+<div id="tw-preloader" role="status" aria-live="polite" aria-label="Завантаження">
+  <div class="tw-pl__hang">
+    <span class="tw-pl__string" aria-hidden="true"></span>
+    <div class="tw-pl__logo" aria-hidden="true">
+      <span class="tw-pl__tag"><i class="tw-pl__hole"></i>tag</span><span class="tw-pl__wise"><b>w</b><b>i</b><b>s</b><b>e</b></span>
+    </div>
+  </div>
+  <div class="tw-pl__bar" aria-hidden="true"><span></span></div>
+</div>
+<!-- ===================== /HTML ПРЕЛОАДЕРА ===================== -->
+
+<!-- Только для демо -->
+<main class="demo">
+  <h1 style="margin:0">Сайт загрузился</h1>
+  <p style="margin:0">Так прелоадер исчезает, когда страница готова.</p>
+  <button type="button" id="replay">Показать ещё раз</button>
+</main>
+
+<!-- ===================== 3. JS ПРЕЛОАДЕРА → перед </body> (или в main.js) ===================== -->
+<script>
+  (function () {
+    var el = document.getElementById('tw-preloader');
+    if (!el) return;
+    var MIN_SHOW = 1200;   // минимум показа, мс — чтобы анимация успела отыграть
+    var MAX_SHOW = 6000;   // страховка: скрыть, даже если что-то долго грузится
+    var start = Date.now();
+    var hidden = false;
+
+    function hide() {
+      if (hidden) return;
+      hidden = true;
+      var wait = Math.max(0, MIN_SHOW - (Date.now() - start));
+      setTimeout(function () {
+        el.classList.add('is-done');
+        setTimeout(function () { el.style.display = 'none'; }, 500);
+      }, wait);
+    }
+
+    if (document.readyState === 'complete') hide();
+    else window.addEventListener('load', hide);
+    setTimeout(hide, MAX_SHOW);
+  })();
+</script>
+<!-- ===================== /JS ПРЕЛОАДЕРА ===================== -->
+
+<!-- Только для демо: повтор анимации -->
+<script>
+  document.getElementById('replay').addEventListener('click', function () {
+    var el = document.getElementById('tw-preloader');
+    var fresh = el.cloneNode(true);
+    fresh.classList.remove('is-done');
+    fresh.style.display = '';
+    el.replaceWith(fresh);
+    setTimeout(function () {
+      fresh.classList.add('is-done');
+      setTimeout(function () { fresh.style.display = 'none'; }, 500);
+    }, 2400);
+  });
+</script>
+</body>
+</html>

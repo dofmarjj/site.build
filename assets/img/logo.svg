@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 48" role="img" aria-label="tagwise">
+  <!-- "tag" на жовтому ціннику -->
+  <defs>
+    <clipPath id="tag-clip">
+      <polygon points="12,0 220,0 220,48 12,48 0,24"/>
+    </clipPath>
+  </defs>
+  <!-- жовтий ціннік -->
+  <polygon points="12,0 108,0 108,48 12,48 0,24" fill="#F2C230"/>
+  <!-- текст "tag" -->
+  <text x="58" y="35" text-anchor="middle"
+        font-family="Unbounded, sans-serif" font-weight="800"
+        font-size="28" letter-spacing="-0.02em" fill="#12141A">tag</text>
+  <!-- текст "wise" -->
+  <text x="118" y="35"
+        font-family="Unbounded, sans-serif" font-weight="800"
+        font-size="28" letter-spacing="-0.02em" fill="#12141A">wise</text>
+</svg>
