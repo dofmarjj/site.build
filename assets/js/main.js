@@ -128,9 +128,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Спробуємо PHP-бекенд
       try {
-        const res = await fetch(‘/api/lead.php’, {
-          method: ‘POST’,
-          headers: { ‘Content-Type’: ‘application/json’ },
+        const res = await fetch('/api/lead.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name, what, contact, agree, hp }),
         });
         if (res.ok) {
@@ -150,13 +150,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (sent) {
         form.reset();
-        showMsg(‘success’, ‘Заявку надіслано! Відповімо протягом робочого дня.’);
+        showMsg('success', 'Заявку надіслано! Відповімо протягом робочого дня.');
       } else {
-        showMsg(‘error’, ‘Щось пішло не так. Спробуйте ще раз або напишіть нам у Telegram.’);
+        showMsg('error', 'Щось пішло не так. Спробуйте ще раз або напишіть нам у Telegram.');
       }
 
       submitBtn.disabled = false;
-      submitBtn.textContent = ‘Надіслати заявку’;
+      submitBtn.textContent = 'Надіслати заявку';
     });
   }
 
