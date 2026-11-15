@@ -1,0 +1,825 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Безкоштовний інтернет-магазин під ключ — Tagwise</title>
+  <meta name="description" content="Зберемо власний сайт за 3–5 днів. Хостинг наш. Без контракту і передоплати.">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=[GA4 ID]"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '[GA4 ID]');
+  </script>
+
+  <style>
+    /* Шапка лендингу — без навігації */
+    .lp-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .lp-header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-block: 14px;
+    }
+    /* Логотип не клікабельний */
+    .lp-logo {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Hero */
+    .lp-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      padding-block: 72px 56px;
+    }
+    .lp-hero__content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .lp-hero__hint {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* Мокап замовлення */
+    .order-mock {
+      background: var(--surface);
+      border: 1.5px solid var(--ink);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      box-shadow: 8px 8px 0 var(--ink);
+      max-width: 420px;
+      margin-inline: auto;
+    }
+    .order-mock__bar {
+      background: var(--ink);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .order-mock__dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #3A3E47;
+    }
+    .order-mock__url {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: #9AA0AB;
+      margin-left: 4px;
+    }
+    .order-mock__body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .order-mock__products {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .order-mock__product {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .order-mock__product-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: #E6E8E2;
+      flex-shrink: 0;
+    }
+    .order-mock__product-name {
+      flex: 1;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .order-mock__product-price {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .order-mock__notification {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #E5F0EC;
+      border-radius: var(--r-sm);
+      padding: 10px 14px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--green);
+    }
+    .order-mock__notification svg {
+      flex-shrink: 0;
+    }
+
+    /* Секція для кого */
+    .for-whom-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .for-whom-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .for-whom-card__icon {
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    /* Секція що отримуєте */
+    .what-you-get {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .checklist__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 16px;
+    }
+    .checklist__icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      background: var(--green);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+    .checklist__icon svg {
+      display: block;
+    }
+    .why-free {
+      background: var(--ink);
+      color: var(--bg);
+      border-radius: var(--r-xl);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .why-free__title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    /* Три кроки */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .step-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .step-card__num {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 32px;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    /* Приклади */
+    .demos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .demo-link {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .demo-link__frame {
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-md);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--surface);
+      position: relative;
+    }
+    .demo-link__frame iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 400%;
+      height: 400%;
+      transform: scale(0.25);
+      transform-origin: top left;
+      pointer-events: none;
+      border: none;
+    }
+    .demo-link__overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 14px;
+      background: linear-gradient(to top, rgba(18,20,26,.55) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity .2s;
+    }
+    .demo-link:hover .demo-link__overlay { opacity: 1; }
+    .demo-link__overlay span {
+      background: var(--surface);
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 99px;
+    }
+    .demo-link__title {
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .demo-link__sub {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Стрічка «Більше» */
+    .more-strip {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 20px 28px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .more-strip__items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 24px;
+      font-size: 15px;
+    }
+    .more-strip__hint {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Форма */
+    .lp-form-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .lp-form-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* FAQ */
+    .faq-layout { display: flex; flex-wrap: wrap; gap: 32px; }
+    .faq-list { flex: 2 1 560px; }
+
+    /* Підвал */
+    .lp-footer {
+      border-top: 1px solid var(--border);
+      padding-block: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .lp-footer a { color: var(--muted); text-decoration: underline; }
+    .lp-footer a:hover { color: var(--ink); }
+
+    /* Адаптив */
+    @media (max-width: 860px) {
+      .lp-hero { grid-template-columns: 1fr; padding-block: 48px 40px; }
+      .order-mock { max-width: 100%; }
+      .for-whom-grid { grid-template-columns: 1fr; }
+      .what-you-get { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .demos-grid { grid-template-columns: 1fr 1fr; }
+      .lp-form-layout { grid-template-columns: 1fr; gap: 32px; }
+      .more-strip { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 540px) {
+      .demos-grid { grid-template-columns: 1fr; }
+      .lp-header__inner .btn { font-size: 14px; padding: 10px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ШАПКА -->
+<header class="lp-header">
+  <div class="container">
+    <div class="lp-header__inner">
+      <span class="lp-logo" aria-label="Tagwise">
+        <span class="logo__tag">tag</span><span class="logo__wise">wise</span>
+      </span>
+      <a href="#contact" class="btn btn--primary">Отримати безкоштовний сайт</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="container">
+  <div class="lp-hero">
+
+    <div class="lp-hero__content">
+      <span class="tag-badge" aria-label="безкоштовно">$0 сайт</span>
+
+      <h1 class="heading-xl">Інтернет-магазин під ключ — безкоштовно</h1>
+
+      <p style="font-size:19px;color:var(--text);max-width:520px">
+        Продаєте в Instagram чи на Prom? Зберемо вам власний сайт за 3–5 днів: каталог, кошик і замовлення. Хостинг і підтримка — наші.
+      </p>
+
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <a href="#contact" class="btn btn--primary btn--lg">Отримати безкоштовний сайт</a>
+      </div>
+
+      <p class="lp-hero__hint">Без контракту і передоплати</p>
+    </div>
+
+    <div>
+      <div class="order-mock" role="img" aria-label="Приклад інтернет-магазину Лапка">
+        <div class="order-mock__bar">
+          <span class="order-mock__dot"></span>
+          <span class="order-mock__dot"></span>
+          <span class="order-mock__dot"></span>
+          <span class="order-mock__url">lapka.tagwise.com.ua</span>
+        </div>
+        <div class="order-mock__body">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <strong style="font-size:16px">Зоомагазин «Лапка»</strong>
+            <span style="font-size:13px;color:var(--muted)">Кошик · 2</span>
+          </div>
+          <div class="order-mock__products">
+            <div class="order-mock__product">
+              <div class="order-mock__product-img"></div>
+              <span class="order-mock__product-name">Корм для котів 2 кг</span>
+              <strong class="order-mock__product-price">489 ₴</strong>
+            </div>
+            <div class="order-mock__product">
+              <div class="order-mock__product-img"></div>
+              <span class="order-mock__product-name">Лежанка M</span>
+              <strong class="order-mock__product-price">751 ₴</strong>
+            </div>
+          </div>
+          <div class="order-mock__notification">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Нове замовлення · 1 240 ₴
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ДЛЯ КОГО -->
+<section class="section section--dark">
+  <div class="container">
+    <div style="display:flex;flex-direction:column;gap:40px">
+
+      <h2 class="heading-lg">Для кого це підходить</h2>
+
+      <div class="for-whom-grid">
+
+        <div class="card for-whom-card">
+          <div class="for-whom-card__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <strong class="heading-sm" style="color:var(--ink)">Продаєте в Instagram чи Telegram</strong>
+          <p style="color:var(--text)">Замість «ціна в дірект» — власний каталог з цінами і кошиком, де клієнт оформляє замовлення сам.</p>
+        </div>
+
+        <div class="card for-whom-card">
+          <div class="for-whom-card__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <strong class="heading-sm" style="color:var(--ink)">Торгуєте тільки на Prom</strong>
+          <p style="color:var(--text)">Свій сайт без комісії маркетплейсу і зі своїми клієнтами. Prom залишається — просто не єдиним каналом.</p>
+        </div>
+
+        <div class="card for-whom-card">
+          <div class="for-whom-card__icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--ink)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          </div>
+          <strong class="heading-sm" style="color:var(--ink)">Відкриваєте магазин</strong>
+          <p style="color:var(--text)">Почніть з робочого сайту, а не з витрат на розробку. Запуститись можна ще до першої реклами.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ЩО ОТРИМУЄТЕ -->
+<section class="section">
+  <div class="container">
+    <div style="display:flex;flex-direction:column;gap:40px">
+
+      <h2 class="heading-lg">Що ви отримуєте безкоштовно</h2>
+
+      <div class="what-you-get">
+
+        <ul class="checklist" role="list">
+          <li class="checklist__item">
+            <span class="checklist__icon"><svg width="11" height="8" viewBox="0 0 11 8" fill="none" aria-hidden="true"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Шаблон під вашу нішу
+          </li>
+          <li class="checklist__item">
+            <span class="checklist__icon"><svg width="11" height="8" viewBox="0 0 11 8" fill="none" aria-hidden="true"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Ваш логотип, кольори і тексти
+          </li>
+          <li class="checklist__item">
+            <span class="checklist__icon"><svg width="11" height="8" viewBox="0 0 11 8" fill="none" aria-hidden="true"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            20 товарів заповнимо ми, до 100 — додасте самі
+          </li>
+          <li class="checklist__item">
+            <span class="checklist__icon"><svg width="11" height="8" viewBox="0 0 11 8" fill="none" aria-hidden="true"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Кошик і оформлення замовлення
+          </li>
+          <li class="checklist__item">
+            <span class="checklist__icon"><svg width="11" height="8" viewBox="0 0 11 8" fill="none" aria-hidden="true"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Мобільна версія
+          </li>
+          <li class="checklist__item">
+            <span class="checklist__icon"><svg width="11" height="8" viewBox="0 0 11 8" fill="none" aria-hidden="true"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Хостинг і SSL
+          </li>
+          <li class="checklist__item">
+            <span class="checklist__icon"><svg width="11" height="8" viewBox="0 0 11 8" fill="none" aria-hidden="true"><path d="M1 4L4 7L10 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            Адреса <span style="font-family:var(--font-mono);font-size:14px">ваш-магазин.tagwise.com.ua</span>
+          </li>
+        </ul>
+
+        <div class="why-free">
+          <p class="overline" style="color:var(--text-dark)">Чому безкоштовно?</p>
+          <p class="why-free__title">Ми заробляємо, коли ваш магазин росте</p>
+          <p style="color:var(--text-dark);font-size:16px;line-height:1.6">Власний домен, онлайн-оплата, доставка, автоматизація — ці послуги замовляє частина клієнтів, коли починають продавати. Тому нам вигідно, щоб ваш магазин продавав.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ТРИ КРОКИ -->
+<section class="section section--dark">
+  <div class="container">
+    <div style="display:flex;flex-direction:column;gap:40px">
+
+      <h2 class="heading-lg">Як це відбувається</h2>
+
+      <div class="steps-grid">
+
+        <div class="step-card">
+          <span class="step-card__num">01</span>
+          <strong class="heading-sm">Заявка — 2 хвилини</strong>
+          <p style="color:var(--text-dark)">Розповідаєте, що продаєте і як з вами зв'язатись.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-card__num">02</span>
+          <strong class="heading-sm">Сайт за 3–5 днів</strong>
+          <p style="color:var(--text-dark)">Збираємо на шаблоні вашої ніші. Один раунд правок включено.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-card__num">03</span>
+          <strong class="heading-sm">Запуск</strong>
+          <p style="color:var(--text-dark)">Магазин працює. Платити не потрібно ні зараз, ні потім.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ПРИКЛАДИ -->
+<section id="demos" class="section">
+  <div class="container">
+    <div style="display:flex;flex-direction:column;gap:40px">
+
+      <h2 class="heading-lg">Приклади магазинів</h2>
+
+      <div class="demos-grid">
+
+        <a href="../demos/lapka/index.html" target="_blank" rel="noopener" class="demo-link">
+          <div class="demo-link__frame">
+            <iframe src="../demos/lapka/index.html" tabindex="-1" aria-hidden="true" loading="lazy"></iframe>
+            <div class="demo-link__overlay"><span>Переглянути демо →</span></div>
+          </div>
+          <strong class="demo-link__title">Зоомагазин</strong>
+          <span class="demo-link__sub">корми, аксесуари, ветаптека</span>
+        </a>
+
+        <a href="../demos/budmaster/index.html" target="_blank" rel="noopener" class="demo-link">
+          <div class="demo-link__frame">
+            <iframe src="../demos/budmaster/index.html" tabindex="-1" aria-hidden="true" loading="lazy"></iframe>
+            <div class="demo-link__overlay"><span>Переглянути демо →</span></div>
+          </div>
+          <strong class="demo-link__title">Будматеріали</strong>
+          <span class="demo-link__sub">цемент, цегла, сухі суміші</span>
+        </a>
+
+        <a href="../demos/kvity/index.html" target="_blank" rel="noopener" class="demo-link">
+          <div class="demo-link__frame">
+            <iframe src="../demos/kvity/index.html" tabindex="-1" aria-hidden="true" loading="lazy"></iframe>
+            <div class="demo-link__overlay"><span>Переглянути демо →</span></div>
+          </div>
+          <strong class="demo-link__title">Квіти</strong>
+          <span class="demo-link__sub">букети, доставка до часу</span>
+        </a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- СТРІЧКА «БІЛЬШЕ» -->
+<section class="section" style="padding-block:0 48px">
+  <div class="container">
+    <div class="more-strip">
+      <div class="more-strip__items">
+        <span>Власний домен — <strong>від $10/міс</strong></span>
+        <span>Онлайн-оплата — <strong>$130</strong></span>
+        <span>Нова Пошта — <strong>$260</strong></span>
+      </div>
+      <span class="more-strip__hint">Підключаєте, коли потрібно. Ціни фіксовані.</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- FAQ -->
+<section id="faq" class="section section--dark">
+  <div class="container">
+    <div class="faq-layout">
+
+      <h2 class="heading-lg" style="flex:1 1 260px">Часті питання</h2>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-1">
+            У чому підступ?
+            <svg class="faq-trigger__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div id="faq-1" class="faq-panel" aria-hidden="true">
+            <div class="faq-panel__inner">
+              Підступу немає. Сайт на нашій адресі залишається безкоштовним, навіть якщо ви більше нічого не замовите. Ми заробляємо на обслуговуванні з власним доменом і автоматизації, яку частина клієнтів замовляє пізніше.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-2">
+            Які обмеження в безкоштовного сайту?
+            <svg class="faq-trigger__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div id="faq-2" class="faq-panel" aria-hidden="true">
+            <div class="faq-panel__inner">
+              До 100 товарів, 1 ГБ під фото, адреса на нашому домені. Власний домен, більше товарів або місця — за окрему плату, ціни вказані в прайсі.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-3">
+            Як приймати оплату?
+            <svg class="faq-trigger__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div id="faq-3" class="faq-panel" aria-hidden="true">
+            <div class="faq-panel__inner">
+              Оплата на картку при отриманні — безкоштовно. Онлайн-оплата карткою прямо на сайті — $130 разово (LiqPay, WayForPay або monobank).
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-4">
+            А якщо захочу піти?
+            <svg class="faq-trigger__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div id="faq-4" class="faq-panel" aria-hidden="true">
+            <div class="faq-panel__inner">
+              Дані експортуємо безкоштовно — товари, замовлення, фото. Допоможемо перенести на ваш хостинг.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ФОРМА -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="lp-form-layout">
+
+      <div class="lp-form-info">
+        <h2 class="heading-lg">Отримати безкоштовний сайт</h2>
+        <p style="color:var(--text);font-size:17px">Відповімо протягом робочого дня і надішлемо, як може виглядати сайт для вашого бізнесу.</p>
+      </div>
+
+      <form id="lead-form" class="card lead-form" novalidate>
+
+        <input type="text" name="website" id="f-hp" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="source" value="no-site">
+
+        <div class="form-group">
+          <label class="form-label" for="f-what">Що продаєте</label>
+          <input class="form-input" id="f-what" type="text" name="what" placeholder="Корми і товари для тварин" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="f-where">Де зараз продаєте</label>
+          <select class="form-input" id="f-where" name="where" required>
+            <option value="" disabled selected>Оберіть варіант</option>
+            <option value="none">Ще ніде</option>
+            <option value="instagram">Instagram, Telegram</option>
+            <option value="prom">Prom, Rozetka</option>
+            <option value="other">Інше</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="f-contact">Telegram або телефон</label>
+          <input class="form-input" id="f-contact" type="text" name="contact" placeholder="@username або +380…" required autocomplete="tel">
+        </div>
+
+        <label class="form-checkbox">
+          <input type="checkbox" id="f-agree" name="agree" required>
+          Погоджуюся з умовами <a href="../offer.html" target="_blank">публічної оферти</a>
+        </label>
+
+        <div id="form-msg" class="form-message" role="alert"></div>
+
+        <button type="submit" class="btn btn--accent btn--lg" style="width:100%">Отримати безкоштовний сайт</button>
+
+      </form>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<!-- ПІДВАЛ -->
+<footer class="container">
+  <div class="lp-footer">
+    <span>© 2026 Tagwise</span>
+    <div style="display:flex;gap:20px">
+      <a href="../offer.html">Оферта</a>
+      <a href="../privacy.html">Політика конфіденційності</a>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+// UTM -> sessionStorage
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+  keys.forEach(function (k) {
+    if (params.has(k)) sessionStorage.setItem(k, params.get(k));
+  });
+})();
+
+// FAQ accordion
+document.querySelectorAll('.faq-trigger').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var expanded = this.getAttribute('aria-expanded') === 'true';
+    var panel = document.getElementById(this.getAttribute('aria-controls'));
+    this.setAttribute('aria-expanded', !expanded);
+    panel.setAttribute('aria-hidden', expanded);
+  });
+});
+
+// Форма
+document.getElementById('lead-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var form = this;
+  var btn  = form.querySelector('[type="submit"]');
+  var msg  = document.getElementById('form-msg');
+
+  var hp      = form.querySelector('[name="website"]').value;
+  var what    = form.querySelector('[name="what"]').value.trim();
+  var where   = form.querySelector('[name="where"]').value;
+  var contact = form.querySelector('[name="contact"]').value.trim();
+  var agree   = form.querySelector('[name="agree"]').checked;
+
+  msg.textContent = '';
+
+  if (!what || !where || !contact || !agree) {
+    msg.textContent = 'Будь ласка, заповніть усі поля і підтвердіть згоду.';
+    msg.className = 'form-message form-message--error';
+    return;
+  }
+
+  var payload = { hp: hp, what: what, where: where, contact: contact, agree: agree, source: 'no-site' };
+
+  var utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+  utmKeys.forEach(function (k) {
+    var v = sessionStorage.getItem(k);
+    if (v) payload[k] = v;
+  });
+
+  btn.disabled = true;
+  btn.textContent = 'Відправляємо…';
+
+  fetch('../api/lead.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  })
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      if (data.ok) {
+        form.innerHTML = '<p style="font-size:18px;font-weight:600;text-align:center;padding:24px 0">Дякуємо! Відповімо протягом робочого дня.</p>';
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'lead_submit', { source: 'no-site' });
+        }
+      } else {
+        msg.textContent = data.error || 'Помилка. Спробуйте ще раз.';
+        msg.className = 'form-message form-message--error';
+        btn.disabled = false;
+        btn.textContent = 'Отримати безкоштовний сайт';
+      }
+    })
+    .catch(function () {
+      msg.textContent = 'Помилка зв\'язку. Спробуйте ще раз.';
+      msg.className = 'form-message form-message--error';
+      btn.disabled = false;
+      btn.textContent = 'Отримати безкоштовний сайт';
+    });
+});
+</script>
+
+</body>
+</html>

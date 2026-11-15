@@ -1,0 +1,915 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Автоматизація магазину — безкоштовний аудит | Tagwise</title>
+  <meta name="description" content="Ціни, залишки і замовлення оновлюються самі. Безкоштовний аудит за 30 хвилин. Фіксована ціна до старту.">
+
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=[GA4 ID]"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '[GA4 ID]');
+  </script>
+
+  <style>
+    /* Шапка */
+    .lp-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--green);
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+    .lp-header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-block: 14px;
+    }
+    .lp-logo {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      pointer-events: none;
+      user-select: none;
+    }
+    .lp-logo .logo__tag { background: var(--accent); color: var(--ink); }
+    .lp-logo .logo__wise { color: #fff; }
+
+    /* Hero — зелений */
+    .lp-hero {
+      background: var(--green);
+      color: #fff;
+      padding-block: 72px 0;
+    }
+    .lp-hero__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      padding-bottom: 56px;
+    }
+    .lp-hero__content {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .lp-hero__sub {
+      font-size: 18px;
+      color: rgba(255,255,255,.75);
+      max-width: 500px;
+    }
+    .lp-hero__hint {
+      font-size: 14px;
+      color: rgba(255,255,255,.55);
+    }
+
+    /* Рядки «було → стало» */
+    .arrow-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .arrow-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+    }
+    .arrow-row__before {
+      color: rgba(255,255,255,.5);
+      text-decoration: line-through;
+      flex: 1;
+    }
+    .arrow-row__arrow {
+      flex-shrink: 0;
+      color: var(--accent);
+    }
+    .arrow-row__after {
+      flex: 1;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    /* Відео */
+    .hero-video {
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      border: 2px solid rgba(255,255,255,.15);
+      box-shadow: 0 24px 60px rgba(0,0,0,.35);
+    }
+    .hero-video video {
+      width: 100%;
+      display: block;
+    }
+
+    /* Стрічка «Підключаємо» */
+    .connect-strip {
+      background: rgba(0,0,0,.2);
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding: 16px 0;
+      overflow: hidden;
+    }
+    .connect-strip__inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 24px;
+      align-items: center;
+    }
+    .connect-strip__label {
+      font-size: 12px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: rgba(255,255,255,.45);
+    }
+    .connect-strip__pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255,255,255,.1);
+      color: rgba(255,255,255,.85);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 99px;
+    }
+
+    /* Таблиця «вручну → автоматично» */
+    .auto-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .auto-table th {
+      text-align: left;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+      padding: 0 16px 14px;
+      border-bottom: 1.5px solid var(--ink);
+    }
+    .auto-table th:first-child { padding-left: 0; }
+    .auto-table td {
+      padding: 14px 16px;
+      font-size: 15px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .auto-table td:first-child { padding-left: 0; color: var(--muted); }
+    .auto-table td:last-child { font-weight: 500; }
+    .auto-table__arrow {
+      color: var(--green);
+      font-weight: 700;
+      padding-inline: 8px !important;
+      white-space: nowrap;
+    }
+
+    /* Картки послуг */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .service-card__title {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--ink);
+    }
+    .service-card__desc {
+      font-size: 14px;
+      color: var(--muted);
+      flex: 1;
+    }
+    .service-card__price {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 18px;
+      margin-top: 4px;
+      color: var(--ink);
+    }
+    .service-card__period {
+      font-size: 12px;
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-weight: 400;
+    }
+
+    /* Секція «Доробимо» */
+    .improve-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .improve-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .improve-list__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 16px;
+    }
+    .improve-list__dot {
+      flex-shrink: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      margin-top: 8px;
+    }
+    .platforms-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    /* Кроки */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .step-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .step-card__num {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 32px;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    /* Форма */
+    .lp-form-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .lp-form-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Чекбокси і чіпи */
+    .check-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .check-group__label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    .check-group__label input { width: 16px; height: 16px; flex-shrink: 0; cursor: pointer; }
+
+    .chips-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip-label {
+      position: relative;
+    }
+    .chip-label input {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .chip-label span {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 14px;
+      border-radius: 99px;
+      border: 1.5px solid var(--border);
+      font-size: 14px;
+      cursor: pointer;
+      transition: background .15s, border-color .15s;
+      user-select: none;
+    }
+    .chip-label input:checked + span {
+      background: var(--ink);
+      color: var(--bg);
+      border-color: var(--ink);
+    }
+
+    .radio-row {
+      display: flex;
+      gap: 16px;
+    }
+    .radio-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    /* FAQ */
+    .faq-layout { display: flex; flex-wrap: wrap; gap: 32px; }
+    .faq-list { flex: 2 1 560px; }
+
+    /* Підвал */
+    .lp-footer {
+      border-top: 1px solid var(--border);
+      padding-block: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .lp-footer a { color: var(--muted); text-decoration: underline; }
+    .lp-footer a:hover { color: var(--ink); }
+
+    /* Адаптив */
+    @media (max-width: 1000px) {
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 860px) {
+      .lp-hero__inner { grid-template-columns: 1fr; padding-bottom: 40px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .improve-layout { grid-template-columns: 1fr; }
+      .lp-form-layout { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 540px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .auto-table { font-size: 14px; }
+      .lp-header__inner .btn { font-size: 14px; padding: 10px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ШАПКА -->
+<header class="lp-header">
+  <div class="container">
+    <div class="lp-header__inner">
+      <span class="lp-logo" aria-label="Tagwise">
+        <span class="logo__tag">tag</span><span class="logo__wise">wise</span>
+      </span>
+      <a href="#contact" class="btn btn--accent">Записатися на аудит</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<div class="lp-hero">
+  <div class="container">
+    <div class="lp-hero__inner">
+
+      <div class="lp-hero__content">
+        <span class="tag-badge tag-badge--sm" aria-label="для діючих магазинів">для діючих магазинів</span>
+
+        <h1 class="heading-xl" style="color:#fff">Магазин,<br>який працює сам</h1>
+
+        <p class="lp-hero__sub">Ціни, залишки і замовлення оновлюються автоматично — на вашому сайті, Prom, Rozetka та Epicentr.</p>
+
+        <div class="arrow-rows">
+          <div class="arrow-row">
+            <span class="arrow-row__before">Переносите ціни з прайсу вручну</span>
+            <span class="arrow-row__arrow">→</span>
+            <span class="arrow-row__after">Ціни оновлюються самі</span>
+          </div>
+          <div class="arrow-row">
+            <span class="arrow-row__before">Правите залишки на трьох майданчиках</span>
+            <span class="arrow-row__arrow">→</span>
+            <span class="arrow-row__after">Залишок змінюється всюди одразу</span>
+          </div>
+          <div class="arrow-row">
+            <span class="arrow-row__before">Заповнюєте ТТН Нової Пошти руками</span>
+            <span class="arrow-row__arrow">→</span>
+            <span class="arrow-row__after">ТТН створюється з замовлення</span>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+          <a href="#contact" class="btn btn--accent btn--lg">Записатися на безкоштовний аудит</a>
+        </div>
+        <p class="lp-hero__hint">від $70 · кожна послуга окремо</p>
+      </div>
+
+      <div>
+        <div class="hero-video">
+          <video controls playsinline muted preload="metadata"
+                 src="../automation/tagwise-automation.mp4"
+                 aria-label="Відео про автоматизацію Tagwise">
+          </video>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="connect-strip">
+    <div class="container">
+      <div class="connect-strip__inner">
+        <span class="connect-strip__label">Підключаємо</span>
+        <span class="connect-strip__pill">Prom</span>
+        <span class="connect-strip__pill">Rozetka</span>
+        <span class="connect-strip__pill">Epicentr</span>
+        <span class="connect-strip__pill">Нова Пошта</span>
+        <span class="connect-strip__pill">Telegram</span>
+        <span class="connect-strip__pill">1С / BAS</span>
+        <span class="connect-strip__pill">WooCommerce</span>
+        <span class="connect-strip__pill">OpenCart</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ВРУЧНУ → АВТОМАТИЧНО -->
+<section class="section">
+  <div class="container">
+    <div style="display:flex;flex-direction:column;gap:40px">
+
+      <div>
+        <h2 class="heading-lg">Що ви зараз робите вручну</h2>
+        <p style="color:var(--text);margin-top:12px">І що буде робити автоматизація замість вас.</p>
+      </div>
+
+      <div style="overflow-x:auto">
+        <table class="auto-table">
+          <thead>
+            <tr>
+              <th>Вручну зараз</th>
+              <th class="auto-table__arrow"></th>
+              <th>Автоматично</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Щоранку переносите ціни з прайсу постачальника</td>
+              <td class="auto-table__arrow">→</td>
+              <td>Ціни оновлюються з прайсу самі</td>
+            </tr>
+            <tr>
+              <td>Продали на Prom — правите залишок на сайті й Rozetka</td>
+              <td class="auto-table__arrow">→</td>
+              <td>Залишок зменшується всюди одразу</td>
+            </tr>
+            <tr>
+              <td>Переписуєте замовлення з різних площадок</td>
+              <td class="auto-table__arrow">→</td>
+              <td>Усі замовлення в одному місці і в Telegram</td>
+            </tr>
+            <tr>
+              <td>Заповнюєте ТТН Нової Пошти руками</td>
+              <td class="auto-table__arrow">→</td>
+              <td>ТТН створюється з замовлення</td>
+            </tr>
+            <tr>
+              <td>Відповідаєте на однакові питання вночі</td>
+              <td class="auto-table__arrow">→</td>
+              <td>Бот відповідає і приймає замовлення 24/7</td>
+            </tr>
+            <tr>
+              <td>Увечері рахуєте, скільки продали</td>
+              <td class="auto-table__arrow">→</td>
+              <td>Звіт приходить сам о 21:00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ЩО ПІДКЛЮЧАЄМО -->
+<section class="section section--dark">
+  <div class="container">
+    <div style="display:flex;flex-direction:column;gap:40px">
+
+      <div>
+        <h2 class="heading-lg">Що підключаємо</h2>
+        <p style="color:var(--text-dark);margin-top:12px">Усі послуги підключаються окремо — платите лише за те, що потрібно.</p>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-card__title">Сповіщення в Telegram</div>
+          <div class="service-card__desc">Кожне нове замовлення і заявка одразу приходять вам у Telegram.</div>
+          <div class="service-card__price">$70 <span class="service-card__period">· разово</span></div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__title">Онлайн-оплата</div>
+          <div class="service-card__desc">Покупець платить карткою прямо на сайті: LiqPay, WayForPay або monobank.</div>
+          <div class="service-card__price">$130 <span class="service-card__period">· разово</span></div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__title">Нова Пошта</div>
+          <div class="service-card__desc">Вибір відділення при оформленні, розрахунок доставки, ТТН створюється автоматично.</div>
+          <div class="service-card__price">$260 <span class="service-card__period">· разово</span></div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__title">Маркетплейси</div>
+          <div class="service-card__desc">Товари, ціни й залишки самі оновлюються на Prom, Rozetka та Epicentr.</div>
+          <div class="service-card__price">$200 <span class="service-card__period">· разово + $30/міс</span></div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__title">Telegram-бот</div>
+          <div class="service-card__desc">Відповідає клієнтам і приймає замовлення 24/7, навіть коли ви не на зв'язку.</div>
+          <div class="service-card__price">від $320 <span class="service-card__period">· разово</span></div>
+        </div>
+
+        <div class="service-card">
+          <div class="service-card__title">Склад і 1С / BAS</div>
+          <div class="service-card__desc">Обмін товарами, залишками й замовленнями з вашою обліковою програмою.</div>
+          <div class="service-card__price">від $1 000 <span class="service-card__period">· разово</span></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ДОРОБИМО ВАШИЙ САЙТ -->
+<section class="section">
+  <div class="container">
+    <div class="improve-layout">
+
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <h2 class="heading-lg">Доробимо ваш сайт</h2>
+        <p style="color:var(--text);font-size:17px">Сайт уже є, але чогось не вистачає? Допрацюємо, а не переробляємо з нуля.</p>
+
+        <ul class="improve-list" role="list">
+          <li class="improve-list__item">
+            <span class="improve-list__dot"></span>
+            Нові сторінки і блоки
+          </li>
+          <li class="improve-list__item">
+            <span class="improve-list__dot"></span>
+            Підключення оплати й доставки
+          </li>
+          <li class="improve-list__item">
+            <span class="improve-list__dot"></span>
+            Прискорення і мобільна версія
+          </li>
+          <li class="improve-list__item">
+            <span class="improve-list__dot"></span>
+            Імпорт товарів з Excel
+          </li>
+          <li class="improve-list__item">
+            <span class="improve-list__dot"></span>
+            Перенесення на наш хостинг
+          </li>
+        </ul>
+
+        <div>
+          <p style="font-size:14px;color:var(--muted);margin-bottom:10px">Працюємо з:</p>
+          <div class="platforms-row">
+            <span class="pill">WordPress / WooCommerce</span>
+            <span class="pill">Horoshop</span>
+            <span class="pill">OpenCart</span>
+            <span class="pill">Prom</span>
+          </div>
+          <p style="font-size:13px;color:var(--muted);margin-top:8px">Інші — після аудиту.</p>
+        </div>
+      </div>
+
+      <div class="card--accent" style="border-radius:var(--r-xl);padding:36px;display:flex;flex-direction:column;gap:16px">
+        <p style="font-family:var(--font-mono);font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);opacity:.6">Вартість доробки</p>
+        <p class="heading-md">Фіксована сума після аудиту</p>
+        <p style="font-size:16px;color:var(--ink)">Називаємо суму і строк до старту роботи. Ціна не зростає в процесі.</p>
+        <a href="#contact" class="btn btn--primary btn--lg" style="margin-top:8px">Записатися на безкоштовний аудит</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ЯК МИ ПРАЦЮЄМО -->
+<section class="section section--dark">
+  <div class="container">
+    <div style="display:flex;flex-direction:column;gap:40px">
+
+      <h2 class="heading-lg">Як ми працюємо</h2>
+
+      <div class="steps-grid">
+
+        <div class="step-card">
+          <span class="step-card__num">01</span>
+          <strong class="heading-sm" style="color:var(--bg)">Заявка</strong>
+          <p style="color:var(--text-dark)">Розповідаєте, що забирає найбільше часу.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-card__num">02</span>
+          <strong class="heading-sm" style="color:var(--bg)">Безкоштовний аудит, 30 хв</strong>
+          <p style="color:var(--text-dark)">Дивимось ваш магазин і процеси, знаходимо де втрачається час.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-card__num">03</span>
+          <strong class="heading-sm" style="color:var(--bg)">Фіксована ціна</strong>
+          <p style="color:var(--text-dark)">Сума і термін до старту. Не зростає в процесі.</p>
+        </div>
+
+        <div class="step-card">
+          <span class="step-card__num">04</span>
+          <strong class="heading-sm" style="color:var(--bg)">Запуск</strong>
+          <p style="color:var(--text-dark)">Налаштовуємо, тестуємо на реальних замовленнях, показуємо як користуватись.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FAQ -->
+<section id="faq" class="section section--dark">
+  <div class="container">
+    <div class="faq-layout">
+
+      <h2 class="heading-lg" style="flex:1 1 260px">Часті питання</h2>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-1">
+            У мене немає 1С. Мені це потрібно?
+            <svg class="faq-trigger__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div id="faq-1" class="faq-panel" aria-hidden="true">
+            <div class="faq-panel__inner">
+              Ні. Більшість послуг — сповіщення, оплата, доставка, маркетплейси — працюють без 1С. 1С / BAS потрібен тільки якщо хочете синхронізувати склад з обліковою програмою.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-2">
+            Мій сайт не на Tagwise — підійде?
+            <svg class="faq-trigger__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div id="faq-2" class="faq-panel" aria-hidden="true">
+            <div class="faq-panel__inner">
+              Так. Підключаємо автоматизацію до вашого поточного сайту і маркетплейсів. Працюємо з WordPress / WooCommerce, Horoshop, OpenCart, Prom. Інші — після аудиту.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-3">
+            Можна почати з однієї послуги?
+            <svg class="faq-trigger__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div id="faq-3" class="faq-panel" aria-hidden="true">
+            <div class="faq-panel__inner">
+              Так. Кожна послуга підключається окремо. Більшість клієнтів починають зі сповіщень у Telegram ($70) або Нової Пошти ($260), а потім додають інше.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false" aria-controls="faq-4">
+            Хто власник доступів і даних?
+            <svg class="faq-trigger__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div id="faq-4" class="faq-panel" aria-hidden="true">
+            <div class="faq-panel__inner">
+              Ви. Всі доступи оформляються на вас. Ми не зберігаємо паролі від вашого сайту чи маркетплейсів після завершення налаштування.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ФОРМА -->
+<section id="contact" class="section section--dark">
+  <div class="container">
+    <div class="lp-form-layout">
+
+      <div class="lp-form-info">
+        <h2 class="heading-lg">Безкоштовний аудит вашого магазину</h2>
+        <p style="color:var(--text-dark);font-size:17px">30 хвилин — покажемо де втрачається час і що можна автоматизувати. Без зобов'язань.</p>
+      </div>
+
+      <form id="lead-form" class="card lead-form" style="color:var(--ink)" novalidate>
+
+        <input type="text" name="website" id="f-hp" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="source" value="old-site">
+
+        <div class="form-group">
+          <label class="form-label">Де продаєте</label>
+          <div class="check-group" id="f-where-group">
+            <label class="check-group__label"><input type="checkbox" name="where[]" value="site"> Свій сайт</label>
+            <label class="check-group__label"><input type="checkbox" name="where[]" value="prom"> Prom</label>
+            <label class="check-group__label"><input type="checkbox" name="where[]" value="rozetka"> Rozetka</label>
+            <label class="check-group__label"><input type="checkbox" name="where[]" value="epicentr"> Epicentr</label>
+            <label class="check-group__label"><input type="checkbox" name="where[]" value="instagram"> Instagram</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Що забирає найбільше часу</label>
+          <div class="chips-group">
+            <label class="chip-label"><input type="checkbox" name="pain[]" value="prices"> <span>Ціни і залишки</span></label>
+            <label class="chip-label"><input type="checkbox" name="pain[]" value="orders"> <span>Замовлення</span></label>
+            <label class="chip-label"><input type="checkbox" name="pain[]" value="delivery"> <span>Доставка</span></label>
+            <label class="chip-label"><input type="checkbox" name="pain[]" value="support"> <span>Відповіді клієнтам</span></label>
+            <label class="chip-label"><input type="checkbox" name="pain[]" value="other"> <span>Інше</span></label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Є 1С / BAS?</label>
+          <div class="radio-row">
+            <label class="radio-label"><input type="radio" name="has1c" value="yes"> Так</label>
+            <label class="radio-label"><input type="radio" name="has1c" value="no" checked> Ні</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="f-contact">Telegram або телефон</label>
+          <input class="form-input" id="f-contact" type="text" name="contact" placeholder="@username або +380…" required autocomplete="tel">
+        </div>
+
+        <label class="form-checkbox">
+          <input type="checkbox" id="f-agree" name="agree" required>
+          Погоджуюся з умовами <a href="../offer.html" target="_blank">публічної оферти</a>
+        </label>
+
+        <div id="form-msg" class="form-message" role="alert"></div>
+
+        <button type="submit" class="btn btn--accent btn--lg" style="width:100%">Записатися на безкоштовний аудит</button>
+
+      </form>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<!-- ПІДВАЛ -->
+<footer class="container">
+  <div class="lp-footer">
+    <span>© 2026 Tagwise</span>
+    <div style="display:flex;gap:20px">
+      <a href="../offer.html">Оферта</a>
+      <a href="../privacy.html">Політика конфіденційності</a>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+// UTM -> sessionStorage
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function (k) {
+    if (params.has(k)) sessionStorage.setItem(k, params.get(k));
+  });
+})();
+
+// Autoplay відео при появі на екрані
+(function () {
+  var video = document.querySelector('.hero-video video');
+  if (!video || !('IntersectionObserver' in window)) return;
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { video.play(); } else { video.pause(); }
+    });
+  }, { threshold: 0.4 });
+  obs.observe(video);
+})();
+
+// FAQ accordion
+document.querySelectorAll('.faq-trigger').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var expanded = this.getAttribute('aria-expanded') === 'true';
+    var panel = document.getElementById(this.getAttribute('aria-controls'));
+    this.setAttribute('aria-expanded', !expanded);
+    panel.setAttribute('aria-hidden', expanded);
+  });
+});
+
+// Форма
+document.getElementById('lead-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var form = this;
+  var btn  = form.querySelector('[type="submit"]');
+  var msg  = document.getElementById('form-msg');
+
+  var hp      = form.querySelector('[name="website"]').value;
+  var contact = form.querySelector('[name="contact"]').value.trim();
+  var agree   = form.querySelector('[name="agree"]').checked;
+  var has1c   = form.querySelector('[name="has1c"]:checked');
+
+  var where = Array.from(form.querySelectorAll('[name="where[]"]:checked')).map(function (el) { return el.value; });
+  var pain  = Array.from(form.querySelectorAll('[name="pain[]"]:checked')).map(function (el) { return el.value; });
+
+  msg.textContent = '';
+
+  if (!contact || !agree) {
+    msg.textContent = 'Вкажіть Telegram або телефон і підтвердіть згоду.';
+    msg.className = 'form-message form-message--error';
+    return;
+  }
+
+  var payload = {
+    hp: hp,
+    source: 'old-site',
+    where: where.join(', '),
+    pain: pain.join(', '),
+    has1c: has1c ? has1c.value : 'no',
+    contact: contact,
+    agree: agree,
+  };
+
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function (k) {
+    var v = sessionStorage.getItem(k);
+    if (v) payload[k] = v;
+  });
+
+  btn.disabled = true;
+  btn.textContent = 'Відправляємо…';
+
+  fetch('../api/lead.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  })
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      if (data.ok) {
+        form.innerHTML = '<p style="font-size:18px;font-weight:600;text-align:center;padding:24px 0">Дякуємо! Відповімо протягом робочого дня.</p>';
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'lead_submit', { source: 'old-site' });
+        }
+      } else {
+        msg.textContent = data.error || 'Помилка. Спробуйте ще раз.';
+        msg.className = 'form-message form-message--error';
+        btn.disabled = false;
+        btn.textContent = 'Записатися на безкоштовний аудит';
+      }
+    })
+    .catch(function () {
+      msg.textContent = 'Помилка зв\'язку. Спробуйте ще раз.';
+      msg.className = 'form-message form-message--error';
+      btn.disabled = false;
+      btn.textContent = 'Записатися на безкоштовний аудит';
+    });
+});
+</script>
+
+</body>
+</html>
