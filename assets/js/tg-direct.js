@@ -49,4 +49,12 @@ window.__TG = {
       + '📦 *Що продає:* ' + what + '\n'
       + '📱 *Контакт:* ' + contact;
   },
+
+  formatAuto(name, where, services, contact) {
+    return '🏷 *[Автоматизація]* Нова заявка\n\n'
+      + '🏪 *Назва магазину:* ' + name + '\n'
+      + '🛒 *Де продає:* ' + where + '\n'
+      + '🛠 *Послуги:* ' + services + '\n'
+      + '📱 *Контакт:* ' + contact;
+  },
 };
