@@ -405,21 +405,34 @@
 
     const lead = { source: 'quiz', branch, contact, agree: true, answers: st.answers, services, ...getUtm() };
 
+    let sent = false;
+
+    // Спробуємо PHP-бекенд
     try {
       const res  = await fetch('/api/lead.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(lead) });
-      const data = await res.json();
-      if (data.ok) {
-        track('lead_submit', { branch, source: 'quiz' });
-        showMsg(msgEl, 'success', '✓ Заявку надіслано! Відповімо протягом робочого дня.');
-        contactEl.disabled = true;
-        agreeEl.disabled   = true;
-        submitBtn.style.display = 'none';
-      } else {
-        showMsg(msgEl, 'error', data.error || 'Щось пішло не так. Спробуйте ще раз.');
-        resetBtn(submitBtn, branch);
+      if (res.ok) {
+        const data = await res.json();
+        if (data.ok) sent = true;
       }
-    } catch (_) {
-      showMsg(msgEl, 'error', 'Помилка мережі. Спробуйте ще раз.');
+    } catch (_) {}
+
+    // Фоллбек: прямий Telegram Bot API
+    if (!sent && window.__TG) {
+      try {
+        const text = window.__TG.formatQuiz(branch, st.answers, services, contact);
+        const r = await window.__TG.send(text);
+        if (r && r.ok) sent = true;
+      } catch (_) {}
+    }
+
+    if (sent) {
+      track('lead_submit', { branch, source: 'quiz' });
+      showMsg(msgEl, 'success', '✓ Заявку надіслано! Відповімо протягом робочого дня.');
+      contactEl.disabled = true;
+      agreeEl.disabled   = true;
+      submitBtn.style.display = 'none';
+    } else {
+      showMsg(msgEl, 'error', 'Щось пішло не так. Спробуйте ще раз або напишіть нам у Telegram.');
       resetBtn(submitBtn, branch);
     }
   }

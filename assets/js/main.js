@@ -124,27 +124,39 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.textContent = 'Надсилаємо…';
       clearMsg();
 
+      let sent = false;
+
+      // Спробуємо PHP-бекенд
       try {
-        const res = await fetch('/api/lead.php', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+        const res = await fetch(‘/api/lead.php’, {
+          method: ‘POST’,
+          headers: { ‘Content-Type’: ‘application/json’ },
           body: JSON.stringify({ name, what, contact, agree, hp }),
         });
-
-        const data = await res.json();
-
-        if (data.ok) {
-          form.reset();
-          showMsg('success', 'Заявку надіслано! Відповімо протягом робочого дня.');
-        } else {
-          showMsg('error', data.error || 'Щось пішло не так. Спробуйте ще раз або напишіть нам у Telegram.');
+        if (res.ok) {
+          const data = await res.json();
+          if (data.ok) sent = true;
         }
-      } catch (err) {
-        showMsg('error', 'Не вдалося надіслати заявку. Перевірте з’єднання з мережею.');
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Надіслати заявку';
+      } catch (_) {}
+
+      // Фоллбек: прямий Telegram Bot API
+      if (!sent && window.__TG) {
+        try {
+          const text = window.__TG.formatContact(name, what, contact);
+          const r = await window.__TG.send(text);
+          if (r && r.ok) sent = true;
+        } catch (_) {}
       }
+
+      if (sent) {
+        form.reset();
+        showMsg(‘success’, ‘Заявку надіслано! Відповімо протягом робочого дня.’);
+      } else {
+        showMsg(‘error’, ‘Щось пішло не так. Спробуйте ще раз або напишіть нам у Telegram.’);
+      }
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = ‘Надіслати заявку’;
     });
   }
 
