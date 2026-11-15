@@ -1,5 +1,6 @@
 # Конфіг з токенами — НЕ комітити!
 /api/config.php
+.README.md
 
 # macOS
 .DS_Store
