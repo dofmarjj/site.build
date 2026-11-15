@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Квіз — Tagwise</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- Шапка -->
+<header class="site-header" id="top">
+  <div class="container">
+    <div class="site-header__inner">
+      <a href="index.html" class="logo" aria-label="tagwise, на головну">
+        <span class="logo__tag">tag</span><span class="logo__wise">wise</span>
+      </a>
+      <nav class="site-nav">
+        <a href="how-it-works.html">Як це працює</a>
+        <a href="index.html#prices">Ціни</a>
+        <a href="automation.html">Автоматизація</a>
+      </nav>
+      <button class="btn btn--primary header-cta" data-quiz="start">Отримати сайт</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- Герой з розвилкою -->
+<section class="container">
+  <div class="hero">
+
+    <div class="hero__content">
+      <span class="tag-badge" aria-label="безкоштовно">$0 сайт</span>
+
+      <h1 class="heading-xl">Сайти й автоматизація для вашого магазину</h1>
+
+      <p style="font-size:20px;color:var(--text);max-width:560px">
+        Запускаємо магазин безкоштовно і забираємо ручну роботу, коли він росте. Оберіть, що про вас — підберемо рішення за 30 секунд.
+      </p>
+
+      <div class="fork">
+        <div class="fork__cards">
+          <button class="fork__card fork__card--yellow" data-quiz="nosite">
+            <strong>Сайту ще немає</strong>
+            <span>зробимо магазин безкоштовно</span>
+          </button>
+          <button class="fork__card" data-quiz="hassite">
+            <strong>Магазин уже працює</strong>
+            <span>доробимо сайт або автоматизуємо</span>
+          </button>
+        </div>
+        <a href="#" class="fork__link" data-quiz="start">Не знаю, з чого почати →</a>
+      </div>
+    </div>
+
+    <!-- Мок-браузер -->
+    <div class="hero__preview">
+      <div class="mock-browser card--accent-shadow">
+        <div class="mock-browser__bar">
+          <span class="mock-browser__dot"></span>
+          <span class="mock-browser__dot"></span>
+          <span class="mock-browser__dot"></span>
+          <span class="mock-browser__url">lapka.tagwise.com.ua</span>
+        </div>
+        <div class="mock-browser__body">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <strong style="font-size:18px">Зоомагазин «Лапка»</strong>
+            <span style="font-size:13px;color:var(--muted)">Кошик · 2</span>
+          </div>
+          <div class="mock-browser__products">
+            <div class="mock-browser__product">
+              <div class="mock-browser__product-img"></div>
+              <span class="mock-browser__product-name">Корм для котів 2 кг</span>
+              <strong class="mock-browser__product-price">489 ₴</strong>
+            </div>
+            <div class="mock-browser__product">
+              <div class="mock-browser__product-img"></div>
+              <span class="mock-browser__product-name">Лежанка M</span>
+              <strong class="mock-browser__product-price">720 ₴</strong>
+            </div>
+            <div class="mock-browser__product">
+              <div class="mock-browser__product-img"></div>
+              <span class="mock-browser__product-name">Шлейка</span>
+              <strong class="mock-browser__product-price">315 ₴</strong>
+            </div>
+          </div>
+          <div class="mock-browser__sync">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>
+            Ціни та залишки оновлено 12 хвилин тому
+          </div>
+        </div>
+      </div>
+      <span class="tag-badge tag-badge--sm hero__badge">готовий за 3–5 днів</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- Демо-тригери (для тестування) -->
+<section class="section section--dark">
+  <div class="container">
+    <div style="display:flex;flex-direction:column;gap:20px;max-width:600px">
+      <h2 class="heading-lg">Тестові тригери квізу</h2>
+      <p style="color:var(--text-dark)">Натисніть будь-яку кнопку нижче або заголовок «Отримати сайт» у шапці — квіз відкриється з відповідної гілки.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <button class="btn btn--accent" data-quiz="start">Почати з початку</button>
+        <button class="btn btn--secondary" style="border-color:#fff;color:#fff" data-quiz="nosite">Гілка «Без сайту»</button>
+        <button class="btn btn--secondary" style="border-color:#fff;color:#fff" data-quiz="hassite">Гілка «Є сайт»</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     МОДАЛКА-КВІЗ #qz
+     ============================================================ -->
+<div id="qz" class="qz" aria-hidden="true" role="dialog" aria-labelledby="qz-title" aria-modal="true">
+  <div class="qz__backdrop"></div>
+  <div class="qz__panel">
+    <button class="qz__close" aria-label="Закрити квіз">✕</button>
+    <div class="qz__progress" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+      <span id="qz-bar" style="width:0%"></span>
+    </div>
+    <div id="qz-body"></div>
+  </div>
+</div>
+
+</main>
+
+<!-- Плаваюча підказка -->
+<div id="qz-hint" class="qz-hint" hidden role="complementary" aria-label="Підказка">
+  <div class="qz-hint__body">
+    <strong>Підберемо рішення для вашого магазину</strong>
+    <span>за 30 секунд</span>
+    <button class="qz-hint__go" data-quiz="start">Почати →</button>
+  </div>
+  <button class="qz-hint__close" aria-label="Сховати підказку">✕</button>
+</div>
+
+<script src="assets/js/quiz.js"></script>
+</body>
+</html>

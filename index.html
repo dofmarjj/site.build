@@ -54,7 +54,7 @@
         <a href="#faq">Питання</a>
       </nav>
 
-      <a href="#contact" class="btn btn--primary header-cta">Отримати сайт</a>
+      <button class="btn btn--primary header-cta" data-quiz="start">Отримати сайт</button>
 
       <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Відкрити меню">
         <span></span><span></span><span></span>
@@ -75,18 +75,25 @@
     <div class="hero__content">
       <span class="tag-badge" aria-label="безкоштовно, нуль доларів">$0 сайт</span>
 
-      <h1 class="heading-xl">Сайт для вашого магазину — безкоштовно</h1>
+      <h1 class="heading-xl">Сайти й автоматизація для вашого магазину</h1>
 
       <p style="font-size:20px;color:var(--text);max-width:560px">
-        Зберемо сайт під ваш бізнес за кілька днів і розмістимо на нашому хостингу. Заробляємо на тому, що економить ваш час: власний домен з обслуговуванням, інтеграції зі складом, маркетплейсами і Telegram.
+        Запускаємо магазин безкоштовно і забираємо ручну роботу, коли він росте. Оберіть, що про вас — підберемо рішення за 30 секунд.
       </p>
 
-      <div class="hero__cta">
-        <a href="#contact" class="btn btn--primary btn--lg">Отримати безкоштовний сайт</a>
-        <a href="how-it-works.html" class="btn btn--secondary btn--lg">Як це працює</a>
+      <div class="fork">
+        <div class="fork__cards">
+          <button class="fork__card fork__card--yellow" data-quiz="nosite">
+            <strong>Сайту ще немає</strong>
+            <span>зробимо магазин безкоштовно</span>
+          </button>
+          <button class="fork__card" data-quiz="hassite">
+            <strong>Магазин уже працює</strong>
+            <span>доробимо сайт або автоматизуємо</span>
+          </button>
+        </div>
+        <a href="#" class="fork__link" data-quiz="start">Не знаю, з чого почати →</a>
       </div>
-
-      <p class="hero__hint">Без прихованих платежів: все платне вказано в прайсі нижче.</p>
     </div>
 
     <!-- Мок-браузер -->
@@ -199,6 +206,7 @@
             <li>форма заявки, 1 ГБ під фото</li>
             <li>хостинг і адреса на нашому домені</li>
           </ul>
+          <button class="btn btn--secondary" data-quiz="nosite" style="margin-top:4px">Отримати безкоштовно →</button>
         </div>
 
         <!-- Картка 2: домен (виділена) -->
@@ -215,6 +223,7 @@
             <li>до 5 000 товарів і 10 ГБ місця</li>
             <li>з правками: $25/міс (до 5) або $40/міс (до 15)</li>
           </ul>
+          <button class="btn btn--accent" data-quiz="nosite" style="margin-top:4px">Отримати сайт →</button>
         </div>
 
         <!-- Картка 3: сайт з нуля -->
@@ -226,6 +235,7 @@
             <li>лендинг $350 · візитка $800 · магазин $2 500</li>
             <li>2–3 раунди правок</li>
           </ul>
+          <button class="btn btn--secondary" data-quiz="start" style="margin-top:4px">Обговорити →</button>
         </div>
 
       </div>
@@ -358,7 +368,10 @@
 
         </div>
 
-        <p><a href="automation.html" class="btn btn--secondary" style="display:inline-flex">Детальніше про автоматизацію →</a></p>
+        <p style="display:flex;flex-wrap:wrap;gap:12px">
+          <a href="automation.html" class="btn btn--secondary" style="display:inline-flex">Детальніше про автоматизацію →</a>
+          <button class="btn btn--primary" data-quiz="hassite">Підібрати автоматизацію →</button>
+        </p>
       </div>
 
     </div>
@@ -564,6 +577,31 @@
   </div>
 </footer>
 
+<!-- ============================================================
+     МОДАЛКА-КВІЗ
+     ============================================================ -->
+<div id="qz" class="qz" aria-hidden="true" role="dialog" aria-labelledby="qz-title" aria-modal="true">
+  <div class="qz__backdrop"></div>
+  <div class="qz__panel">
+    <button class="qz__close" aria-label="Закрити квіз">✕</button>
+    <div class="qz__progress" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+      <span id="qz-bar" style="width:0%"></span>
+    </div>
+    <div id="qz-body"></div>
+  </div>
+</div>
+
+<!-- Плаваюча підказка -->
+<div id="qz-hint" class="qz-hint" hidden role="complementary" aria-label="Підказка">
+  <div class="qz-hint__body">
+    <strong>Підберемо рішення для вашого магазину</strong>
+    <span>за 30 секунд</span>
+    <button class="qz-hint__go" data-quiz="start">Почати →</button>
+  </div>
+  <button class="qz-hint__close" aria-label="Сховати підказку">✕</button>
+</div>
+
 <script src="assets/js/main.js"></script>
+<script src="assets/js/quiz.js"></script>
 </body>
 </html>

@@ -35,18 +35,39 @@ if ($hp !== '') {
     exit(json_encode(['ok' => true]));
 }
 
-// Отримуємо поля
+// Отримуємо загальні поля
+$source  = isset($data['source'])  ? trim($data['source'])  : '';
 $name    = isset($data['name'])    ? trim($data['name'])    : '';
 $what    = isset($data['what'])    ? trim($data['what'])    : '';
 $contact = isset($data['contact']) ? trim($data['contact']) : '';
 $agree   = isset($data['agree'])   ? (bool)$data['agree']   : false;
 
+// Поля no-site
+$where_nosite = isset($data['where']) ? trim($data['where']) : '';
+
+// Поля old-site
+$where_oldsite = isset($data['where']) ? trim($data['where']) : '';
+$pain          = isset($data['pain'])  ? trim($data['pain'])  : '';
+$has1c         = isset($data['has1c']) ? trim($data['has1c']) : '';
+
+// UTM
+$utm_source   = isset($data['utm_source'])   ? trim($data['utm_source'])   : '';
+$utm_medium   = isset($data['utm_medium'])   ? trim($data['utm_medium'])   : '';
+$utm_campaign = isset($data['utm_campaign']) ? trim($data['utm_campaign']) : '';
+
 // Валідація
 $errors = [];
-if (mb_strlen($name) < 2)    $errors[] = 'Введіть назву бізнесу (мінімум 2 символи).';
-if (mb_strlen($what) < 2)    $errors[] = 'Вкажіть, що продаєте.';
 if (mb_strlen($contact) < 3) $errors[] = 'Вкажіть Telegram або телефон.';
 if (!$agree)                  $errors[] = 'Підтвердіть згоду з умовами.';
+
+// Поля специфічні для джерела
+if ($source === '' || $source === 'site') {
+    if (mb_strlen($name) < 2) $errors[] = 'Введіть назву бізнесу (мінімум 2 символи).';
+    if (mb_strlen($what) < 2) $errors[] = 'Вкажіть, що продаєте.';
+}
+if ($source === 'no-site') {
+    if (mb_strlen($what) < 2) $errors[] = 'Вкажіть, що продаєте.';
+}
 
 if ($errors) {
     http_response_code(422);
@@ -74,22 +95,85 @@ if ($rate_data['count'] >= RATE_LIMIT_COUNT) {
 $rate_data['count']++;
 file_put_contents($rl_file, json_encode($rate_data), LOCK_EX);
 
-// Формуємо текст повідомлення
-$text  = "🏷 Нова заявка з tagwise.com.ua\n\n";
-$text .= "🏪 *Назва бізнесу:* " . escape_tg($name)    . "\n";
-$text .= "📦 *Що продає:* "     . escape_tg($what)    . "\n";
-$text .= "📱 *Контакт:* "       . escape_tg($contact) . "\n";
-$text .= "\n🌐 IP: " . escape_tg($ip_safe);
+// Мітка і повідомлення залежно від джерела
+if ($source === 'quiz') {
+    $branch   = isset($data['branch']) ? trim($data['branch']) : '';
+    $answers  = isset($data['answers'])  && is_array($data['answers'])  ? $data['answers']  : [];
+    $services = isset($data['services']) && is_array($data['services']) ? $data['services'] : [];
+
+    $label = $branch === 'nosite' ? '[Без сайту]' : '[Діючий магазин]';
+    $text  = "🏷 *{$label} · квіз* Нова заявка\n\n";
+    $text .= "📱 *Контакт:* " . escape_tg($contact) . "\n";
+
+    $q_map = [
+        'root'        => 'Що у вас зараз?',
+        'ns_what'     => 'Що продаєте?',
+        'ns_where'    => 'Де зараз продаєте?',
+        'ns_count'    => 'Скільки товарів?',
+        'hs_need'     => 'Що потрібно?',
+        'hs_where'    => 'Де продаєте?',
+        'hs_time'     => 'Що забирає найбільше часу?',
+        'hs_platform' => 'На чому ваш сайт?',
+        'hs_fix'      => 'Що доробити?',
+    ];
+    foreach ($q_map as $key => $q_label) {
+        if (!isset($answers[$key])) continue;
+        $val = $answers[$key];
+        if (is_array($val)) $val = implode(', ', array_map('trim', $val));
+        if (trim($val) === '') continue;
+        $text .= "*{$q_label}:* " . escape_tg(trim($val)) . "\n";
+    }
+    if (!empty($services)) {
+        $text .= "\n🛠 *Підібрані послуги:*\n";
+        foreach ($services as $svc) {
+            $text .= "— " . escape_tg(trim($svc)) . "\n";
+        }
+    }
+} elseif ($source === 'no-site') {
+    $label = '[Без сайту]';
+    $text  = "🏷 *{$label}* Нова заявка\n\n";
+    $text .= "📦 *Що продає:* "       . escape_tg($what)         . "\n";
+    $text .= "🛒 *Де зараз продає:* " . escape_tg($where_nosite) . "\n";
+    $text .= "📱 *Контакт:* "         . escape_tg($contact)      . "\n";
+} elseif ($source === 'old-site') {
+    $label = '[Діючий магазин]';
+    $text  = "🏷 *{$label}* Нова заявка\n\n";
+    $text .= "🏪 *Де продає:* "            . escape_tg($where_oldsite) . "\n";
+    $text .= "⚡ *Що забирає час:* "        . escape_tg($pain)          . "\n";
+    $text .= "🗂 *Є 1С / BAS:* "           . ($has1c === 'yes' ? 'Так' : 'Ні') . "\n";
+    $text .= "📱 *Контакт:* "              . escape_tg($contact)        . "\n";
+} else {
+    $label = '[Сайт]';
+    $text  = "🏷 *{$label}* Нова заявка\n\n";
+    $text .= "🏪 *Назва бізнесу:* " . escape_tg($name)    . "\n";
+    $text .= "📦 *Що продає:* "     . escape_tg($what)    . "\n";
+    $text .= "📱 *Контакт:* "       . escape_tg($contact) . "\n";
+}
+
+// UTM якщо є
+if ($utm_source)   $text .= "\n📊 utm\\_source: "   . escape_tg($utm_source);
+if ($utm_medium)   $text .= "\nutm\\_medium: "       . escape_tg($utm_medium);
+if ($utm_campaign) $text .= "\nutm\\_campaign: "     . escape_tg($utm_campaign);
+
+$text .= "\n\n🌐 IP: " . escape_tg($ip_safe);
 
 // Відправка в Telegram
 $tg_ok = send_telegram($text);
 
 // Дублювання на email
-$subject = 'Нова заявка Tagwise: ' . $name;
+$subject = 'Нова заявка Tagwise ' . $label . ': ' . ($name ?: $contact);
 $body    = "Нова заявка з сайту tagwise.com.ua\n\n"
-         . "Назва бізнесу: $name\n"
-         . "Що продає: $what\n"
+         . "Джерело: {$label}\n"
+         . ($name    ? "Назва бізнесу: $name\n"           : '')
+         . ($what    ? "Що продає: $what\n"               : '')
+         . ($where_nosite && $source === 'no-site'  ? "Де зараз продає: $where_nosite\n" : '')
+         . ($where_oldsite && $source === 'old-site' ? "Де продає: $where_oldsite\n"     : '')
+         . ($pain    ? "Що забирає час: $pain\n"          : '')
+         . ($has1c   ? "Є 1С / BAS: $has1c\n"            : '')
          . "Контакт: $contact\n"
+         . ($utm_source   ? "utm_source: $utm_source\n"   : '')
+         . ($utm_medium   ? "utm_medium: $utm_medium\n"   : '')
+         . ($utm_campaign ? "utm_campaign: $utm_campaign\n" : '')
          . "IP: $ip_safe\n";
 
 $headers = "From: noreply@tagwise.com.ua\r\n"
