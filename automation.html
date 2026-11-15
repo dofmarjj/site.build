@@ -674,7 +674,7 @@
   var msg  = document.getElementById('auto-form-msg');
   if (!form) return;
 
-  form.addEventListener('submit', function (e) {
+  form.addEventListener('submit', async function (e) {
     e.preventDefault();
     if (document.getElementById('af-hp').value) return;
 
@@ -700,34 +700,37 @@
 
     var sent = false;
 
-    fetch('api/lead.php', {
-      method:  'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body:    JSON.stringify(Object.assign({}, payload, { source: 'old-site', agree: true }))
-    })
-    .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
-    .then(function (data) { if (data.ok) sent = true; else throw new Error(); })
-    .catch(function () {})
-    .then(function () {
-      if (sent) return Promise.resolve();
-      if (!window.__TG) return Promise.reject('no-tg');
-      var text = window.__TG.formatAuto(payload.name, payload.where, payload.services, payload.contact);
-      return window.__TG.send(text).then(function (r) { if (r && r.ok) sent = true; });
-    })
-    .then(function () {
-      if (sent) {
-        msg.className = 'form-message is-success';
-        msg.textContent = 'Заявку прийнято! Напишемо вам найближчим часом.';
-        form.reset();
-      } else {
-        throw new Error();
+    // спроба PHP-бекенду
+    try {
+      var r = await fetch('api/lead.php', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(Object.assign({}, payload, { source: 'old-site', agree: true }))
+      });
+      if (r.ok) {
+        var data = await r.json();
+        if (data.ok) sent = true;
       }
-    })
-    .catch(function () {
-      msg.className = 'form-message is-error';
+    } catch (_) {}
+
+    // фолбек: прямий Telegram Bot API
+    if (!sent && window.__TG) {
+      try {
+        var text = window.__TG.formatAuto(payload.name, payload.where, payload.services, payload.contact);
+        var tgr  = await window.__TG.send(text);
+        if (tgr && tgr.ok) sent = true;
+      } catch (_) {}
+    }
+
+    if (sent) {
+      msg.className   = 'form-message is-success';
+      msg.textContent = 'Заявку прийнято! Напишемо вам найближчим часом.';
+      form.reset();
+    } else {
+      msg.className   = 'form-message is-error';
       msg.textContent = 'Щось пішло не так. Спробуйте ще раз або напишіть у Telegram.';
-    })
-    .then(function () { btn.disabled = false; });
+    }
+    btn.disabled = false;
   });
 })();
 </script>
