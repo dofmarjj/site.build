@@ -634,6 +634,110 @@ input, button, textarea, select { font: inherit; }
   right: -6px;
 }
 
+/* Анімація «Шаблони» в мок-браузері (assets/js/templates-show.js) */
+.tpl-show__body {
+  position: relative;
+  aspect-ratio: 5 / 4;
+  padding: 0;
+  overflow: hidden;
+  display: block;
+}
+.tpl-show__list {
+  position: absolute;
+  inset: 0;
+  padding: 20px 22px;
+  overflow: hidden;            /* прокручується скриптом, якщо шаблонів більше, ніж влазить */
+  transition: opacity .4s ease, transform .4s ease;
+}
+.tpl-show.is-open .tpl-show__list { opacity: 0; transform: scale(.97); }
+.tpl-show__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 14px;
+}
+.tpl-show__head strong { font-size: 18px; }
+.tpl-show__head span { font-size: 13px; color: var(--muted); }
+.tpl-show__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px 12px;
+}
+.tpl-show__card {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  transition: transform .15s ease;
+}
+.tpl-show__card.is-pressed { transform: scale(.95); }
+.tpl-show__thumb {
+  display: block;
+  aspect-ratio: 3 / 4;
+  margin-bottom: 6px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background: #E6E8E2;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.tpl-show__card.is-hover .tpl-show__thumb {
+  border-color: var(--ink);
+  box-shadow: 4px 4px 0 var(--accent);
+}
+.tpl-show__thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+.tpl-show__name {
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tpl-show__sub {
+  font-size: 12px;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tpl-show__view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--surface);
+  transform-origin: 0 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.tpl-show__view img {
+  display: block;
+  width: 100%;
+  height: auto;
+  will-change: transform;
+}
+.tpl-show__cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 3px rgba(18, 20, 26, .3));
+  transition: transform .8s cubic-bezier(.45, 0, .2, 1), opacity .3s ease;
+}
+.tpl-show__cursor.is-click { scale: .82; }
+.tpl-show:not(.is-running) .tpl-show__cursor { opacity: 0; }
+
 /* ======================================================
    БЛОК «ЯК ЦЕ ПРАЦЮЄ» (секція)
    ====================================================== */
@@ -1179,6 +1283,7 @@ input, button, textarea, select { font: inherit; }
   .hero__badge { top: -12px; right: 0; }
 
   .mock-browser__products { grid-template-columns: repeat(2, 1fr); }
+  .tpl-show__grid { grid-template-columns: repeat(2, 1fr); }
 
   .faq-layout { gap: 24px; }
   .faq-layout > h2 { flex-basis: 100%; }

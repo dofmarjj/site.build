@@ -25,6 +25,25 @@ api/config.example.php  шаблон для config.php
 Щоб змінити кольори або шрифти — відредагуйте змінні у початку `assets/css/style.css`
 (блок `:root { ... }`).
 
+## Анімація «Шаблони» в hero-блоці
+
+На головній у мок-браузері по колу показуються шаблони: курсор обирає картку,
+шаблон розкривається на весь «екран», прокручується вниз і повертається до списку.
+Код — `assets/js/templates-show.js`, стилі — блок `.tpl-show` в `assets/css/style.css`.
+
+Щоб додати новий шаблон:
+
+1. Зробіть скриншот (потрібні Node 22+ і Google Chrome, сайт має бути запущений локально):
+   ```
+   python3 -m http.server 8765
+   node tools/template-shots.mjs <slug>     # знімає demos/<slug>/index.html
+   ```
+   З'явиться `assets/img/templates/<slug>.jpg`.
+2. Додайте в `index.html` ще один `<li class="tpl-show__card">` (скопіюйте сусідній
+   і змініть `data-url`, шлях до картинки, назву ніші та бренд).
+
+Лічильник «N шаблонів» і порядок показу оновлюються самі.
+
 ## Налаштування бота Telegram
 
 1. Скопіюйте `api/config.example.php` → `api/config.php`

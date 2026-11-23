@@ -96,41 +96,43 @@
       </div>
     </div>
 
-    <!-- Мок-браузер -->
+    <!-- Мок-браузер: зациклена анімація «Шаблони» (assets/js/templates-show.js)
+         Новий шаблон = ще один <li class="tpl-show__card"> нижче + скриншот:
+         node tools/template-shots.mjs <slug>  → assets/img/templates/<slug>.jpg -->
     <div class="hero__preview">
-      <div class="mock-browser card--accent-shadow">
+      <div class="mock-browser card--accent-shadow tpl-show" data-tpl-show>
         <div class="mock-browser__bar">
           <span class="mock-browser__dot"></span>
           <span class="mock-browser__dot"></span>
           <span class="mock-browser__dot"></span>
-          <span class="mock-browser__url">lapka.tagwise.com.ua</span>
+          <span class="mock-browser__url" data-tpl-url>tagwise.com.ua/templates</span>
         </div>
-        <div class="mock-browser__body">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <strong style="font-size:18px">Зоомагазин «Лапка»</strong>
-            <span style="font-size:13px;color:var(--muted)">Кошик · 2</span>
-          </div>
-          <div class="mock-browser__products">
-            <div class="mock-browser__product">
-              <div class="mock-browser__product-img"></div>
-              <span class="mock-browser__product-name">Корм для котів 2 кг</span>
-              <strong class="mock-browser__product-price">489 ₴</strong>
+        <div class="mock-browser__body tpl-show__body">
+          <div class="tpl-show__list">
+            <div class="tpl-show__head">
+              <strong>Шаблони</strong>
+              <span data-tpl-count></span>
             </div>
-            <div class="mock-browser__product">
-              <div class="mock-browser__product-img"></div>
-              <span class="mock-browser__product-name">Лежанка M</span>
-              <strong class="mock-browser__product-price">720 ₴</strong>
-            </div>
-            <div class="mock-browser__product">
-              <div class="mock-browser__product-img"></div>
-              <span class="mock-browser__product-name">Шлейка</span>
-              <strong class="mock-browser__product-price">315 ₴</strong>
-            </div>
+            <ul class="tpl-show__grid">
+              <li class="tpl-show__card" data-url="lapka.tagwise.com.ua">
+                <span class="tpl-show__thumb"><img src="assets/img/templates/lapka.jpg" alt="" decoding="async"></span>
+                <strong class="tpl-show__name">Зоомагазин</strong>
+                <span class="tpl-show__sub">«Лапка»</span>
+              </li>
+              <li class="tpl-show__card" data-url="budmaster.tagwise.com.ua">
+                <span class="tpl-show__thumb"><img src="assets/img/templates/budmaster.jpg" alt="" decoding="async"></span>
+                <strong class="tpl-show__name">Будматеріали</strong>
+                <span class="tpl-show__sub">«БудМайстер»</span>
+              </li>
+              <li class="tpl-show__card" data-url="kvity.tagwise.com.ua">
+                <span class="tpl-show__thumb"><img src="assets/img/templates/kvity.jpg" alt="" decoding="async"></span>
+                <strong class="tpl-show__name">Квіти</strong>
+                <span class="tpl-show__sub">«Florie»</span>
+              </li>
+            </ul>
           </div>
-          <div class="mock-browser__sync">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>
-            Ціни та залишки оновлено зі складу 12 хвилин тому
-          </div>
+          <div class="tpl-show__view" aria-hidden="true"><img alt=""></div>
+          <svg class="tpl-show__cursor" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24"><path d="M4 2.5 19.5 12l-7 1.6L9 20.5z" fill="#12141A" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>
         </div>
       </div>
 
@@ -604,5 +606,6 @@
 <script src="assets/js/tg-direct.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/quiz.js"></script>
+<script src="assets/js/templates-show.js"></script>
 </body>
 </html>
