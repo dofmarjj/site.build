@@ -75,21 +75,51 @@
   }
 
   /* --- Картка → повний розмір (FLIP: масштаб + висота під пропорції мініатюри) --- */
-  function open(card) {
-    var thumb = card.querySelector('.tpl-show__thumb');
-    var t = rel(thumb);
-    var W = body.clientWidth;
-    var H = body.clientHeight;
-    var s = t.w / W;
+  function startFrame(card) {
+    var t = rel(card.querySelector('.tpl-show__thumb'));
+    var s = t.w / body.clientWidth;
+    return {
+      transform: 'translate(' + t.x + 'px,' + t.y + 'px) scale(' + s + ')',
+      height: (t.h / s) + 'px',
+      borderRadius: (10 / s) + 'px'
+    };
+  }
+  function frames() {
+    return new Promise(function (r) { requestAnimationFrame(function () { requestAnimationFrame(r); }); });
+  }
 
-    root.classList.add('is-open');
+  // Заздалегідь (поки курсор їде до картки) кладемо шаблон у «вікно» невидимим
+  // поверх мініатюри: браузер встигає декодувати й відмалювати велику картинку,
+  // і в момент відкриття немає білого екрана.
+  async function prime(card, img) {
+    var src = img.currentSrc || img.src;
+    if (viewImg.getAttribute('src') !== src) viewImg.src = src;
+    try { await viewImg.decode(); } catch (e) {}
+    var f = startFrame(card);
+    view.style.transform = f.transform;
+    view.style.height = f.height;
+    view.style.borderRadius = f.borderRadius;
+    view.style.opacity = '0';
     view.style.visibility = 'visible';
+    await frames();
+  }
+
+  function open(card) {
+    var from = startFrame(card);
+    from.opacity = 1;
+    root.classList.add('is-open');
+    view.style.opacity = '1';
     return view.animate([
-      { transform: 'translate(' + t.x + 'px,' + t.y + 'px) scale(' + s + ')',
-        height: (t.h / s) + 'px', borderRadius: (10 / s) + 'px' },
-      { transform: 'translate(0px,0px) scale(1)',
-        height: H + 'px', borderRadius: '0px' }
+      from,
+      { transform: 'translate(0px,0px) scale(1)', height: body.clientHeight + 'px',
+        borderRadius: '0px', opacity: 1 }
     ], { duration: 650, easing: EASE, fill: 'forwards' }).finished;
+  }
+
+  function resetView() {
+    view.getAnimations().forEach(function (a) { a.cancel(); });
+    viewImg.getAnimations().forEach(function (a) { a.cancel(); });
+    view.style.cssText = '';
   }
 
   function scrollDown() {
@@ -105,11 +135,7 @@
     root.classList.remove('is-open');
     return view.animate([{ opacity: 1 }, { opacity: 0 }], {
       duration: 400, easing: 'ease', fill: 'forwards'
-    }).finished.then(function () {
-      view.getAnimations().forEach(function (a) { a.cancel(); });
-      viewImg.getAnimations().forEach(function (a) { a.cancel(); });
-      view.style.visibility = '';
-    });
+    }).finished.then(resetView);
   }
 
   async function run() {
@@ -126,7 +152,7 @@
 
       var t = rel(card.querySelector('.tpl-show__thumb'));
       moveCursor(t.x + t.w * 0.55, t.y + t.h * 0.5);
-      await step(850);
+      await Promise.all([prime(card, img), step(850)]);
 
       card.classList.add('is-hover');
       await step(250);
@@ -135,9 +161,8 @@
       await step(170);
       cursor.classList.remove('is-click');
       card.classList.remove('is-pressed');
-
-      viewImg.src = img.currentSrc || img.src;
-      try { await viewImg.decode(); } catch (e) {}
+      await ready();
+      await frames();   // після повернення на вкладку даємо браузеру домалювати кадр
 
       cursor.style.opacity = '0';
       urlEl.textContent = card.getAttribute('data-url') || homeUrl;
